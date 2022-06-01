@@ -1,37 +1,37 @@
-<mxfile host="app.diagrams.net" modified="2022-05-21T08:29:47.761Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36" etag="BRjf6pCPcP6zV8OHuMWl" version="18.0.3" type="github">
+<mxfile host="app.diagrams.net" modified="2022-06-01T17:40:55.797Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.62 Safari/537.36" etag="R37wmGHnDS0fOCaFor-g" version="18.1.3" type="github">
   <diagram id="oiCxlsJyy77xaSjBRhsr" name="Page-1">
-    <mxGraphModel dx="1372" dy="702" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="1164" dy="688" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-1" target="qVGGXMiODCfk0jNXhs8Z-7">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-1" target="qVGGXMiODCfk0jNXhs8Z-7" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="800" y="190" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-63" value="m" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" vertex="1" connectable="0" parent="qVGGXMiODCfk0jNXhs8Z-45">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-63" value="m" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" parent="qVGGXMiODCfk0jNXhs8Z-45" vertex="1" connectable="0">
           <mxGeometry x="-0.8093" y="5" relative="1" as="geometry">
             <mxPoint x="-7" y="-15" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-93" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-1" target="qVGGXMiODCfk0jNXhs8Z-24">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-93" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-1" target="qVGGXMiODCfk0jNXhs8Z-24" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-1" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Usuario&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontStyle=1;fontSize=16;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#3333FF;" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-1" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Usuario&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontStyle=1;fontSize=16;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#3333FF;" parent="1" vertex="1">
           <mxGeometry x="440" y="160" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-47" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-3" target="qVGGXMiODCfk0jNXhs8Z-8">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-47" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-3" target="qVGGXMiODCfk0jNXhs8Z-8" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-61" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-3" target="qVGGXMiODCfk0jNXhs8Z-26">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-61" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-3" target="qVGGXMiODCfk0jNXhs8Z-26" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-3" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Hospital&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontStyle=1;fontSize=16;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#3333FF;" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-3" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Hospital&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontStyle=1;fontSize=16;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#3333FF;" parent="1" vertex="1">
           <mxGeometry x="720" y="350" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-49" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-4">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-49" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-4" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="799.9999999999995" y="500" as="targetPoint" />
             <Array as="points">
@@ -39,212 +39,212 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-4" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Fármaco&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontStyle=1;fontSize=16;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#3333FF;" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-4" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Fármaco&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontStyle=1;fontSize=16;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#3333FF;" parent="1" vertex="1">
           <mxGeometry x="445" y="480" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-5" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Característica&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontStyle=1;fontSize=16;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#3333FF;" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-5" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Característica&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontStyle=1;fontSize=16;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#3333FF;" parent="1" vertex="1">
           <mxGeometry x="40" y="480" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-7" target="qVGGXMiODCfk0jNXhs8Z-3">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-7" target="qVGGXMiODCfk0jNXhs8Z-3" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-7" value="Pertenece" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-7" value="Pertenece" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;" parent="1" vertex="1">
           <mxGeometry x="720" y="220" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-8" value="Posee" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-8" value="Posee" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;" parent="1" vertex="1">
           <mxGeometry x="720" y="480" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-50" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-9" target="qVGGXMiODCfk0jNXhs8Z-4">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-50" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-9" target="qVGGXMiODCfk0jNXhs8Z-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-51" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-9" target="qVGGXMiODCfk0jNXhs8Z-5">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-51" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-9" target="qVGGXMiODCfk0jNXhs8Z-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-9" value="Tiene" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-9" value="Tiene" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;" parent="1" vertex="1">
           <mxGeometry x="240" y="480" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-65" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-11" target="qVGGXMiODCfk0jNXhs8Z-4">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-65" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-11" target="qVGGXMiODCfk0jNXhs8Z-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-11" value="uuid" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=5" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-11" value="uuid" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=5" parent="1" vertex="1">
           <mxGeometry x="405" y="600" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-56" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-12" target="qVGGXMiODCfk0jNXhs8Z-5">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-56" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-12" target="qVGGXMiODCfk0jNXhs8Z-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-12" value="uuid" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=5" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-12" value="uuid" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=5" parent="1" vertex="1">
           <mxGeometry x="5" y="600" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-31" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-13" target="qVGGXMiODCfk0jNXhs8Z-1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-31" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-13" target="qVGGXMiODCfk0jNXhs8Z-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-13" value="uuid" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=5" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-13" value="uuid" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=5" parent="1" vertex="1">
           <mxGeometry x="360" y="70" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-62" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-14" target="qVGGXMiODCfk0jNXhs8Z-3">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-62" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-14" target="qVGGXMiODCfk0jNXhs8Z-3" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="880" y="360" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-14" value="uuid" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=5" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-14" value="uuid" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=5" parent="1" vertex="1">
           <mxGeometry x="920" y="340" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-37" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-16" target="qVGGXMiODCfk0jNXhs8Z-1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-37" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-16" target="qVGGXMiODCfk0jNXhs8Z-1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="520" y="240" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-16" value="apellido1" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-16" value="apellido1" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="440" y="280" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-36" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-17" target="qVGGXMiODCfk0jNXhs8Z-1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-36" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-17" target="qVGGXMiODCfk0jNXhs8Z-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-17" value="nombre" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-17" value="nombre" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="360" y="280" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-38" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-18" target="qVGGXMiODCfk0jNXhs8Z-1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-38" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-18" target="qVGGXMiODCfk0jNXhs8Z-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-18" value="fecha_creación" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-18" value="fecha_creación" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="600" y="280" width="105" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-32" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-19">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-32" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-19" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="520" y="160" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-19" value="email" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-19" value="&lt;b&gt;&lt;u&gt;email&lt;/u&gt;&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="440" y="70" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-33" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-20">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-33" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-20" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="520" y="160" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-20" value="password_hash" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-20" value="password_hash" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="520" y="70" width="120" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-29" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-21" target="qVGGXMiODCfk0jNXhs8Z-22">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-29" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-21" target="qVGGXMiODCfk0jNXhs8Z-22" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-21" value="&lt;b&gt;&lt;u&gt;uuid&lt;/u&gt;&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-21" value="&lt;b&gt;&lt;u&gt;uuid&lt;/u&gt;&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="40" y="70" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-43" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-22" target="qVGGXMiODCfk0jNXhs8Z-24">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-43" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-22" target="qVGGXMiODCfk0jNXhs8Z-24" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="229.99999999999955" y="200" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-22" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Rol&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontStyle=1;fontSize=16;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#3333FF;" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-22" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Rol&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontStyle=1;fontSize=16;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#3333FF;" parent="1" vertex="1">
           <mxGeometry x="40" y="160" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-30" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-23" target="qVGGXMiODCfk0jNXhs8Z-22">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-30" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-23" target="qVGGXMiODCfk0jNXhs8Z-22" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-23" value="rol" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-23" value="rol" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="130" y="70" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-24" value="Tiene" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-24" value="Tiene" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;" parent="1" vertex="1">
           <mxGeometry x="240" y="160" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-26" value="nombre" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-26" value="nombre" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="920" y="400" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-52" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-27" target="qVGGXMiODCfk0jNXhs8Z-9">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-52" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-27" target="qVGGXMiODCfk0jNXhs8Z-9" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-27" value="valor" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-27" value="&lt;b&gt;&lt;u&gt;valor&lt;/u&gt;&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="240" y="400" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-53" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-28" target="qVGGXMiODCfk0jNXhs8Z-9">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-53" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-28" target="qVGGXMiODCfk0jNXhs8Z-9" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="279.99999999999955" y="480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-28" value="múltiplo" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-28" value="&lt;b&gt;&lt;u&gt;múltiplo&lt;/u&gt;&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="330" y="400" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-66" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-41" target="qVGGXMiODCfk0jNXhs8Z-4">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-66" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-41" target="qVGGXMiODCfk0jNXhs8Z-4" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="520.5294117647059" y="570" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-41" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;nombre&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-41" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;nombre&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="490" y="600" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-68" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-42" target="qVGGXMiODCfk0jNXhs8Z-4">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-68" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-42" target="qVGGXMiODCfk0jNXhs8Z-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-42" value="&lt;span style=&quot;font-weight: 400;&quot;&gt;dosis_maxima&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-42" value="&lt;span style=&quot;font-weight: 400;&quot;&gt;dosis_maxima&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="580" y="600" width="110" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-60" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-54" target="qVGGXMiODCfk0jNXhs8Z-5">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-60" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-54" target="qVGGXMiODCfk0jNXhs8Z-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-54" value="tipo" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-54" value="tipo" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="85" y="600" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-58" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-55" target="qVGGXMiODCfk0jNXhs8Z-5">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-58" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-55" target="qVGGXMiODCfk0jNXhs8Z-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-55" value="unidad" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-55" value="unidad" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="165" y="600" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-64" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-42" target="qVGGXMiODCfk0jNXhs8Z-42">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-64" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-42" target="qVGGXMiODCfk0jNXhs8Z-42" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-69" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-42" target="qVGGXMiODCfk0jNXhs8Z-42">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-69" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-42" target="qVGGXMiODCfk0jNXhs8Z-42" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-79" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" vertex="1" connectable="0" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-79" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" parent="1" vertex="1" connectable="0">
           <mxGeometry x="730.0029411764707" y="240" as="geometry">
             <mxPoint x="82" y="91" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-81" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" vertex="1" connectable="0" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-81" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" parent="1" vertex="1" connectable="0">
           <mxGeometry x="730.0029411764707" y="350" as="geometry">
             <mxPoint x="82" y="91" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-82" value="m" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" vertex="1" connectable="0" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-82" value="m" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" parent="1" vertex="1" connectable="0">
           <mxGeometry x="540.0029411764707" y="414" as="geometry">
             <mxPoint x="82" y="91" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-83" value="m" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" vertex="1" connectable="0" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-83" value="m" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" parent="1" vertex="1" connectable="0">
           <mxGeometry x="350.0029411764707" y="414" as="geometry">
             <mxPoint x="82" y="91" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-84" value="m" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" vertex="1" connectable="0" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-84" value="m" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" parent="1" vertex="1" connectable="0">
           <mxGeometry x="130.0029411764707" y="414" as="geometry">
             <mxPoint x="82" y="91" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-85" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" vertex="1" connectable="0" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-85" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" parent="1" vertex="1" connectable="0">
           <mxGeometry x="130.0029411764707" y="95" as="geometry">
             <mxPoint x="82" y="91" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-94" value="m" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" vertex="1" connectable="0" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-94" value="m" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontFamily=PalatinoLinotype;fontColor=#000000;" parent="1" vertex="1" connectable="0">
           <mxGeometry x="330.0029411764707" y="95" as="geometry">
             <mxPoint x="82" y="91" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-98" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-95" target="qVGGXMiODCfk0jNXhs8Z-1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-98" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-95" target="qVGGXMiODCfk0jNXhs8Z-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-95" value="apellido2" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-95" value="apellido2" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="520" y="280" width="70" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-97" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-16" target="qVGGXMiODCfk0jNXhs8Z-16">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-97" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-16" target="qVGGXMiODCfk0jNXhs8Z-16" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-101" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.426;entryY=0.017;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="qVGGXMiODCfk0jNXhs8Z-100" target="qVGGXMiODCfk0jNXhs8Z-1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-101" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.426;entryY=0.017;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;endArrow=none;endFill=0;" parent="1" source="qVGGXMiODCfk0jNXhs8Z-100" target="qVGGXMiODCfk0jNXhs8Z-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qVGGXMiODCfk0jNXhs8Z-100" value="fecha_alta" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" vertex="1" parent="1">
+        <mxCell id="qVGGXMiODCfk0jNXhs8Z-100" value="fecha_alta" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=#FFFFFF;fontFamily=PalatinoLinotype;fontSource=http%3A%2F%2Ffonts.cdnfonts.com%2Fcss%2Fpalatino-linotype;fontSize=16;fontColor=#000000;strokeColor=#3333FF;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="650" y="70" width="70" height="50" as="geometry" />
         </mxCell>
       </root>
