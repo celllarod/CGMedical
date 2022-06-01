@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Clase que permite obtener el objeto que implementa la interfaz UserDetails
+ *
+ * @author celllarod
  */
 
 @Service
@@ -20,9 +22,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        // Se comprueba si existe el usuario con el email dado
+        // Se comprueba si existe el usuario con el email (username) dado
         Usuario user = usuarioRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("No se ha encontrado ningún usuario con este email: " + email));
+                .orElseThrow(() -> new UsernameNotFoundException("[FAIL] No se ha encontrado ningún usuario con este email: " + email));
         return UserDetailsImpl.build(user);
     }
 }

@@ -10,7 +10,6 @@ import java.util.UUID;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, UUID> {
 
-
     /**
      * Permite encontrar un usuario a través de su email
      *

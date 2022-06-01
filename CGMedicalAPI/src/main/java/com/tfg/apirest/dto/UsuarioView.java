@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+//TODO: eliminar o reaprovechar
 @Getter
 @Setter
 @AllArgsConstructor

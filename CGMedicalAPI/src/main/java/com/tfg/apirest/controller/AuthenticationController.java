@@ -1,4 +1,4 @@
-package com.tfg.apirest.security.controller;
+package com.tfg.apirest.controller;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -11,11 +11,13 @@ import com.tfg.apirest.repository.RolRepository;
 import com.tfg.apirest.repository.UsuarioRepository;
 import com.tfg.apirest.security.dto.*;
 import com.tfg.apirest.security.jwt.JwtUtils;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1/auth")
 public class AuthenticationController {
@@ -39,14 +41,16 @@ public class AuthenticationController {
     @Autowired
     JwtUtils jwtUtils;
 
+
     /**
-     * Permite el registro de un usuario
+     * Permite autenticar un usuario y obtener su token JWT
      *
-     * @param loginRequest
-     * @return
+     * @param loginRequest Información de inicio de sesión del usuario
+     * @return token si es autorizado, 413 si no
      */
     @PostMapping("/signin")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    public ResponseEntity<?> authenticateUser(@Valid @RequestBody @NotNull LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -54,21 +58,27 @@ public class AuthenticationController {
 
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         String rol = userDetails.getAuthorities().stream()
-                .map(item -> item.getAuthority())
-                .collect(Collectors.toList()).get(0);
+                .map(GrantedAuthority::getAuthority).toList().get(0);
         return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getId(),
                 userDetails.getUsername(),
                 rol));
     }
+
+    /**
+     * Permite el registro de un usuario
+     *
+     * @param signUpRequest Información de registro del usuario
+     * @return token si es autorizado, 413 si no
+     */
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
         if (usuarioRepository.existsByEmail(signUpRequest.getEmail())) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Error: El email introducido ya existe en el sistema!"));
+                    .body(new MessageResponse("[Error] El email introducido ya existe en el sistema!"));
         }
-        // Create new user's account
-        Usuario user = Usuario.builder()//
+        // Se crea una nueva cuenta para el usuario
+        Usuario usuario = Usuario.builder()//
                         .id(UUID.randomUUID()) //
                         .nombre(signUpRequest.getNombre())//
                         .apellido1(signUpRequest.getApellido1())//
@@ -78,25 +88,23 @@ public class AuthenticationController {
                         .fechaAlta(Instant.now())//
                         .build();
 
-
         String strRol = signUpRequest.getRol();
-        Rol rol = new Rol();
+        var rol = new Rol();
         if (strRol == null) {
             rol = rolRepository.findByCodigo("USER")
-                    .orElseThrow(() -> new RuntimeException("Error: Rol no encontrado."));
+                    .orElseThrow(() -> new RuntimeException("[Error]  Rol no encontrado."));
         } else {
-            switch (strRol) {
-                case "ADMIN":
-                    Rol adminRole = rolRepository.findByCodigo("ADMIN")
-                            .orElseThrow(() -> new RuntimeException("Error: Rol no encontrado."));
-                    break;
-                default:
-                    Rol userRole = rolRepository.findByCodigo("USER")
-                            .orElseThrow(() -> new RuntimeException("Error: Rol no encontrado."));
-            }
+            rol = switch (strRol) {
+                case "GESTOR" -> rolRepository.findByCodigo("GESTOR")
+                        .orElseThrow(() -> new RuntimeException("[Error]  Rol no encontrado."));
+                case "USER" -> rolRepository.findByCodigo("USER")
+                        .orElseThrow(() -> new RuntimeException("[Error]  Rol no encontrado."));
+                default -> rolRepository.findByCodigo("USER")
+                        .orElseThrow(() -> new RuntimeException("[Error] Rol no encontrado."));
+            };
         }
-        user.setRol(rol);
-        usuarioRepository.save(user);
-        return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+        usuario.setRol(rol);
+        usuarioRepository.save(usuario);
+        return ResponseEntity.ok(new MessageResponse("Usuario registrado con éxito"));
     }
 }

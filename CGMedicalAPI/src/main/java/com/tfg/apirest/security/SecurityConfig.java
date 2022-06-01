@@ -22,7 +22,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 // Permitir seguridad AOP: PreAuthorize, PostAthorize
 @EnableGlobalMethodSecurity( prePostEnabled = true)
-
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         @Autowired

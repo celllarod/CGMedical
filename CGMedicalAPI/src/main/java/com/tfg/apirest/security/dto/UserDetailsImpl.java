@@ -15,12 +15,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @AllArgsConstructor
 public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
+    /** UUID */
     private UUID id;
-    private String userName; // email
+    /** Email del usuario */
+    private String userName;
+    /** Contraseña del usuario */
     @JsonIgnore
     private String password;
+    /** Rol del usuario */
     private Collection<? extends GrantedAuthority> authorities;
 
+    /** Builder que permite crear una instancia de UserDetailsImp
+     *
+     * @param usuario Usuario a partir del cual obtener instancia
+     * @return
+     */
     public static UserDetailsImpl build(Usuario usuario) {
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(usuario.getRol().getCodigo()));
@@ -32,9 +41,10 @@ public class UserDetailsImpl implements UserDetails {
                 authorities);
     }
 
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return this.authorities;
     }
 
     @Override
@@ -56,14 +66,17 @@ public class UserDetailsImpl implements UserDetails {
     public boolean isAccountNonLocked() {
         return true;
     }
+
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
+
     @Override
     public boolean isEnabled() {
         return true;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)

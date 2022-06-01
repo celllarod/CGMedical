@@ -7,22 +7,32 @@ import com.tfg.apirest.dto.TipoView;
 import com.tfg.apirest.entity.Farmaco;
 import com.tfg.apirest.repository.FarmacoRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 @Validated
 public class FarmacosService {
 
+    /** Repositorio de Fármacos */
     private  final FarmacoRepository farmacoRepository;
+    /** Servicio de usuarios */
+    @Lazy
+    private final UsuariosService usuariosService;
 
     public List<FarmacoView> findAllFarmacos () {
 
-        var farmacos = farmacoRepository.findAll();
+        // Se obtiene el usuario de la sesión
+        var usuario = usuariosService.getUsuarioSesion();
+
+        // Se obtiene el listado de fármacos del hospital al que está asociado el usuario
+        var farmacos = this.findAllFarmacoByHospital(usuario.getHospital().getId());
 
         var farmacosView = new ArrayList<FarmacoView>();
 
@@ -43,6 +53,14 @@ public class FarmacosService {
         });
 
         return farmacosView;
+    }
+
+    /**
+     * Permite obtener el listado de fármacos de un hospital
+     *
+     */
+    private List<Farmaco> findAllFarmacoByHospital(UUID idHospital) {
+        return farmacoRepository.findAllByHospital_Id(idHospital);
     }
 
 }

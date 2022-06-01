@@ -19,10 +19,19 @@ import io.jsonwebtoken.*;
 @Component
 public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
-    @Value("${bezkoder.app.jwtSecret}")
+
+    /** Secret con el que se firmarán los tokens JWT generados */
+    @Value("${cgmedical.app.jwtSecret}")
     private String jwtSecret;
-    @Value("${bezkoder.app.jwtExpirationMs}")
-    private int jwtExpirationMs;
+    /** Tiempo de expitación del token JWT */
+    @Value("${cgmedical.app.jwtExpirationMs}")
+    private long jwtExpirationMs;
+
+    /**
+     * Permite generar un token JWT
+     * @param authentication
+     * @return
+     */
     public String generateJwtToken(Authentication authentication) {
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
         return Jwts.builder()
@@ -40,13 +49,13 @@ public class JwtUtils {
             Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
             return true;
         } catch (MalformedJwtException e) {
-            logger.error("Token JWT inválido: {}", e.getMessage());
+            logger.error("[Error] Token JWT inválido: {}", e.getMessage());
         } catch (ExpiredJwtException e) {
-            logger.error("Token JWT expirado: {}", e.getMessage());
+            logger.error("[Error] Token JWT expirado: {}", e.getMessage());
         } catch (UnsupportedJwtException e) {
-            logger.error("Token JWT n soportado: {}", e.getMessage());
+            logger.error("[Error] Token JWT n soportado: {}", e.getMessage());
         } catch (IllegalArgumentException e) {
-            logger.error("Sin JWT claims: {}", e.getMessage());
+            logger.error("[Error] Sin JWT claims: {}", e.getMessage());
         }
         return false;
     }

@@ -1,5 +1,6 @@
 package com.tfg.apirest.dto;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,10 +13,13 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class FarmacoView {
+@JsonPropertyOrder({"id", "nombre", "propiedades"})
+public class FarmacoDetalleView {
 
+    /** UUID */
     private UUID id;
+    /** Nombre del fármaco */
     private String nombre;
-    private List<PropiedadView> propiedades;
-    private String hospital;
+    /** Propiedades del fármaco*/
+    private PropiedadesView propiedades;
 }

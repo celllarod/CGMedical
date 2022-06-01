@@ -11,7 +11,9 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
 /**
- * Clase que permite lanzar una excepción si se produce una petición de autenticación no es autorizada
+ * Clase que permite lanzar una excepción si una petición de autenticación no es autorizada
+ *
+ * @author celllarod
  */
 @Component
 public class AuthEntryPointJwt implements AuthenticationEntryPoint {
@@ -19,7 +21,7 @@ public class AuthEntryPointJwt implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response,
                          AuthenticationException authException) throws IOException, ServletException {
-        logger.error("Unauthorized error: {}", authException.getMessage());
-        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Error: Unauthorized");
+        logger.error("[Error] No autorizado: {}", authException.getMessage());
+        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Error: No autorizado");
     }
 }
