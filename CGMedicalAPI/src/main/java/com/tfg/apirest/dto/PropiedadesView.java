@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
@@ -13,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonPropertyOrder({"dosisMaxima", "presentaciones", "concentraciones"})
-public class PropiedadesView {
+public class PropiedadesView  implements Serializable {
     /** Dosis máxima del fármaco */
     PropiedadView dosisMaxima;
     /** Listado de presentaciones comerciales del fármaco */

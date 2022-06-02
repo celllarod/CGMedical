@@ -1,7 +1,7 @@
 package com.tfg.apirest.controller;
 
-import com.tfg.apirest.dto.FarmacoView;
-import com.tfg.apirest.dto.UsuarioView;
+import com.tfg.apirest.dto.FarmacoDetalleView;
+import com.tfg.apirest.dto.FarmacoResumenView;
 import com.tfg.apirest.service.FarmacosService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -11,7 +11,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
-import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,17 +26,47 @@ import java.util.UUID;
 public class FarmacoController {
     private final FarmacosService farmacosService;
 
-    @GetMapping("testfarmaco")
-    public UsuarioView getUsuarioTest () {
-        var user = new UsuarioView("Celia", "Llanes");
-        return user;
-    }
-
-    // Obtener todos los fármacos del hospital al que pertenece el usuario que realiza la petición
+    /**
+     * Permite obtener un listado con la información resumida de todos los fármacos asociados
+     * al hospital al que pertenece el usuario que realiza la petición.
+     *
+     * @return lista de fármacos
+     */
     @GetMapping("farmacos")
     @PreAuthorize("hasAuthority('USER')")
     @ResponseStatus(HttpStatus.OK)
-    List<FarmacoView> findAllFarmacosByUserHospital (){
+    List<FarmacoResumenView> findAllFarmacosByUserHospital (){
         return farmacosService.findAllFarmacos();
     }
+
+    /**
+     * Permite obtener la información completa de un fármaco mediante su identificador
+     *
+     * @param idFarmaco Identificador del fármaco
+     * @return fármaco
+     */
+    @GetMapping("farmacos/{id}")
+    @PreAuthorize("hasAuthority('USER')")
+    @ResponseStatus(HttpStatus.OK)
+     public FarmacoDetalleView getFarmacoById( @NotNull @PathVariable(value = "id", required = false) UUID idFarmaco){
+         return farmacosService.obtenerFarmaco(idFarmaco);
+     }
+
+    /**
+     * Permite añadir un nuevo fármaco en el hospital asociado al usuario que realiza la petición
+     *
+     */
+    // TODO: implementar
+
+    /**
+     * Permite actualizar un fármaco existente mediante su identificador
+     *
+     */
+    // TODO: implementar
+
+    /**
+     * Permite eliminar un fármaco mediante su identificador.
+     *
+     */
+    // TODO: implementar
 }

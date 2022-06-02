@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.io.Serializable;
 import java.util.UUID;
 
 @Getter
@@ -14,7 +14,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonPropertyOrder({"id", "nombre", "propiedades"})
-public class FarmacoDetalleView {
+public class FarmacoDetalleView implements Serializable {
 
     /** UUID */
     private UUID id;
