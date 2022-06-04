@@ -15,12 +15,13 @@ import java.util.UUID;
 @Table(name = "d_usuario")
 public class Usuario {
     @Id
+    @GeneratedValue
     @Column(name = "id_usuario", nullable = false)
     private UUID id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cd_rol")
-    private Rol rol;
+    private TipoRol rol;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cd_hospital")

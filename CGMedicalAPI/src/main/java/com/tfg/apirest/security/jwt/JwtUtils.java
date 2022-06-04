@@ -30,7 +30,7 @@ public class JwtUtils {
     /**
      * Permite generar un token JWT
      * @param authentication
-     * @return
+     * @return token
      */
     public String generateJwtToken(Authentication authentication) {
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();

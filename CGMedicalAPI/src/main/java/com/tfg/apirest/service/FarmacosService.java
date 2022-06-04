@@ -4,18 +4,17 @@ package com.tfg.apirest.service;
 import com.tfg.apirest.dto.FarmacoDetalleView;
 import com.tfg.apirest.dto.FarmacoResumenView;
 import com.tfg.apirest.entity.Farmaco;
+import com.tfg.apirest.entity.Propiedad;
 import com.tfg.apirest.function.FarmacoToFarmacoDetalleViewFunction;
 import com.tfg.apirest.function.FarmacoToFarmacoResumenViewFunction;
 import com.tfg.apirest.repository.FarmacoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -28,8 +27,16 @@ public class FarmacosService {
     @Lazy
     private final UsuariosService usuariosService;
 
+    /** Servicio de Tipo Propiedad */
+    @Lazy
+    private final TipoPropiedadesService tipoPropiedadesService;
+    /** Constante Dosis Máxima */
+    private static final String DOS_MAX = "DOS_MAX";
+    /** Constante Presentación comercial */
+    private static final String PRE = "PRE";
+
     /**
-     * Permite obtener el listado de fármacos del hospital de la sesión actual con la información principal
+     * Permite obtener el listado de fármacos del hospital del usuario de la sesión actual con la información principal
      *
      * @return listado de fármacos
      */
@@ -60,6 +67,40 @@ public class FarmacosService {
     }
 
     /**
+     * Permite crear un Fármaco y añadirlo al listado de fármacos del hospital asociado al usuario
+     *
+     * @param farmaco Datos con el fármaco a añadir
+     * @return fármaco creado
+     */
+    @Transactional
+    public FarmacoDetalleView crearFarmaco(Farmaco farmaco, Set<Propiedad> propiedades) {
+        // TODO: controlar nombre de fármaco no existe en ese hospital
+        // Se obtiene el usuario de la sesión
+        var usuario = usuariosService.getUsuarioSesion();
+
+        // Se obtiene el hospital al que está asociado el usuario
+        farmaco.setHospital(usuario.getHospital());
+
+        // Se setan las propiedades del fármaco
+        var tipoDosisMaxima = tipoPropiedadesService.obtenerPropiedad(DOS_MAX);
+        var tipoPresentacion = tipoPropiedadesService.obtenerPropiedad(PRE);
+        propiedades.forEach( p -> {
+            //p.getId().setCdFarmaco(farmacoGuardado.getId());
+           // p.setFarmaco(farmacoGuardado);
+            if (DOS_MAX.equals(p.getId().getCdPropiedad()))
+                p.setTipoPropiedad(tipoDosisMaxima);
+            if (PRE.equals(p.getId().getCdPropiedad()))
+                p.setTipoPropiedad(tipoPresentacion);
+        });
+        farmaco.setPropiedades(propiedades);
+
+        // Se guarda el fármaco
+        var farmacoGuardado = this.saveFarmaco(farmaco);
+
+        return new FarmacoToFarmacoDetalleViewFunction().apply(farmacoGuardado);
+    }
+
+    /**
      * Consulta para obtener el listado de fármacos de un hospital
      *
      * @param idHospital Identificador del hospital
@@ -79,4 +120,14 @@ public class FarmacosService {
          .orElseThrow(() -> new NoSuchElementException("[ERROR] No se ha encontrado el Fármaco con el ID especificado: " + idFarmaco));
     }
 
+
+    /**
+     * Permite crear un fármaco
+     *
+     * @param farmaco Datos con el fármaco a añadir
+     * @return fármaco creado
+     */
+    private Farmaco saveFarmaco(Farmaco farmaco) {
+        return farmacoRepository.saveAndFlush(farmaco);
+    }
 }

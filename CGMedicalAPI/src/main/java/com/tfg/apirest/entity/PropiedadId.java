@@ -1,12 +1,10 @@
 package com.tfg.apirest.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Entity;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -14,10 +12,12 @@ import java.util.UUID;
 @Embeddable
 @Getter
 @Setter
-public class FarmacoPropiedadId implements Serializable {
+@AllArgsConstructor
+@NoArgsConstructor
+public class PropiedadId implements Serializable {
     private static final long serialVersionUID = 65188043622788740L;
     @Column(name = "cd_propiedad", nullable = false)
-    private UUID cdPropiedad;
+    private String cdPropiedad;
 
     @Column(name = "cd_farmaco", nullable = false)
     private UUID cdFarmaco;
@@ -33,7 +33,7 @@ public class FarmacoPropiedadId implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        FarmacoPropiedadId entity = (FarmacoPropiedadId) o;
+        PropiedadId entity = (PropiedadId) o;
         return Objects.equals(this.valor, entity.valor) &&
                 Objects.equals(this.cdPropiedad, entity.cdPropiedad) &&
                 Objects.equals(this.cdFarmaco, entity.cdFarmaco) &&

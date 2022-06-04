@@ -2,10 +2,9 @@ package com.tfg.apirest.controller;
 
 import java.time.Instant;
 import java.util.UUID;
-import java.util.stream.Collectors;
 import javax.validation.Valid;
 
-import com.tfg.apirest.entity.Rol;
+import com.tfg.apirest.entity.TipoRol;
 import com.tfg.apirest.entity.Usuario;
 import com.tfg.apirest.repository.RolRepository;
 import com.tfg.apirest.repository.UsuarioRepository;
@@ -89,7 +88,7 @@ public class AuthenticationController {
                         .build();
 
         String strRol = signUpRequest.getRol();
-        var rol = new Rol();
+        var rol = new TipoRol();
         if (strRol == null) {
             rol = rolRepository.findByCodigo("USER")
                     .orElseThrow(() -> new RuntimeException("[Error]  Rol no encontrado."));

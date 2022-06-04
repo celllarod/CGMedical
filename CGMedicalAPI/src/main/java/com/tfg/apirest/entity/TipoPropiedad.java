@@ -9,23 +9,19 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "p_rol")
-public class Rol {
+@Table(name = "p_propiedad")
+public class TipoPropiedad {
     @Id
-    @Column(name = "id_rol", nullable = false)
-    private UUID id;
-
-    @Column(name = "cd_rol", nullable = false, length = 20)
+    @Column(name = "id_propiedad", nullable = false, length = 10)
     private String codigo;
 
-    @Column(name = "ds_rol", nullable = false, length = 100)
+    @Column(name = "ds_tipo", nullable = false, length = 100)
     private String descripcion;
 
 }

@@ -1,7 +1,10 @@
 package com.tfg.apirest.controller;
 
+import com.tfg.apirest.dto.DatosCrearFarmacoDTO;
 import com.tfg.apirest.dto.FarmacoDetalleView;
 import com.tfg.apirest.dto.FarmacoResumenView;
+import com.tfg.apirest.entity.Farmaco;
+import com.tfg.apirest.function.DatosCrearFarmacoDTOToFarmacoPropiedad;
 import com.tfg.apirest.service.FarmacosService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -10,6 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
@@ -48,7 +52,7 @@ public class FarmacoController {
     @GetMapping("farmacos/{id}")
     @PreAuthorize("hasAuthority('USER')")
     @ResponseStatus(HttpStatus.OK)
-     public FarmacoDetalleView getFarmacoById( @NotNull @PathVariable(value = "id", required = false) UUID idFarmaco){
+     public FarmacoDetalleView getFarmacoById(@NotNull @PathVariable(value = "id", required = false) UUID idFarmaco){
          return farmacosService.obtenerFarmaco(idFarmaco);
      }
 
@@ -56,7 +60,16 @@ public class FarmacoController {
      * Permite añadir un nuevo fármaco en el hospital asociado al usuario que realiza la petición
      *
      */
-    // TODO: implementar
+    @PostMapping("farmacos")
+    @PreAuthorize("hasAuthority('USER')")
+    @ResponseStatus(HttpStatus.CREATED)
+    public FarmacoDetalleView createFarmaco(@Valid @RequestBody DatosCrearFarmacoDTO datosCrearFarmacoDTO){
+
+        var farmaco = new Farmaco();
+        farmaco.setNombre(datosCrearFarmacoDTO.getNombre());
+        var propiedades = new DatosCrearFarmacoDTOToFarmacoPropiedad().apply(datosCrearFarmacoDTO);
+        return farmacosService.crearFarmaco(farmaco, propiedades);
+    }
 
     /**
      * Permite actualizar un fármaco existente mediante su identificador

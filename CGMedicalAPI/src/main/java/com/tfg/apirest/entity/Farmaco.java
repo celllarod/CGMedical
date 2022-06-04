@@ -18,6 +18,7 @@ import java.util.UUID;
 @Table(name = "d_farmaco")
 public class Farmaco {
     @Id
+    @GeneratedValue
     @Column(name = "id_farmaco", nullable = false)
     private UUID id;
 
@@ -28,6 +29,6 @@ public class Farmaco {
     private Hospital hospital;
 
     @OneToMany(mappedBy = "farmaco")
-    private Set<FarmacoPropiedad> propiedades = new LinkedHashSet<>();
+    private Set<Propiedad> propiedades = new LinkedHashSet<>();
 
 }

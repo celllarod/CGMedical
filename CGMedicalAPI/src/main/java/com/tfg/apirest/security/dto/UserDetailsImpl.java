@@ -28,7 +28,7 @@ public class UserDetailsImpl implements UserDetails {
     /** Builder que permite crear una instancia de UserDetailsImp
      *
      * @param usuario Usuario a partir del cual obtener instancia
-     * @return
+     * @return userDatails
      */
     public static UserDetailsImpl build(Usuario usuario) {
         List<GrantedAuthority> authorities = new ArrayList<>();
