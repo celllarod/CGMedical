@@ -1,19 +1,22 @@
 package com.tfg.apirest.controller;
 
-import com.tfg.apirest.dto.DatosCrearFarmacoDTO;
+import com.tfg.apirest.dto.DatosFarmacoCrearDTO;
 import com.tfg.apirest.dto.FarmacoDetalleView;
 import com.tfg.apirest.dto.FarmacoResumenView;
+import com.tfg.apirest.dto.PropiedadesDTO;
 import com.tfg.apirest.entity.Farmaco;
-import com.tfg.apirest.function.DatosCrearFarmacoDTOToFarmacoPropiedad;
+import com.tfg.apirest.function.PropiedadesDTOToPropiedadesSetFunction;
 import com.tfg.apirest.service.FarmacosService;
+import com.tfg.apirest.validation.group.Crear;
+import com.tfg.apirest.validation.group.Modificar;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.Fetch;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
@@ -58,24 +61,42 @@ public class FarmacoController {
 
     /**
      * Permite añadir un nuevo fármaco en el hospital asociado al usuario que realiza la petición
-     *
+     * @param datosCrearFarmacoDTO Datos para crear el fármaco
+     * @return fármaco creado
      */
     @PostMapping("farmacos")
     @PreAuthorize("hasAuthority('USER')")
     @ResponseStatus(HttpStatus.CREATED)
-    public FarmacoDetalleView createFarmaco(@Valid @RequestBody DatosCrearFarmacoDTO datosCrearFarmacoDTO){
+    public FarmacoDetalleView createFarmaco(@Validated({Crear.class}) @RequestBody DatosFarmacoCrearDTO datosCrearFarmacoDTO){
 
         var farmaco = new Farmaco();
         farmaco.setNombre(datosCrearFarmacoDTO.getNombre());
-        var propiedades = new DatosCrearFarmacoDTOToFarmacoPropiedad().apply(datosCrearFarmacoDTO);
+        var propiedades = new PropiedadesDTOToPropiedadesSetFunction().apply(datosCrearFarmacoDTO.getPropiedades());
         return farmacosService.crearFarmaco(farmaco, propiedades);
     }
 
     /**
-     * Permite actualizar un fármaco existente mediante su identificador
-     *
+     * Permite actualizar un fármaco existente mediante su identificador. Solo se podrán actualizar sus propiedades, no su nombre
+     * @param idFarmaco Identificador del fármaco a actualizar
+     * @param datosModificarFarmacoDTO Datos para modificar el fármaco
+     * @result fármaco actualizado
      */
-    // TODO: implementar
+    @PutMapping("farmacos/{id}")
+    @PreAuthorize("hasAuthority('USER')")
+    @ResponseStatus(HttpStatus.OK)
+    public FarmacoDetalleView updateFarmaco(
+            @NotNull @PathVariable(value = "id", required = false) UUID idFarmaco,
+            @Validated({Modificar.class}) @RequestBody PropiedadesDTO datosModificarFarmacoDTO){
+
+        // Comprobamos si existe el fármaco
+        var toUpdate = farmacosService.obtenerFarmaco(idFarmaco);
+
+        var farmaco = new Farmaco();
+        farmaco.setId(toUpdate.getId());
+        var propiedades = new PropiedadesDTOToPropiedadesSetFunction().apply(datosModificarFarmacoDTO);
+        return farmacosService.actualizarFarmaco(farmaco, propiedades);
+
+    }
 
     /**
      * Permite eliminar un fármaco mediante su identificador.

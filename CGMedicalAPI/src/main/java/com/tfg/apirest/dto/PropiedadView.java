@@ -5,16 +5,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonPropertyOrder({"valor", "unidad"})
+@JsonPropertyOrder({"id", "valor", "unidad"})
 public class PropiedadView  implements Serializable {
+    /** Id de la propiedad */
+    private UUID id;
     /** Valor numérico de la propiedad */
-    Double valor;
+    private Double valor;
     /** Unidades de medida de la propiedad */
-    String unidad;
+    private String unidad;
 }

@@ -13,13 +13,10 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonPropertyOrder({"dosisMaxima", "presentaciones", "concentraciones"})
+@JsonPropertyOrder({"dosisMaxima", "presentaciones"})
 public class PropiedadesView  implements Serializable {
     /** Dosis máxima del fármaco */
     PropiedadView dosisMaxima;
     /** Listado de presentaciones comerciales del fármaco */
     List<PropiedadView> presentaciones;
-    /** Listado de concentraciones del fármaco */
-    List<PropiedadView> concentraciones;
-
 }

@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @Repository
 @EnableJpaRepositories
-public interface FarmacoRepository extends JpaRepository<Farmaco, UUID> {
+public interface FarmacoRepository extends JpaRepository<Farmaco, UUID>, CustomRepository<Farmaco> {
     /**
      * Permite obtener el listado de fármacos asociados a un hospital
      * @param idHospital UUID del Hospital del que obtener los fármacos

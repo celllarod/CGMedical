@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -30,6 +31,10 @@ public class FarmacosService {
     /** Servicio de Tipo Propiedad */
     @Lazy
     private final TipoPropiedadesService tipoPropiedadesService;
+    /** Servicio de Propiedad */
+    @Lazy
+    private final PropiedadesService propiedadesService;
+
     /** Constante Dosis Máxima */
     private static final String DOS_MAX = "DOS_MAX";
     /** Constante Presentación comercial */
@@ -70,6 +75,7 @@ public class FarmacosService {
      * Permite crear un Fármaco y añadirlo al listado de fármacos del hospital asociado al usuario
      *
      * @param farmaco Datos con el fármaco a añadir
+     * @param propiedades Propiedades del fármaco
      * @return fármaco creado
      */
     @Transactional
@@ -81,24 +87,106 @@ public class FarmacosService {
         // Se obtiene el hospital al que está asociado el usuario
         farmaco.setHospital(usuario.getHospital());
 
-        // Se setan las propiedades del fármaco
-        var tipoDosisMaxima = tipoPropiedadesService.obtenerPropiedad(DOS_MAX);
-        var tipoPresentacion = tipoPropiedadesService.obtenerPropiedad(PRE);
-        propiedades.forEach( p -> {
-            //p.getId().setCdFarmaco(farmacoGuardado.getId());
-           // p.setFarmaco(farmacoGuardado);
-            if (DOS_MAX.equals(p.getId().getCdPropiedad()))
-                p.setTipoPropiedad(tipoDosisMaxima);
-            if (PRE.equals(p.getId().getCdPropiedad()))
-                p.setTipoPropiedad(tipoPresentacion);
-        });
-        farmaco.setPropiedades(propiedades);
-
-        // Se guarda el fármaco
+        // Se guarda el fármaco junto a sus propiedades
         var farmacoGuardado = this.saveFarmaco(farmaco);
+        this.formatearPropiedades(farmacoGuardado, propiedades);
+        this.saveAllPropiedad(propiedades);
+
+        farmacoRepository.refresh(farmacoGuardado);
 
         return new FarmacoToFarmacoDetalleViewFunction().apply(farmacoGuardado);
     }
+
+    /**
+     * Permite actualizar un Fármaco a partir de su identificador
+     *
+     * @param farmaco Datos con el fármaco a añadir
+     * @param propiedades Propiedades del fármaco
+     * @return fármaco actualizado
+     */
+    @Transactional
+    public FarmacoDetalleView actualizarFarmaco(Farmaco farmaco, Set<Propiedad> propiedades) {
+
+        // TODO: antes de actualizar o crear, comprobar que esa propiedad no esté ya
+        var farmacoToUpdate = this.getFarmacoById(farmaco.getId());
+
+        var propiedadesModificar = new HashSet<Propiedad>();
+        var propiedadesNuevas = new HashSet<Propiedad>();
+        var propiedadesEliminar = new HashSet<Propiedad>();
+        var propiedadesToUpdate = farmacoToUpdate.getPropiedades();
+
+//
+       this.formatearPropiedades(farmacoToUpdate, propiedades);
+
+
+       propiedades.forEach( p -> {
+           if(!propiedadesToUpdate.contains(p)){
+               // if (!propiedadesToUpdate.stream().filter(toUpdate-> toUpdate.getId().equals(p.getId())).findFirst().isPresent()) {
+                    //propiedadesNuevas.add(p);
+               // } else {
+                    propiedadesModificar.add(p);
+               // }
+           }
+       });
+
+       propiedadesToUpdate.forEach( toUpdate -> {
+           if(!propiedades.contains(toUpdate) && !propiedades.stream().filter(p-> toUpdate.getId().equals(p.getId())).findFirst().isPresent()) {
+                propiedadesEliminar.add(toUpdate);
+           }
+       });
+
+
+        if(!propiedadesEliminar.isEmpty()) {
+            propiedadesService.deleteAllPropiedad(propiedadesEliminar);
+        }
+//        if(!propiedadesNuevas.isEmpty()) {
+//           propiedadesModificar.addAll(this.saveAllPropiedad(propiedadesNuevas));
+//       }
+
+        if(!propiedadesModificar.isEmpty()) {
+            this.saveAllPropiedad(propiedadesModificar);
+        }
+
+//        this.saveAllPropiedad(propiedadToUpdate);
+
+        //farmacoToUpdate.getPropiedades().clear();
+        //farmacoToUpdate.setPropiedades(propiedadesModificar);
+        //var farmacoUpdated = this.saveFarmaco(farmacoToUpdate);
+
+        farmacoRepository.refresh(farmacoToUpdate);
+
+        return new FarmacoToFarmacoDetalleViewFunction().apply(farmacoToUpdate);
+    }
+
+    /**
+     * Permite setear las propiedades de un fármaco
+     * @param farmaco Fármaco al que se le van a setear las propiedades
+     * @param propiedades Propiedades del fármaco
+     * @return  propiedades formateadas
+     */
+    private void formatearPropiedades(Farmaco farmaco, Set<Propiedad> propiedades) {
+        var tipoDosisMaxima = tipoPropiedadesService.obtenerPropiedad(DOS_MAX);
+        var tipoPresentacion = tipoPropiedadesService.obtenerPropiedad(PRE);
+        propiedades.forEach( p -> {
+            p.setCdFarmaco(farmaco.getId());
+            p.setFarmaco(farmaco);
+            if (DOS_MAX.equals(p.getCdPropiedad()))
+                p.setTipoPropiedad(tipoDosisMaxima);
+            if (PRE.equals(p.getCdPropiedad()))
+                p.setTipoPropiedad(tipoPresentacion);
+        });
+       //propiedadesService.insertarPropiedades(propiedades);
+    }
+
+    /**
+     * Permite guardar las propiedades de un fármaco
+     * @param propiedades Propiedades del fármaco
+     * @return  propiedades añadidas
+     */
+    private List<Propiedad> saveAllPropiedad(Set<Propiedad> propiedades) {
+        return propiedadesService.insertarPropiedades(propiedades);
+    }
+
 
     /**
      * Consulta para obtener el listado de fármacos de un hospital

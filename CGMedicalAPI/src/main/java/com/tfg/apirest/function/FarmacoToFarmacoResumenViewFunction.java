@@ -18,8 +18,8 @@ private static final String DOS_MAX = "DOS_MAX";
         var propiedadDosisMaxima = f.getPropiedades().stream().filter( p -> //
                 DOS_MAX.equals(p.getTipoPropiedad().getCodigo())).findFirst();
         propiedadDosisMaxima.ifPresent(dm -> farmaco.setDosisMaxima(PropiedadView.builder()//
-                .unidad(dm.getId().getUnidad()) //
-                .valor(dm.getId().getValor()) //
+                .unidad(dm.getUnidad()) //
+                .valor(dm.getValor()) //
                 .build()));
         return farmaco;
     }

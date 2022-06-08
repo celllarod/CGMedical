@@ -1,12 +1,9 @@
 package com.tfg.apirest.entity;
 
 import lombok.*;
-import org.hibernate.Hibernate;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
 import java.util.UUID;
 
 @Embeddable
@@ -14,35 +11,13 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 public class PropiedadId implements Serializable {
-    private static final long serialVersionUID = 65188043622788740L;
-    @Column(name = "cd_propiedad", nullable = false)
-    private String cdPropiedad;
+    private static final long serialVersionUID = -8103626973778467926L;
 
-    @Column(name = "cd_farmaco", nullable = false)
     private UUID cdFarmaco;
 
-    @Column(name = "nu_valor", nullable = false)
-    private Double valor;
+    private String cdPropiedad;
 
-    @Column(name = "cd_unidad", nullable = false, length = 10)
-    private String unidad;
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        PropiedadId entity = (PropiedadId) o;
-        return Objects.equals(this.valor, entity.valor) &&
-                Objects.equals(this.cdPropiedad, entity.cdPropiedad) &&
-                Objects.equals(this.cdFarmaco, entity.cdFarmaco) &&
-                Objects.equals(this.unidad, entity.unidad);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(valor, cdPropiedad, cdFarmaco, unidad);
-    }
-
+    private UUID id;
 }

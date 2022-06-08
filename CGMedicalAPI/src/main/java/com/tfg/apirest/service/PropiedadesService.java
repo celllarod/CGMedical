@@ -14,15 +14,25 @@ import java.util.Set;
 @RequiredArgsConstructor
 @Validated
 public class PropiedadesService {
-    /** Repositorio de propiedades */
+    /**
+     * Repositorio de propiedades
+     */
     private final PropiedadRepository propiedadRepository;
 
-    /** Permite crear una asociación propiedad-fármaco
+    /**
+     * Permite crear una asociación propiedad-fármaco
      *
      * @param propiedades Listado de propiedades a insertar
-     * */
+     */
     public List<Propiedad> insertarPropiedades(Set<Propiedad> propiedades) {
-         var propiedadesGuardadas = propiedadRepository.saveAllAndFlush(propiedades);
-         return propiedadesGuardadas;
+        var propiedadesGuardadas = propiedadRepository.saveAllAndFlush(propiedades);
+        return propiedadesGuardadas;
+    }
+
+    /**
+     * Permite eliminar un conjunto de propiedades
+     */
+    public void deleteAllPropiedad(Set<Propiedad> propiedades) {
+        propiedadRepository.deleteAll(propiedades);
     }
 }
