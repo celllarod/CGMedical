@@ -10,7 +10,6 @@ import com.tfg.apirest.service.FarmacosService;
 import com.tfg.apirest.validation.group.Crear;
 import com.tfg.apirest.validation.group.Modificar;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.annotations.Fetch;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -79,7 +78,7 @@ public class FarmacoController {
      * Permite actualizar un fármaco existente mediante su identificador. Solo se podrán actualizar sus propiedades, no su nombre
      * @param idFarmaco Identificador del fármaco a actualizar
      * @param datosModificarFarmacoDTO Datos para modificar el fármaco
-     * @result fármaco actualizado
+     * @return fármaco actualizado
      */
     @PutMapping("farmacos/{id}")
     @PreAuthorize("hasAuthority('USER')")
@@ -89,7 +88,7 @@ public class FarmacoController {
             @Validated({Modificar.class}) @RequestBody PropiedadesDTO datosModificarFarmacoDTO){
 
         // Comprobamos si existe el fármaco
-        var toUpdate = farmacosService.obtenerFarmaco(idFarmaco);
+        var toUpdate = farmacosService.existeFarmaco(idFarmaco);
 
         var farmaco = new Farmaco();
         farmaco.setId(toUpdate.getId());
@@ -101,6 +100,17 @@ public class FarmacoController {
     /**
      * Permite eliminar un fármaco mediante su identificador.
      *
+     * @param idFarmaco Identificador del fármaco
      */
-    // TODO: implementar
+    @DeleteMapping("farmacos/{id}")
+    @PreAuthorize("hasAuthority('USER')")
+    //@ResponseStatus(HttpStatus.OK)
+    public void updateFarmaco(
+            @NotNull @PathVariable(value = "id", required = false) UUID idFarmaco) {
+
+        // Comprobamos si existe el fármaco
+        var farmaco = farmacosService.existeFarmaco(idFarmaco);
+
+        farmacosService.eliminarFarmaco(farmaco);
+    }
 }

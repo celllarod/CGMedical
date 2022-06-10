@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -90,7 +89,7 @@ public class FarmacosService {
         // Se guarda el fármaco junto a sus propiedades
         var farmacoGuardado = this.saveFarmaco(farmaco);
         this.formatearPropiedades(farmacoGuardado, propiedades);
-        this.saveAllPropiedad(propiedades);
+        propiedadesService.insertarPropiedades(propiedades);
 
         farmacoRepository.refresh(farmacoGuardado);
 
@@ -111,13 +110,11 @@ public class FarmacosService {
         var farmacoToUpdate = this.getFarmacoById(farmaco.getId());
 
         var propiedadesModificar = new HashSet<Propiedad>();
-        var propiedadesNuevas = new HashSet<Propiedad>();
         var propiedadesEliminar = new HashSet<Propiedad>();
         var propiedadesToUpdate = farmacoToUpdate.getPropiedades();
 
 //
        this.formatearPropiedades(farmacoToUpdate, propiedades);
-
 
        propiedades.forEach( p -> {
            if(!propiedadesToUpdate.contains(p)){
@@ -130,28 +127,18 @@ public class FarmacosService {
        });
 
        propiedadesToUpdate.forEach( toUpdate -> {
-           if(!propiedades.contains(toUpdate) && !propiedades.stream().filter(p-> toUpdate.getId().equals(p.getId())).findFirst().isPresent()) {
+           if(!propiedades.contains(toUpdate) && propiedades.stream().noneMatch(p-> toUpdate.getId().equals(p.getId()))) {
                 propiedadesEliminar.add(toUpdate);
            }
        });
 
-
         if(!propiedadesEliminar.isEmpty()) {
             propiedadesService.deleteAllPropiedad(propiedadesEliminar);
         }
-//        if(!propiedadesNuevas.isEmpty()) {
-//           propiedadesModificar.addAll(this.saveAllPropiedad(propiedadesNuevas));
-//       }
 
         if(!propiedadesModificar.isEmpty()) {
-            this.saveAllPropiedad(propiedadesModificar);
+            propiedadesService.insertarPropiedades(propiedadesModificar);
         }
-
-//        this.saveAllPropiedad(propiedadToUpdate);
-
-        //farmacoToUpdate.getPropiedades().clear();
-        //farmacoToUpdate.setPropiedades(propiedadesModificar);
-        //var farmacoUpdated = this.saveFarmaco(farmacoToUpdate);
 
         farmacoRepository.refresh(farmacoToUpdate);
 
@@ -159,10 +146,28 @@ public class FarmacosService {
     }
 
     /**
+     * Permite comprobar si un fármaco existe a través de su id
+     *
+     * @idFarmaco id del fármaco
+     * @return fármaco
+     */
+    public Farmaco existeFarmaco(UUID idFarmaco) {
+        return this.getFarmacoById(idFarmaco);
+    }
+
+    /**
+     * Permite eliminar un fármaco
+     *
+     * @param farmaco Fármaco a eliminar
+     */
+    public void eliminarFarmaco(Farmaco farmaco) {
+        this.deleteFarmacoById(farmaco);
+    }
+
+    /**
      * Permite setear las propiedades de un fármaco
      * @param farmaco Fármaco al que se le van a setear las propiedades
      * @param propiedades Propiedades del fármaco
-     * @return  propiedades formateadas
      */
     private void formatearPropiedades(Farmaco farmaco, Set<Propiedad> propiedades) {
         var tipoDosisMaxima = tipoPropiedadesService.obtenerPropiedad(DOS_MAX);
@@ -175,16 +180,6 @@ public class FarmacosService {
             if (PRE.equals(p.getCdPropiedad()))
                 p.setTipoPropiedad(tipoPresentacion);
         });
-       //propiedadesService.insertarPropiedades(propiedades);
-    }
-
-    /**
-     * Permite guardar las propiedades de un fármaco
-     * @param propiedades Propiedades del fármaco
-     * @return  propiedades añadidas
-     */
-    private List<Propiedad> saveAllPropiedad(Set<Propiedad> propiedades) {
-        return propiedadesService.insertarPropiedades(propiedades);
     }
 
 
@@ -217,5 +212,14 @@ public class FarmacosService {
      */
     private Farmaco saveFarmaco(Farmaco farmaco) {
         return farmacoRepository.saveAndFlush(farmaco);
+    }
+
+    /**
+     * Permite eliminar un fármaco
+     *
+     * @param farmaco Fármaco a eliminar
+     */
+    private void deleteFarmacoById(Farmaco farmaco) {
+        farmacoRepository.delete(farmaco);
     }
 }
