@@ -3,7 +3,6 @@ package com.tfg.apirest.service;
 import com.tfg.apirest.entity.TipoPropiedad;
 import com.tfg.apirest.repository.TipoPropiedadRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 

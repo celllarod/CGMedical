@@ -26,6 +26,6 @@ public class PresentacionDTO {
     Double valor;
     /** Unidades de medida de la propiedad */
     @NotNull(message = "El campo 'propiedades.presentacion.unidad' no puede ir vacío.",  groups={Modificar.class, Crear.class})
-    @Pattern(regexp = "[mu]g\\/(mL)" , message = "El campo 'propiedades.presentacion.unidad' tiene un valor no soportado.",  groups={Modificar.class, Crear.class})
+    @Pattern(regexp = "[mu]g/(mL)" , message = "El campo 'propiedades.presentacion.unidad' tiene un valor no soportado.",  groups={Modificar.class, Crear.class})
     String unidad;
 }

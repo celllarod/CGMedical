@@ -2,12 +2,10 @@ package com.tfg.apirest.function;
 
 import com.tfg.apirest.dto.PropiedadesDTO;
 import com.tfg.apirest.entity.Propiedad;
-import com.tfg.apirest.entity.PropiedadId;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cglib.core.internal.Function;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @RequiredArgsConstructor

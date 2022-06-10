@@ -1,8 +1,6 @@
 package com.tfg.apirest.entity;
 
 import lombok.*;
-import org.hibernate.annotations.SQLUpdate;
-
 import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;

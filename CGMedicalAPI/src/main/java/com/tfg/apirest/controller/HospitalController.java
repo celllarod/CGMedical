@@ -19,7 +19,6 @@ public class HospitalController {
 
     @GetMapping("testhospital")
     public UsuarioView getUsuarioTest () {
-        var user = new UsuarioView("Celia", "Llanes");
-        return user;
+        return new UsuarioView("Celia", "Llanes");
     }
 }

@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
-import java.util.List;
 import java.util.Set;
 
 
@@ -24,15 +23,14 @@ public class PropiedadesService {
      *
      * @param propiedades Listado de propiedades a insertar
      */
-    public List<Propiedad> insertarPropiedades(Set<Propiedad> propiedades) {
-        var propiedadesGuardadas = propiedadRepository.saveAllAndFlush(propiedades);
-        return propiedadesGuardadas;
+    protected void insertarPropiedades(Set<Propiedad> propiedades) {
+        propiedadRepository.saveAllAndFlush(propiedades);
     }
 
     /**
      * Permite eliminar un conjunto de propiedades
      */
-    public void deleteAllPropiedad(Set<Propiedad> propiedades) {
+    protected void deleteAllPropiedad(Set<Propiedad> propiedades) {
         propiedadRepository.deleteAll(propiedades);
     }
 }
