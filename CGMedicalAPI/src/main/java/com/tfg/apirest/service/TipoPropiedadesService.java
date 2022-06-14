@@ -31,6 +31,6 @@ public class TipoPropiedadesService {
      */
     private TipoPropiedad getTipoPropiedadByCodigo(String codigo) {
         return tipoPropiedadRepository.getTipoPropiedadByCodigo(codigo) //
-         .orElseThrow(() -> new NoSuchElementException("[ERROR] No se ha encontrado el tipo de propiedad con el Código especificado: " + codigo));
+         .orElseThrow(() -> new NoSuchElementException("No se ha encontrado el tipo de propiedad con el código especificado: " + codigo));
     }
 }

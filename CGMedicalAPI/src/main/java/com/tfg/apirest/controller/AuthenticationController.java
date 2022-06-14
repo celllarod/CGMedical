@@ -12,6 +12,7 @@ import com.tfg.apirest.security.dto.*;
 import com.tfg.apirest.security.jwt.JwtUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,11 +20,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -48,8 +45,9 @@ public class AuthenticationController {
      * @return token si es autorizado, 413 si no
      */
     @PostMapping("/signin")
+    @ResponseStatus(HttpStatus.OK)
     @CrossOrigin(origins = "*", maxAge = 3600)
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody @NotNull LoginRequest loginRequest) {
+    public JwtResponse authenticateUser(@Valid @RequestBody @NotNull LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -58,9 +56,9 @@ public class AuthenticationController {
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         String rol = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority).toList().get(0);
-        return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getId(),
+        return new JwtResponse(jwt, userDetails.getId(),
                 userDetails.getUsername(),
-                rol));
+                rol);
     }
 
     /**
@@ -70,11 +68,12 @@ public class AuthenticationController {
      * @return token si es autorizado, 413 si no
      */
     @PostMapping("/signup")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
         if (usuarioRepository.existsByEmail(signUpRequest.getEmail())) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("[Error] El email introducido ya existe en el sistema!"));
+                    .body(new MessageResponse("Email ya existe en el sistema: " + signUpRequest.getEmail()));
         }
         // Se crea una nueva cuenta para el usuario
         Usuario usuario = Usuario.builder()//
@@ -91,15 +90,13 @@ public class AuthenticationController {
         var rol = new TipoRol();
         if (strRol == null) {
             rol = rolRepository.findByCodigo("USER")
-                    .orElseThrow(() -> new RuntimeException("[Error]  Rol no encontrado."));
+                    .orElseThrow(() -> new RuntimeException("Rol no encontrado"));
         } else {
             rol = switch (strRol) {
                 case "GESTOR" -> rolRepository.findByCodigo("GESTOR")
-                        .orElseThrow(() -> new RuntimeException("[Error]  Rol no encontrado."));
-                case "USER" -> rolRepository.findByCodigo("USER")
-                        .orElseThrow(() -> new RuntimeException("[Error]  Rol no encontrado."));
+                        .orElseThrow(() -> new RuntimeException("Rol no encontrado: " + strRol));
                 default -> rolRepository.findByCodigo("USER")
-                        .orElseThrow(() -> new RuntimeException("[Error] Rol no encontrado."));
+                        .orElseThrow(() -> new RuntimeException("Rol no encontrado: " + strRol));
             };
         }
         usuario.setRol(rol);

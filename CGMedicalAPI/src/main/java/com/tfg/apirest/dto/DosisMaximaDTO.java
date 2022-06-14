@@ -5,6 +5,7 @@ import com.tfg.apirest.validation.group.Crear;
 import com.tfg.apirest.validation.group.Modificar;
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Pattern;
@@ -19,10 +20,12 @@ public class DosisMaximaDTO {
     private UUID id;
     /** Valor numérico de la propiedad */
     @JsonProperty("valor")
-    @NotNull(message = "El campo 'valor' no puede ir vacío.",  groups={Modificar.class, Crear.class})
+    @NotBlank(message = "El campo 'valor' no puede ir vacío.", groups={Modificar.class, Crear.class})
+    @NotNull(message = "El campo 'valor' es obligatorio.", groups={Modificar.class, Crear.class})
     Double valor;
     /** Unidades de medida de la propiedad */
-    @NotNull(message = "El campo 'unidad' no puede ir vacío.", groups={Modificar.class, Crear.class})
+    @NotBlank(message = "El campo 'unidad' no puede ir vacío.", groups={Modificar.class, Crear.class})
+    @NotNull(message = "El campo 'unidad' es obligatorio.", groups={Modificar.class, Crear.class})
     @Pattern(regexp = "[mu]g/(dia)" , message = "El campo 'unidad' tiene un valor no soportado.",  groups={Modificar.class, Crear.class})
     String unidad;
 }

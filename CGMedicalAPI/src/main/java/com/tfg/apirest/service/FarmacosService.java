@@ -148,7 +148,7 @@ public class FarmacosService {
     /**
      * Permite comprobar si un fármaco existe a través de su id
      *
-     * @idFarmaco id del fármaco
+     * @param idFarmaco id del fármaco
      * @return fármaco
      */
     public Farmaco existeFarmaco(UUID idFarmaco) {
@@ -200,7 +200,7 @@ public class FarmacosService {
      */
     private Farmaco getFarmacoById(UUID idFarmaco) {
         return farmacoRepository.getFarmacoById(idFarmaco) //
-         .orElseThrow(() -> new NoSuchElementException("[ERROR] No se ha encontrado el Fármaco con el ID especificado: " + idFarmaco));
+         .orElseThrow(() -> new NoSuchElementException("No se ha encontrado el Fármaco con el ID especificado: " + idFarmaco));
     }
 
 

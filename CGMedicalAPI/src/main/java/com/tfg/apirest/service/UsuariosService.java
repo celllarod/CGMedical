@@ -38,6 +38,6 @@ public class UsuariosService {
      * @return Usuario
      */
     private Usuario getUsuarioByEmail(String email){
-        return usuarioRepository.findByEmail(email).orElseThrow(() -> new NoSuchElementException("[ERROR] No se ha encontrado el Usuario con el email especificado."));
+        return usuarioRepository.findByEmail(email).orElseThrow(() -> new NoSuchElementException("No se ha encontrado el usuario con el email especificado: " + email));
     }
 }
