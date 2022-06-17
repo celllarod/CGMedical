@@ -12,6 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppTFG">
         <activity
+            android:name=".HospitalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignInActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppTFG.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppTFG.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
             android:name=".InicioActivity"
             android:exported="false"
             android:theme="@style/Theme.AppTFG.NoActionBar" />

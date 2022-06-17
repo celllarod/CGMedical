@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    tools:context=".SignInActivity"
+    android:background="@drawable/fondo"
+    android:useDefaultMargins="true">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_signin"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:layout_width="550dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp"
+            app:elevation="50dp">
+
+            <RelativeLayout
+                android:id="@+id/form_signin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="25dp">
+
+                <TextView
+                    android:id="@+id/signin_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signin_title"
+                    android:textAlignment="center"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/signin_title">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_signin_name"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:layout_marginTop="15dp"
+                        app:helperText="Obligatorio*"
+                        app:helperTextTextColor="@color/rojo"
+                        app:startIconDrawable="@drawable/ic_nombre"
+                        app:endIconDrawable="@drawable/ic_borrar"
+                        app:endIconMode="clear_text">
+
+                        <EditText
+                            android:id="@+id/et_signin_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="name"
+                            android:hint="@string/name_placeholder"
+                            android:imeOptions="actionNext"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/gris" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_signin_ap1"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_row="1"
+                        android:layout_column="0"
+                        android:layout_marginTop="15dp"
+                        app:helperText="Obligatorio*"
+                        app:helperTextTextColor="@color/rojo"
+                        app:endIconDrawable="@drawable/ic_borrar"
+                        app:endIconMode="clear_text">
+
+                        <EditText
+                            android:id="@+id/et_signin_ap1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="name"
+                            android:hint="@string/ap1_placeholder"
+                            android:imeOptions="actionNext"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/gris" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_signin_ap2"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_row="2"
+                        android:layout_column="0"
+                        android:layout_marginTop="15dp"
+                        app:endIconDrawable="@drawable/ic_borrar"
+                        app:endIconMode="clear_text">
+
+                        <EditText
+                            android:id="@+id/et_signin_ap2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="name"
+                            android:hint="@string/ap2_placeholder"
+                            android:imeOptions="actionNext"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/gris" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_signin_email"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_row="3"
+                        android:layout_column="0"
+                        android:layout_marginTop="15dp"
+                        app:endIconDrawable="@drawable/ic_borrar"
+                        app:endIconMode="clear_text"
+                        app:helperText="Obligatorio*"
+                        app:helperTextTextColor="@color/rojo"
+                        app:startIconDrawable="@drawable/ic_email">
+
+                        <EditText
+                            android:id="@+id/et_signin_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="emailAddress"
+                            android:hint="@string/email_placeholder"
+                            android:imeOptions="actionDone"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/gris" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_signin_password"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_row="4"
+                        android:layout_column="0"
+                        android:layout_marginTop="15dp"
+                        app:helperText="Obligatorio*"
+                        app:helperTextTextColor="@color/rojo"
+                        app:passwordToggleEnabled="true"
+                        app:startIconDrawable="@drawable/ic_password">
+
+                        <EditText
+                            android:id="@+id/et_signin_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="password"
+                            android:hint="@string/password_placeholder"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"
+                            android:textColor="@color/gris" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- TODO: Campo repetir contraseña -->
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/bt_signin_submit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_row="5"
+                        android:layout_column="0"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="18dp"
+                        android:backgroundTint="@color/turquesa"
+                        android:elevation="40dp"
+                        android:padding="20dp"
+                        android:text="@string/siguiente_btn"
+                        android:textSize="20sp"
+                        app:cornerRadius="30dp"
+                        android:drawableEnd="@drawable/ic_siguiente" />
+                </GridLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:layout_width="480dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_signin"
+            android:contentDescription="@string/descripcion_personal_img" />
+</GridLayout>
