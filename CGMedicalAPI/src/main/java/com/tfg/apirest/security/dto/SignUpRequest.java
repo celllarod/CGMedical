@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.FieldNameConstants;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -13,6 +14,7 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 @AllArgsConstructor
+@FieldNameConstants
 public class SignUpRequest {
     /** Nombre del usuario */
     @NotNull(message = "El campo 'nombre' es obligatorio.")
@@ -37,5 +39,9 @@ public class SignUpRequest {
     private String password;
     /** Rol del usuario */
     private String rol;
-
+    /** Nombre del hospital al que se va a asociar */
+    @NotNull(message = "El campo 'hospital' es obligatorio.")
+    @NotBlank(message = "El campo 'hospital' no puede ir vacío.")
+    @Size(max = 100)
+    private String hospital;
 }

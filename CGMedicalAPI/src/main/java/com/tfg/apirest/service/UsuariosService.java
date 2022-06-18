@@ -32,6 +32,26 @@ public class UsuariosService {
     }
 
     /**
+     * Permite registrar un usuario
+     *
+     * @param usuario Usuario a registrar
+     * @return usuario
+     */
+    protected Usuario registrar(Usuario usuario){
+        return this.save(usuario);
+    }
+
+
+    /** Permite saber si un usuario existe en el sistema a través de su email
+     *
+     * @param email Email de usuario
+     * @return true si existe
+     */
+    public boolean existsUsuarioByEmail(String email){
+        return this.existsByEmail(email);
+    }
+
+    /**
      * Permite obtener un usuario a través de su email
      *
      * @param email Email de usuario
@@ -39,5 +59,24 @@ public class UsuariosService {
      */
     private Usuario getUsuarioByEmail(String email){
         return usuarioRepository.findByEmail(email).orElseThrow(() -> new NoSuchElementException("No se ha encontrado el usuario con el email especificado: " + email));
+    }
+
+    /** Comprueba si esiste un usuario en el sistema a través de su email
+     *
+     * @param email Email de usuario
+     * @return true si existe
+     */
+    private boolean existsByEmail(String email){
+        return usuarioRepository.existsByEmail(email);
+    }
+
+    /**
+     * Rgistra un usuario
+     *
+     * @param usuario Usuario a registrar
+     * @return usuario
+     */
+    private Usuario save(Usuario usuario){
+        return usuarioRepository.saveAndFlush(usuario);
     }
 }
