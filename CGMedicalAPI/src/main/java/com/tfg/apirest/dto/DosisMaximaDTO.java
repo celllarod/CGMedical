@@ -20,7 +20,6 @@ public class DosisMaximaDTO {
     private UUID id;
     /** Valor numérico de la propiedad */
     @JsonProperty("valor")
-    @NotBlank(message = "El campo 'valor' no puede ir vacío.", groups={Modificar.class, Crear.class})
     @NotNull(message = "El campo 'valor' es obligatorio.", groups={Modificar.class, Crear.class})
     Double valor;
     /** Unidades de medida de la propiedad */

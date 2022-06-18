@@ -1,7 +1,7 @@
 package com.tfg.apirest.controller;
 
-import com.tfg.apirest.dto.UsuarioView;
-import org.springframework.web.bind.annotation.GetMapping;
+import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,12 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@RequiredArgsConstructor
+@Validated
 @RequestMapping("/api/v1/")
 public class UsuarioController {
 
-    @GetMapping("test")
-    public UsuarioView getUsuarioTest () {
-        var user = new UsuarioView("Celia", "Llanes");
-        return user;
-    }
 }
