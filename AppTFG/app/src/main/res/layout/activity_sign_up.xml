@@ -5,11 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    tools:context=".SignInActivity"
+    tools:context=".SignUpActivity"
     android:background="@drawable/fondo"
     android:useDefaultMargins="true">
         <androidx.cardview.widget.CardView
-            android:id="@+id/card_signin"
+            android:id="@+id/card_signup"
+            android:scrollbarAlwaysDrawHorizontalTrack="true"
             android:layout_column="0"
             android:layout_row="0"
             android:layout_width="550dp"
@@ -19,19 +20,22 @@
             app:cardCornerRadius="30dp"
             app:cardElevation="20dp"
             app:elevation="50dp">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
             <RelativeLayout
-                android:id="@+id/form_signin"
+                android:id="@+id/form_signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:padding="25dp">
 
                 <TextView
-                    android:id="@+id/signin_title"
+                    android:id="@+id/signup_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/signin_title"
+                    android:text="@string/signup_title"
                     android:textAlignment="center"
                     android:textSize="50sp"
                     android:textStyle="bold" />
@@ -39,10 +43,10 @@
                 <GridLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/signin_title">
+                    android:layout_below="@id/signup_title">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/til_signin_name"
+                        android:id="@+id/til_signup_name"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -56,7 +60,7 @@
                         app:endIconMode="clear_text">
 
                         <EditText
-                            android:id="@+id/et_signin_name"
+                            android:id="@+id/et_signup_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:autofillHints="name"
@@ -67,7 +71,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/til_signin_ap1"
+                        android:id="@+id/til_signup_ap1"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -80,7 +84,7 @@
                         app:endIconMode="clear_text">
 
                         <EditText
-                            android:id="@+id/et_signin_ap1"
+                            android:id="@+id/et_signup_ap1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:autofillHints="name"
@@ -91,7 +95,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/til_signin_ap2"
+                        android:id="@+id/til_signup_ap2"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -102,7 +106,7 @@
                         app:endIconMode="clear_text">
 
                         <EditText
-                            android:id="@+id/et_signin_ap2"
+                            android:id="@+id/et_signup_ap2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:autofillHints="name"
@@ -113,7 +117,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/til_signin_email"
+                        android:id="@+id/til_signup_email"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -127,18 +131,18 @@
                         app:startIconDrawable="@drawable/ic_email">
 
                         <EditText
-                            android:id="@+id/et_signin_email"
+                            android:id="@+id/et_signup_email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:autofillHints="emailAddress"
                             android:hint="@string/email_placeholder"
-                            android:imeOptions="actionDone"
+                            android:imeOptions="actionNext"
                             android:inputType="textEmailAddress"
                             android:textColor="@color/gris" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/til_signin_password"
+                        android:id="@+id/til_signup_password"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -151,35 +155,42 @@
                         app:startIconDrawable="@drawable/ic_password">
 
                         <EditText
-                            android:id="@+id/et_signin_password"
+                            android:id="@+id/et_signup_password"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:autofillHints="password"
                             android:hint="@string/password_placeholder"
-                            android:imeOptions="actionDone"
+                            android:imeOptions="actionNext"
                             android:inputType="textPassword"
                             android:textColor="@color/gris" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <!-- TODO: Campo repetir contraseña -->
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/bt_signin_submit"
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_signup_password_repetir"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_row="5"
                         android:layout_column="0"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="18dp"
-                        android:backgroundTint="@color/turquesa"
-                        android:elevation="40dp"
-                        android:padding="20dp"
-                        android:text="@string/siguiente_btn"
-                        android:textSize="20sp"
-                        app:cornerRadius="30dp"
-                        android:drawableEnd="@drawable/ic_siguiente" />
+                        android:layout_marginTop="15dp"
+                        app:helperText="Obligatorio*"
+                        app:helperTextTextColor="@color/rojo"
+                        app:passwordToggleEnabled="true"
+                        app:startIconDrawable="@drawable/ic_password">
+
+                        <EditText
+                            android:id="@+id/et_signup_password_repetir"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="password"
+                            android:hint="@string/repetir_password_placeholder"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"
+                            android:textColor="@color/gris" />
+                    </com.google.android.material.textfield.TextInputLayout>
                 </GridLayout>
             </RelativeLayout>
+        </ScrollView>
         </androidx.cardview.widget.CardView>
 
         <ImageView
@@ -189,6 +200,23 @@
             android:layout_column="0"
             android:layout_row="1"
             android:layout_marginTop="5dp"
-            android:src="@drawable/ic_signin"
+            android:src="@drawable/ic_signup"
             android:contentDescription="@string/descripcion_personal_img" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bt_signup_continuar"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="45dp"
+        android:backgroundTint="@color/turquesa"
+        android:elevation="70dp"
+        android:padding="20dp"
+        android:textSize="20sp"
+        app:cornerRadius="100dp"
+        app:icon="@drawable/ic_siguiente" />
+
+
 </GridLayout>

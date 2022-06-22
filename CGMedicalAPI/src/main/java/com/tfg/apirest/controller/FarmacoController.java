@@ -39,7 +39,7 @@ public class FarmacoController {
      * @return lista de fármacos
      */
     @GetMapping("farmacos")
-    @PreAuthorize("hasAuthority('USER')")
+    @PreAuthorize("hasAuthority('USER') or hasAuthority('GESTOR')")
     @ResponseStatus(HttpStatus.OK)
     List<FarmacoResumenView> findAllFarmacosByUserHospital (){
         return farmacosService.findAllFarmacos();
@@ -52,7 +52,7 @@ public class FarmacoController {
      * @return fármaco
      */
     @GetMapping("farmacos/{id}")
-    @PreAuthorize("hasAuthority('USER')")
+    @PreAuthorize("hasAuthority('USER') or hasAuthority('GESTOR')")
     @ResponseStatus(HttpStatus.OK)
      public FarmacoDetalleView getFarmacoById(@NotNull @PathVariable(value = "id", required = false) UUID idFarmaco){
          return farmacosService.obtenerFarmaco(idFarmaco);
@@ -64,7 +64,7 @@ public class FarmacoController {
      * @return fármaco creado
      */
     @PostMapping("farmacos")
-    @PreAuthorize("hasAuthority('USER')")
+    @PreAuthorize("hasAuthority('GESTOR')")
     @ResponseStatus(HttpStatus.CREATED)
     public FarmacoDetalleView createFarmaco(@Validated({Crear.class}) @RequestBody DatosFarmacoCrearDTO datosCrearFarmacoDTO){
 
@@ -81,7 +81,7 @@ public class FarmacoController {
      * @return fármaco actualizado
      */
     @PutMapping("farmacos/{id}")
-    @PreAuthorize("hasAuthority('USER')")
+    @PreAuthorize("hasAuthority('GESTOR')")
     @ResponseStatus(HttpStatus.OK)
     public FarmacoDetalleView updateFarmaco(
             @NotNull @PathVariable(value = "id", required = false) UUID idFarmaco,
@@ -103,9 +103,9 @@ public class FarmacoController {
      * @param idFarmaco Identificador del fármaco
      */
     @DeleteMapping("farmacos/{id}")
-    @PreAuthorize("hasAuthority('USER')")
-    //@ResponseStatus(HttpStatus.OK)
-    public void updateFarmaco(
+    @PreAuthorize("hasAuthority('GESTOR')")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void udeleteFarmaco(
             @NotNull @PathVariable(value = "id", required = false) UUID idFarmaco) {
 
         // Comprobamos si existe el fármaco

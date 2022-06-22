@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class InicioActivity extends AppCompatActivity {
 
@@ -20,9 +19,9 @@ public class InicioActivity extends AppCompatActivity {
                 startActivity(intent);
         });
 
-        Button signInBtn = findViewById(R.id.signin_btn);
+        Button signInBtn = findViewById(R.id.signup_btn);
         signInBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, SignInActivity.class);
+            Intent intent = new Intent(this, SignUpActivity.class);
             startActivity(intent);
         });
     }

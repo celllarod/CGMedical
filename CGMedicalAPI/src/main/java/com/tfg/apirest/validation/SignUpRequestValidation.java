@@ -28,7 +28,7 @@ public class SignUpRequestValidation
 
     private boolean isValidEmail(SignUpRequest signUpRequest, ConstraintValidatorContext context) {
         var result = true;
-        if (usuariosService.existsUsuarioByEmail(signUpRequest.getEmail())) {
+        if (usuariosService.existsUsuarioByEmail(signUpRequest.getEmail().toLowerCase())) {
             error(context,"Email ya existente en el sistema: " + signUpRequest.getEmail(), SignUpRequest.Fields.email);
             result = false;
         }

@@ -26,7 +26,7 @@ public class SignUpRequest {
     private String apellido1;
     /** Segundo apellido del usuario */
     private String apellido2;
-    /** Correo electrónico del suuario */
+    /** Correo electrónico del usuario */
     @NotNull(message = "El campo 'email' es obligatorio.")
     @NotBlank(message = "El campo 'email' no puede ir vacío.")
     @Email(message = "El formato del campo 'email' es incorrecto.")
@@ -35,7 +35,7 @@ public class SignUpRequest {
     /** Contrasella del usuario*/
     @NotNull(message = "El campo 'password' es obligatorio.")
     @NotBlank(message = "El campo 'password' no puede ir vacío.")
-    @Size(min = 6, max = 40)
+    @Size( max = 40)
     private String password;
     /** Rol del usuario */
     private String rol;

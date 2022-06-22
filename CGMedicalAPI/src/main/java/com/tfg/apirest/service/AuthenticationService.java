@@ -60,7 +60,7 @@ public class AuthenticationService {
                 .nombre(signUpRequest.getNombre())//
                 .apellido1(signUpRequest.getApellido1())//
                 .apellido2(signUpRequest.getApellido2())//
-                .email(signUpRequest.getEmail())//
+                .email(signUpRequest.getEmail().toLowerCase())//
                 .hashPassword(encoder.encode(signUpRequest.getPassword()))//
                 .fechaAlta(Instant.now())//
                 .build();
@@ -71,7 +71,7 @@ public class AuthenticationService {
         var hospitalUsuario = new Hospital();
         if(hospital.isEmpty()){
             var hospitalNuevo = new Hospital();
-            hospitalNuevo.setNombre(nombreHospital);
+            hospitalNuevo.setNombre(nombreHospital.toLowerCase());
             hospitalUsuario = hospitalesService.registrar(hospitalNuevo);
         } else{
             hospitalUsuario = hospital.get();

@@ -2,6 +2,7 @@ package com.tfg.apptfg;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import com.google.android.material.navigation.NavigationView;
 
@@ -14,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.tfg.apptfg.databinding.ActivityMainBinding;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -23,25 +26,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        if(Objects.isNull(SessionManager.get(getApplicationContext()).getUserToken())) {
+            Log.d("[CPMEDICAL][SESSION]", "No hay sesión en SharedPreferences");
+            Intent intent = new Intent(this, InicioActivity.class);
+            startActivity(intent);
+        } else {
+            Log.d("[CPMEDICAL][SESSION]", "Sesión activa en SharedPreferences:" + SessionManager.get(getApplicationContext()).getUserEmail());
 
-        setSupportActionBar(binding.appBarMain.toolbar);
+            binding = ActivityMainBinding.inflate(getLayoutInflater());
+            setContentView(binding.getRoot());
 
-        DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                 R.id.nav_mezclas, R.id.nav_catalogo, R.id.nav_dosimetro)
-                .setOpenableLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+            setSupportActionBar(binding.appBarMain.toolbar);
 
-        Intent intent = new Intent(this, InicioActivity.class);
-        startActivity(intent);
+            DrawerLayout drawer = binding.drawerLayout;
+            NavigationView navigationView = binding.navView;
+            // Passing each menu ID as a set of Ids because each
+            // menu should be considered as top level destinations.
+            mAppBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.nav_mezclas, R.id.nav_catalogo, R.id.nav_dosimetro)
+                    .setOpenableLayout(drawer)
+                    .build();
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+            NavigationUI.setupWithNavController(navigationView, navController);
+        }
 
     }
 

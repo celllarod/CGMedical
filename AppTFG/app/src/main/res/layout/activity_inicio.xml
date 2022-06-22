@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:layout_gravity="center"
+    android:useDefaultMargins="true"
     tools:context=".InicioActivity"
-    >
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
+    android:rowCount="5">
 
         <TextView
             android:id="@+id/bienvenida_txt"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="20dp"
+            android:layout_row="0"
+            android:layout_column="0"
             android:text="@string/bienvenida"
             android:textAlignment="center"
+            android:layout_gravity="center"
             android:textColor="@color/gris"
             android:textSize="50sp"
             android:textStyle="bold" />
@@ -28,10 +26,11 @@
 
         <ImageView
             android:id="@+id/inicio_img"
-            android:layout_width="499dp"
+            android:layout_width="wrap_content"
             android:layout_height="494dp"
-            android:layout_below="@+id/bienvenida_txt"
-            android:layout_centerHorizontal="true"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:src="@drawable/logo" />
 
@@ -39,64 +38,51 @@
             android:id="@+id/login_btn"
             android:layout_width="350dp"
             android:layout_height="70dp"
-            android:layout_below="@id/inicio_img"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="5dp"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:layout_gravity="center"
             android:backgroundTint="@color/turquesa"
-            android:text="Iniciar sesión"
+            android:text="@string/login"
             android:textSize="22sp"
             app:cornerRadius="30dp" />
 
         <Button
-            android:id="@+id/signin_btn"
+            android:id="@+id/signup_btn"
             android:layout_width="350dp"
             android:layout_height="70dp"
-            android:layout_below="@id/login_btn"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="16dp"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:layout_gravity="center"
             android:backgroundTint="@color/turquesa"
-            android:text="Registrarse"
+            android:text="@string/signup"
             android:textSize="22sp"
             app:cornerRadius="30dp" />
 
+        <View
+            android:id="@+id/or_line"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_gravity="left"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="25dp"
+            android:layout_margin="6dp"
+            android:background="@color/azul_electrico" />
 
         <TextView
             android:id="@+id/o"
-            android:layout_width="29dp"
-            android:layout_height="26dp"
-            android:layout_below="@id/login_btn"
-            android:layout_centerHorizontal="true"
+            android:background="@color/white"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_gravity="center"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="40dp"
             android:layout_marginEnd="20dp"
-            android:text="O"
+            android:text="@string/o"
             android:textAlignment="center"
             android:textColor="@color/azul_electrico"
-            android:textSize="16sp" />
+            android:textSize="20sp"
+            android:padding="8dp"
+            android:textStyle="bold"/>
 
-        <View
-            android:id="@+id/or_line1"
-            android:layout_width="250dp"
-            android:layout_height="2dp"
-            android:layout_below="@id/login_btn"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginRight="6dp"
-            android:layout_marginBottom="21dp"
-            android:layout_toLeftOf="@id/o"
-            android:background="@color/azul_electrico" />
-
-        <View
-            android:id="@+id/or_line2"
-            android:layout_width="250dp"
-            android:layout_height="2dp"
-            android:layout_below="@id/login_btn"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="21dp"
-            android:layout_toRightOf="@id/o"
-            android:background="@color/azul_electrico" />
-    </RelativeLayout>
-</LinearLayout>
+</GridLayout>

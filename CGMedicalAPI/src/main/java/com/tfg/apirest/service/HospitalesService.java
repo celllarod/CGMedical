@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,13 +28,13 @@ public class HospitalesService {
     }
 
     /**
-     * Permite actualizar un hospital a través de su nombre
+     * Permite obtener el listado con los nombres de todos los hospitales existentes en el sistema
      *
-     * @param hospital Hospital a actualizar
+     * @result listado hospitales
      */
-    @Transactional
-    public void actualizar(Hospital hospital) {
-        this.save(hospital);
+    public List<String> findAllNombresHospitales(){
+        return this.findAllNombres();
+
     }
 
     /**
@@ -65,5 +66,14 @@ public class HospitalesService {
      */
     private Hospital save(Hospital hospital) {
         return hospitalRepository.saveAndFlush(hospital);
+    }
+
+    /**
+     * Obtiene el listado de hospitales
+     *
+     * @return listado de hospitales
+     */
+    private List<String> findAllNombres(){
+        return hospitalRepository.findNombres();
     }
 }
