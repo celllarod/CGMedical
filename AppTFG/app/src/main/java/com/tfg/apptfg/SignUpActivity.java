@@ -36,11 +36,11 @@ public class SignUpActivity extends AppCompatActivity {
         btContinue = findViewById(R.id.bt_signup_continuar);
 
         btContinue.setOnClickListener(view -> {
-            etName.setText("Celia");
-            etAp1.setText("Llanes");
+            //etName.setText("Celia");
+            //etAp1.setText("Llanes");
             //etEmail.setText("c@alum.us");
-            etPassword.setText("12345678");
-            etPasswordConfirmed.setText("12345678");
+            //etPassword.setText("12345678");
+           // etPasswordConfirmed.setText("12345678");
 
            if(isValid()) {
                 Intent intent = new Intent(view.getContext(), HospitalActivity.class);

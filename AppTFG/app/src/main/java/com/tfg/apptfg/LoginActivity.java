@@ -35,40 +35,38 @@ public class LoginActivity extends AppCompatActivity {
         btSubmit = findViewById(R.id.bt_login_submit);
 
         btSubmit.setOnClickListener(view -> {
-
-
-            if (isValid()){
-                //etEmail.setText("c@alum.us");
-                //etPassword.setText("12345678");
+                etEmail.setText("car@us.es");
+                etPassword.setText("123456789");
 
                 if(isValid()) {
                     LoginUser user = new LoginUser();
                     user.setEmail(etEmail.getText().toString().trim().toLowerCase());
                     user.setPassword(etPassword.getText().toString());
 
+                    Log.d("[CPMEDICAL][REST]", "Credenciales rellenas");
+
                     Call<JwtResponse> callSignIn = ApiAdapter.getApiService().signInUser(user);
                     callSignIn.enqueue(new Callback<JwtResponse>() {
                         @Override
                         public void onResponse(@NonNull Call<JwtResponse> call, @NonNull Response<JwtResponse> response) {
-                            if(response.isSuccessful()) {
+                            if (response.isSuccessful()) {
+                                Log.d("[CPMEDICAL][REST]", "Usuario Autenticado");
                                 JwtResponse jwt = response.body();
-                                Log.d("[CPMEDICAL][REST]", "Sign In User: " + jwt);
                                 SessionManager session = new SessionManager(jwt.getToken(), jwt.getType(), jwt.getId().toString(), jwt.getRol(), jwt.getEmail());
                                 SessionManager.save(session, getApplicationContext());
                                 Intent intent = new Intent(view.getContext(), MainActivity.class);
                                 startActivity(intent);
+                            } else {
+                                Log.d("[CPMEDICAL][REST][ERROR]", "SignIn User: " + response.errorBody());
                             }
                         }
 
                         @Override
                         public void onFailure(@NonNull Call<JwtResponse> call, @NonNull Throwable t) {
-                            Log.d("[CPMEDICAL][REST][ERROR]",  "SignIn User " + t.getMessage());
+                            Log.d("[CPMEDICAL][REST][ERROR]", "SignIn User: " + t.getMessage());
                         }
                     });
                 }
-            }
-
-
         });
     }
 

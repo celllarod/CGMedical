@@ -16,10 +16,6 @@ import retrofit2.http.POST;
 
 public interface ApiService {
 
-    @GET("farmacos")
-    Call<List<FarmacoResumen>> getFarmacos(@Header("Authorization") String token);
-
-
     @POST("auth/signup")
     Call<JwtResponse> signUpUser( @Body SignUpUser signup );
 
@@ -28,6 +24,10 @@ public interface ApiService {
 
     @GET("auth/hospitales")
     Call<List<String>> getHospitales();
+
+    @GET("farmacos")
+    Call<List<FarmacoResumen>> getFarmacos(@Header("Authorization") String token);
+
 
 
     /*@FormUrlEncoded

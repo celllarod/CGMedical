@@ -1,5 +1,6 @@
 package com.tfg.apptfg;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 
@@ -27,7 +28,7 @@ public class SessionManager {
     }
 
     public static void save(SessionManager session, Context cxt) {
-        Log.d("[CPMEDICAL][SESSION]]", "Se guarda la sesión en SharedPreferences para el usuario (" + session.getUserEmail() + ")");
+        Log.d("[CPMEDICAL][SESSION]", "Se guarda la sesión en SharedPreferences para el usuario (" + session.getUserEmail() + ")");
         SharedPreferences sp = cxt.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
 
         sp.edit()
@@ -57,7 +58,7 @@ public class SessionManager {
     public static void destroy(Context cxt) {
         SharedPreferences sp = cxt.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor  spEditor = sp.edit();
-
+        Log.d("[CPMEDICAL][SESSION]", "Se destruye la sesión.");
         spEditor.clear();
         spEditor.apply();
     }
