@@ -6,10 +6,8 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.tfg.apptfg.SessionManager;
-import com.tfg.apptfg.adapter.FarmacosAdapter;
 import com.tfg.apptfg.io.ApiAdapter;
 import com.tfg.apptfg.io.response.FarmacoResumen;
 

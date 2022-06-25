@@ -1,6 +1,5 @@
 package com.tfg.apptfg.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,17 +12,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.tfg.apptfg.R;
 import com.tfg.apptfg.io.response.FarmacoResumen;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
-public class FarmacosAdapter extends RecyclerView.Adapter<FarmacosAdapter.ViewHolder> {
+public class ListaFarmacosAdapter extends RecyclerView.Adapter<ListaFarmacosAdapter.ViewHolder> {
 
-    private List<FarmacoResumen> farmacosList;
-    private Context context;
+    private final List<FarmacoResumen> farmacosList;
+    private final List<FarmacoResumen> farmacosOriginalList;
 
 
-    public FarmacosAdapter(List<FarmacoResumen> farmacosList, Context context) {
+    public ListaFarmacosAdapter(List<FarmacoResumen> farmacosList) {
         this.farmacosList = farmacosList;
-        this.context = context;
+        farmacosOriginalList = new ArrayList<>();
+        farmacosOriginalList.addAll(farmacosList);
+
     }
 
     @NonNull
@@ -38,7 +42,7 @@ public class FarmacosAdapter extends RecyclerView.Adapter<FarmacosAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Manipulamos los componentes
         holder.txNombre.setText(farmacosList.get(position).getNombre());
-        String dosisMaxima = Double.toString(farmacosList.get(position).getDosisMaxima().getValor()) + farmacosList.get(position).getDosisMaxima().getUnidad();
+        String dosisMaxima = " " + farmacosList.get(position).getDosisMaxima().getValor() + " " + farmacosList.get(position).getDosisMaxima().getUnidad();
         holder.txDosis.setText(dosisMaxima);
 
     }
@@ -50,9 +54,9 @@ public class FarmacosAdapter extends RecyclerView.Adapter<FarmacosAdapter.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
-        private ImageView imgFarmaco;
-        private TextView txNombre;
-        private TextView txDosis;
+        private final ImageView imgFarmaco;
+        private final TextView txNombre;
+        private final TextView txDosis;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -62,5 +66,20 @@ public class FarmacosAdapter extends RecyclerView.Adapter<FarmacosAdapter.ViewHo
             txNombre = itemView.findViewById(R.id.tv_nombre_farmaco);
             txDosis = itemView.findViewById(R.id.tv_dosis_maxima);
         }
+    }
+
+    public void filtrado(String txtBuscar){
+        int longitud = txtBuscar.length();
+        if (longitud == 0) { // Si no se busca nada, se devuelve la lista completa
+            farmacosList.clear();
+            farmacosList.addAll(farmacosOriginalList);
+        } else{
+            List<FarmacoResumen> farmacosFiltradosList = farmacosList.stream()
+                    .filter(i -> i.getNombre().toLowerCase().contains(txtBuscar.toLowerCase(Locale.ROOT)))
+                    .collect(Collectors.toList());
+            farmacosList.clear();
+            farmacosList.addAll(farmacosFiltradosList);
+        }
+        notifyDataSetChanged();
     }
 }
