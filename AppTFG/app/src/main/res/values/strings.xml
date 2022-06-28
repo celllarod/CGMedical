@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">AppTFG</string>
+    <string name="app_name">CPMedical</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">CPMedical</string>
+    <string name="nav_header_subtitle">Chronic Pain Medication</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
@@ -13,21 +13,34 @@
     <string name="menu_catalogo">Catálogo</string>
     <string name="bienvenida">Bienvenid@ a CPMedical</string>
     <string name="login_title">Iniciar sesión</string>
-    <string name="email_placeholder">Introduzca su email</string>
-    <string name="password_placeholder">Introduzca su contraseña</string>
+    <string name="email_placeholder">Introduzca su email (*)</string>
+    <string name="password_placeholder">Introduzca su contraseña (*)</string>
     <string name="continuar_bt">Continuar</string>
     <string name="descripcion_personal_img">Imagen personal médico</string>
     <string name="signup_title">Registrar usuario</string>
-    <string name="name_placeholder">Introduzca su nombre</string>
-    <string name="ap1_placeholder">Introduzca su primer apellido</string>
+    <string name="name_placeholder">Introduzca su nombre (*)</string>
+    <string name="ap1_placeholder">Introduzca su primer apellido (*)</string>
     <string name="ap2_placeholder">Introduzca su segundo apellido</string>
     <string name="siguiente_btn">Siguiente</string>
-    <string name="hospital_placeholder">Introduzca o seleccione su hospital</string>
+    <string name="hospital_placeholder">Introduzca o seleccione su hospital (*)</string>
     <string name="signup">Registrarse</string>
     <string name="login">Iniciar sesión</string>
     <string name="o">o</string>
-    <string name="repetir_password_placeholder">Repita su contraseña</string>
+    <string name="repetir_password_placeholder">Repita su contraseña (*)</string>
     <string name="hospital_title">Crear/Unirse a un hospital</string>
     <string name="error_servidor">Se ha producido un error de conexión con el servidor</string>
     <string name="registrar">Registrar</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="valor">Valor</string>
+    <string name="unidad">Unidad</string>
+
+
+    <string-array name="unidades_presentacion">
+        <item>mg/mL</item>
+        <item>ug/mL</item>
+    </string-array>
+    <string-array name="unidades_dosis">
+        <item>mg/día</item>
+        <item>ug/día</item>
+    </string-array>
 </resources>

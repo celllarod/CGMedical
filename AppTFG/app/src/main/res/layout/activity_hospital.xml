@@ -36,7 +36,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/customerSpinnerLayout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_row="1"
@@ -51,8 +51,12 @@
                         android:layout_height="wrap_content"
                         android:clickable="true"
                         android:completionThreshold="0"
-                        android:dropDownSelector="@color/verde"
+                        android:dropDownSelector="@color/turquesa"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="100"
                         android:completionHint="Seleccione un hospital o indique uno nuevo"
+                        android:textColorHint="@color/azul_electrico"
+                        android:inputType="text"
                         android:scrollbarAlwaysDrawHorizontalTrack="true"
                         tools:ignore="KeyboardInaccessibleWidget" />
                 </com.google.android.material.textfield.TextInputLayout>

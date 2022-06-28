@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_presentacion"
+    android:orientation="horizontal"
+    android:layout_marginVertical="2dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_valor_pre"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_row="0"
+        android:layout_column="0"
+        app:startIconDrawable="@drawable/ic_number"
+        app:endIconDrawable="@drawable/ic_borrar"
+        app:endIconMode="clear_text">
+
+        <EditText
+            android:id="@+id/et_valor_pre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
+            android:textColor="@color/gris"
+            android:hint="@string/valor"
+            android:paddingHorizontal="5dp"
+            android:textSize="14sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_unidad_pre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:hint="@string/unidad"
+        android:layout_gravity="center_vertical">
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/sp_unidad_pre"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:completionHint="Seleccione unidad"
+            android:dropDownSelector="@color/turquesa"
+            android:entries="@array/unidades_presentacion"
+            android:inputType="none"
+
+            android:scrollbarAlwaysDrawHorizontalTrack="true"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bt_delete_pre"
+        style="@style/Widget.App.Button.IconOnly"
+        android:layout_width="37dp"
+        android:layout_height="30dp"
+        android:layout_row="0"
+        android:layout_column="2"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/rojo"
+        android:layout_gravity="center_vertical"
+        app:icon="@drawable/ic_delete"
+        app:iconSize="10dp"
+        app:iconTint="@color/white" />
+    </GridLayout>
+

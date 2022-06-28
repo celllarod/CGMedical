@@ -15,7 +15,7 @@
         android:layout_width="550dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="160dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp"
         app:elevation="50dp">
@@ -50,7 +50,6 @@
                     android:layout_marginTop="15dp"
                     app:endIconDrawable="@drawable/ic_borrar"
                     app:endIconMode="clear_text"
-                    app:helperText="Obligatorio*"
                     app:helperTextTextColor="@color/rojo"
                     app:startIconDrawable="@drawable/ic_email">
 
@@ -72,8 +71,7 @@
                     android:layout_height="wrap_content"
                     android:layout_row="2"
                     android:layout_column="0"
-                    android:layout_marginTop="15dp"
-                    app:helperText="Obligatorio*"
+                    android:layout_marginTop="25dp"
                     app:helperTextTextColor="@color/rojo"
                     app:passwordToggleEnabled="true"
                     app:startIconDrawable="@drawable/ic_password">
@@ -96,7 +94,7 @@
                     android:layout_row="3"
                     android:layout_column="0"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginTop="23dp"
                     app:icon="@drawable/ic_verificado"
                     android:backgroundTint="@color/turquesa"
                     android:elevation="40dp"

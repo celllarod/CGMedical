@@ -5,9 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    tools:context=".SignUpActivity"
     android:background="@drawable/fondo"
-    android:useDefaultMargins="true">
+    android:useDefaultMargins="true"
+    tools:context=".SignUpActivity">
         <androidx.cardview.widget.CardView
             android:id="@+id/card_signup"
             android:scrollbarAlwaysDrawHorizontalTrack="true"
@@ -53,10 +53,10 @@
                         android:layout_row="0"
                         android:layout_column="0"
                         android:layout_marginTop="15dp"
-                        app:helperText="Obligatorio*"
-                        app:helperTextTextColor="@color/rojo"
                         app:startIconDrawable="@drawable/ic_nombre"
                         app:endIconDrawable="@drawable/ic_borrar"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="20"
                         app:endIconMode="clear_text">
 
                         <EditText
@@ -78,9 +78,9 @@
                         android:layout_row="1"
                         android:layout_column="0"
                         android:layout_marginTop="15dp"
-                        app:helperText="Obligatorio*"
-                        app:helperTextTextColor="@color/rojo"
                         app:endIconDrawable="@drawable/ic_borrar"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="50"
                         app:endIconMode="clear_text">
 
                         <EditText
@@ -103,6 +103,8 @@
                         android:layout_column="0"
                         android:layout_marginTop="15dp"
                         app:endIconDrawable="@drawable/ic_borrar"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="50"
                         app:endIconMode="clear_text">
 
                         <EditText
@@ -126,8 +128,8 @@
                         android:layout_marginTop="15dp"
                         app:endIconDrawable="@drawable/ic_borrar"
                         app:endIconMode="clear_text"
-                        app:helperText="Obligatorio*"
-                        app:helperTextTextColor="@color/rojo"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="20"
                         app:startIconDrawable="@drawable/ic_email">
 
                         <EditText
@@ -149,8 +151,8 @@
                         android:layout_row="4"
                         android:layout_column="0"
                         android:layout_marginTop="15dp"
-                        app:helperText="Obligatorio*"
-                        app:helperTextTextColor="@color/rojo"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="40"
                         app:passwordToggleEnabled="true"
                         app:startIconDrawable="@drawable/ic_password">
 
@@ -173,8 +175,6 @@
                         android:layout_row="5"
                         android:layout_column="0"
                         android:layout_marginTop="15dp"
-                        app:helperText="Obligatorio*"
-                        app:helperTextTextColor="@color/rojo"
                         app:passwordToggleEnabled="true"
                         app:startIconDrawable="@drawable/ic_password">
 

@@ -1,5 +1,6 @@
 package com.tfg.apptfg.ui.catalogo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +10,14 @@ import android.widget.SearchView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.tfg.apptfg.InicioActivity;
+import com.tfg.apptfg.RegistrarFarmaco;
+import com.tfg.apptfg.SessionManager;
 import com.tfg.apptfg.adapter.ListaFarmacosAdapter;
 import com.tfg.apptfg.databinding.CatalogoFragmentBinding;
 import com.tfg.apptfg.io.response.FarmacoResumen;
@@ -24,6 +30,8 @@ public class CatalogoFragment extends Fragment implements SearchView.OnQueryText
     private RecyclerView rvListaFarmacos;
     private ListaFarmacosAdapter listaFarmacosAdapter;
     private SearchView svBuscador;
+    private ExtendedFloatingActionButton fab;
+    private static final String ROL_GESTOR = "GESTOR";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -34,16 +42,16 @@ public class CatalogoFragment extends Fragment implements SearchView.OnQueryText
         catalogoViewModel.getFarmacos(getContext()).observe(getViewLifecycleOwner(), this::inicializarListaFarmacos);
         svBuscador = binding.svBuscador;
         rvListaFarmacos = binding.rvCatalogo;
+        fab = binding.fab;
 
-
-
-        // TODO: codigo para cerrar sesión
-        /*farmacosBtn.setOnClickListener( view -> {
-            catalogoViewModel.getFarmacos(getContext());
-            SessionManager.destroy(getContext().getApplicationContext());
-            Intent intent = new Intent(view.getContext(), MainActivity.class);
-            startActivity(intent);
-        });*/
+        // Botón añadir fármaco solo visible para rol GESTOR
+        if (ROL_GESTOR.equals(SessionManager.get(getContext()).getUserRol())){
+            fab.setVisibility(View.VISIBLE);
+            fab.setOnClickListener(v -> {
+                Intent intent = new Intent(v.getContext(), RegistrarFarmaco.class);
+                startActivity(intent);
+            });
+        }
         return root;
     }
 
