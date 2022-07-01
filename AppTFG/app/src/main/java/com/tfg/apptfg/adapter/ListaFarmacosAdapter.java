@@ -1,5 +1,6 @@
 package com.tfg.apptfg.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,12 +70,13 @@ public class ListaFarmacosAdapter extends RecyclerView.Adapter<ListaFarmacosAdap
     }
 
     public void filtrado(String txtBuscar){
+        Log.d("Debug", "Filtrando por subcadena: " + txtBuscar);
         int longitud = txtBuscar.length();
         if (longitud == 0) { // Si no se busca nada, se devuelve la lista completa
             farmacosList.clear();
             farmacosList.addAll(farmacosOriginalList);
         } else{
-            List<FarmacoResumen> farmacosFiltradosList = farmacosList.stream()
+            List<FarmacoResumen> farmacosFiltradosList = farmacosOriginalList.stream()
                     .filter(i -> i.getNombre().toLowerCase().contains(txtBuscar.toLowerCase(Locale.ROOT)))
                     .collect(Collectors.toList());
             farmacosList.clear();

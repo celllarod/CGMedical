@@ -1,8 +1,22 @@
 package com.tfg.apptfg;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.core.content.ContextCompat;
+
+import com.tfg.apptfg.io.response.Propiedad;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public class ValidationUtils {
     private static final int MAX_LENGTH_NAME = 20;
@@ -11,6 +25,7 @@ public class ValidationUtils {
     private static final int MAX_LENGTH_EMAIL = 255;
     private static final int MAX_LENGTH_PASS = 40;
     private static final int MAX_LENGTH_HOSPITAL = 100;
+    private static final int MAX_LENGTH_NAME_FARMACO = 100;
 
     public static boolean validateName(EditText etName){
         boolean result = true;
@@ -90,6 +105,37 @@ public class ValidationUtils {
         return result;
     }
 
+    public static boolean validateNombreFarmaco(EditText etName){
+        boolean result = true;
+        if(!isNotEmpty(etName)){
+            result = false;
+        } else if(!isValidLength(etName, MAX_LENGTH_NAME_FARMACO)) {
+            result = false;
+        }
+        return result;
+    }
+
+    public static boolean validatePresentaciones(Context context, Set<Propiedad> presentaciones){
+        boolean result = true;
+        if (presentaciones.isEmpty()) {
+            // TODO: mejor poner error al lado del botón '+'
+            GeneralUtils.showErrorToast(context, "Debe indicar al menos un valor de presentación comercial");
+            result = false;
+        }
+        return result;
+    }
+
+    public static boolean validateDosisMaxima(EditText etValor, AppCompatSpinner spUnidad){
+        boolean result = true;
+        String valor = etValor.getText().toString();
+        String unidad = spUnidad.getSelectedItem().toString();
+        if (valor.isEmpty() || unidad.isEmpty()) {
+            etValor.setError("Este campo no puede estar vacío");
+            result = false;
+        }
+        return result;
+    }
+
     public static boolean isNotEmpty(EditText et){
         boolean result = false;
         String value = et.getText().toString();
@@ -101,6 +147,7 @@ public class ValidationUtils {
         }
         return result;
     }
+
 
     public static boolean isValidLength(EditText et, int maxSize) {
         boolean result = false;

@@ -35,7 +35,6 @@ public class CatalogoViewModel extends ViewModel{
     }
 
     public void obtenerFarmacos(Context ctx) {
-        // TODO: para token y eso
         SessionManager session = SessionManager.get(ctx);
         Call<List<FarmacoResumen>> callFarmacos = ApiAdapter.getApiService().getFarmacos(session.getUserTokenType() + " " + session.getUserToken());
         callFarmacos.enqueue(new Callback<List<FarmacoResumen>>() {

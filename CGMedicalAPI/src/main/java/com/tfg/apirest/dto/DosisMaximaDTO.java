@@ -25,6 +25,6 @@ public class DosisMaximaDTO {
     /** Unidades de medida de la propiedad */
     @NotBlank(message = "El campo 'unidad' no puede ir vacío.", groups={Modificar.class, Crear.class})
     @NotNull(message = "El campo 'unidad' es obligatorio.", groups={Modificar.class, Crear.class})
-    @Pattern(regexp = "[mu]g/(dia)" , message = "El campo 'unidad' tiene un valor no soportado.",  groups={Modificar.class, Crear.class})
+    @Pattern(regexp = "[mu]g/(d[íi]a)" , message = "El campo 'unidad' tiene un valor no soportado.",  groups={Modificar.class, Crear.class})
     String unidad;
 }

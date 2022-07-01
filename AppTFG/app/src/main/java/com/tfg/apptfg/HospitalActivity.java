@@ -46,7 +46,7 @@ public class HospitalActivity extends AppCompatActivity {
 
             if(ValidationUtils.validateHospital(etHospitales)){
                 user.setHospital(etHospitales.getText().toString().trim().toLowerCase());
-                Log.d("[CPMEDICAL][REST]", "Usuario a registrar válido: " + user.getNombre() + " -- " + user.getApellido1()+" -- " +user.getEmail()+" -- " +user.getPassword() + " -- " + user.getHospital());
+                Log.d("[CPMEDICAL][SignUp]", "Usuario a registrar válido: " + user.getNombre() + " -- " + user.getApellido1()+" -- " +user.getEmail()+" -- " +user.getPassword() + " -- " + user.getHospital());
 
                 Call<JwtResponse> callSignUp = ApiAdapter.getApiService().signUpUser(user);
                 callSignUp.enqueue(new Callback<JwtResponse>() {

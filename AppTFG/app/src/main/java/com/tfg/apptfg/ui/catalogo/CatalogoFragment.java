@@ -75,6 +75,7 @@ public class CatalogoFragment extends Fragment implements SearchView.OnQueryText
 
     @Override
     public boolean onQueryTextSubmit(String s) {
+        listaFarmacosAdapter.filtrado(s);
         return false;
     }
 
