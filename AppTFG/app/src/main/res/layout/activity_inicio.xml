@@ -35,6 +35,16 @@
             app:layout_constraintTop_toBottomOf="@+id/login_btn" />
 
         <Button
+            android:id="@+id/login_btn"
+            style="@style/BotonPrincipal"
+            android:text="@string/login"
+            android:layout_marginTop="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/o"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_inicio_layout" />
+
+        <Button
             android:id="@+id/signup_btn"
             style="@style/BotonPrincipal"
             android:text="@string/signup"
@@ -42,15 +52,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/o" />
-
-        <Button
-            android:id="@+id/login_btn"
-            style="@style/BotonPrincipal"
-            android:text="@string/login"
-            app:layout_constraintBottom_toTopOf="@+id/o"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_inicio_layout" />
 
         <TextView
             android:id="@+id/bienvenida_txt"
