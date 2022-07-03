@@ -34,7 +34,6 @@
     <string name="valor">Valor</string>
     <string name="unidad">Unidad</string>
 
-
     <string-array name="unidades_presentacion">
         <item>mg/mL</item>
         <item>ug/mL</item>
