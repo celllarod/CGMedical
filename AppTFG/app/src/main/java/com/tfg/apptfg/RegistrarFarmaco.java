@@ -54,9 +54,6 @@ public class RegistrarFarmaco extends AppCompatActivity {
 
         // Se añade un elemento a la lista de presentación comercial
         this.addView();
-
-        etNombre.requestFocus();
-
         btAdd.setOnClickListener(v -> addView());
         btCancel.setOnClickListener(v -> {
             this.closeKeyboard();
@@ -113,7 +110,7 @@ public class RegistrarFarmaco extends AppCompatActivity {
         });
 
         presentacionListLayout.addView(presentacionView);
-        etValor.requestFocus();
+
         if(presentacionListLayout.getChildCount() >= 0) {
             findViewById(R.id.sr_lista_pre).setVisibility(View.VISIBLE);
         }
@@ -124,6 +121,7 @@ public class RegistrarFarmaco extends AppCompatActivity {
     }
 
     private void goToCatalogoFragment(){
+        // TODO: ver problema error al ir hacia atrás
         CatalogoFragment catalogoFragment =new CatalogoFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.catalogo_fragment, catalogoFragment).commit();
 

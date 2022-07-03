@@ -14,26 +14,28 @@
         android:usesCleartextTraffic="true" >
         <activity
             android:name=".RegistrarFarmaco"
+            android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppTFG.NoActionBar"
-            android:exported="false" />
+            android:windowSoftInputMode="adjustPan|stateHidden" /> <!--TODO: adjustresize o adjustPan??-->
         <activity
             android:name=".HospitalActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppTFG.NoActionBar"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".SignUpActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppTFG.NoActionBar"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppTFG.NoActionBar"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".InicioActivity"
             android:exported="false"
@@ -46,7 +48,6 @@
             android:theme="@style/Theme.AppTFG.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
