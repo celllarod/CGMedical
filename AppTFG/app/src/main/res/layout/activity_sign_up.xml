@@ -1,44 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".SignUpActivity"
     android:layout_width="match_parent"
-    android:orientation="vertical"
+    android:layout_height="match_parent"
     android:background="@drawable/fondo"
-    android:useDefaultMargins="true"
-    tools:context=".SignUpActivity">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_signup"
-            android:scrollbarAlwaysDrawHorizontalTrack="true"
-            android:layout_column="0"
-            android:layout_row="0"
-            android:layout_width="550dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            app:cardCornerRadius="30dp"
-            app:cardElevation="20dp"
-            app:elevation="50dp">
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+    android:useDefaultMargins="true">
 
-            <RelativeLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_signup"
+        style="@style/CardViewPrincipal"
+        android:layout_height="0dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline7">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
                 android:id="@+id/form_signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:orientation="vertical"
                 android:padding="25dp">
 
                 <TextView
                     android:id="@+id/signup_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/signup_title"
-                    android:textAlignment="center"
-                    android:textSize="50sp"
-                    android:textStyle="bold" />
+                    style="@style/Titulo"
+                    android:text="@string/signup_title" />
 
                 <GridLayout
                     android:layout_width="match_parent"
@@ -53,11 +48,11 @@
                         android:layout_row="0"
                         android:layout_column="0"
                         android:layout_marginTop="15dp"
-                        app:startIconDrawable="@drawable/ic_nombre"
-                        app:endIconDrawable="@drawable/ic_borrar"
                         app:counterEnabled="true"
                         app:counterMaxLength="20"
-                        app:endIconMode="clear_text">
+                        app:endIconDrawable="@drawable/ic_borrar"
+                        app:endIconMode="clear_text"
+                        app:startIconDrawable="@drawable/ic_nombre">
 
                         <EditText
                             android:id="@+id/et_signup_name"
@@ -78,9 +73,9 @@
                         android:layout_row="1"
                         android:layout_column="0"
                         android:layout_marginTop="15dp"
-                        app:endIconDrawable="@drawable/ic_borrar"
                         app:counterEnabled="true"
                         app:counterMaxLength="50"
+                        app:endIconDrawable="@drawable/ic_borrar"
                         app:endIconMode="clear_text">
 
                         <EditText
@@ -102,9 +97,9 @@
                         android:layout_row="2"
                         android:layout_column="0"
                         android:layout_marginTop="15dp"
-                        app:endIconDrawable="@drawable/ic_borrar"
                         app:counterEnabled="true"
                         app:counterMaxLength="50"
+                        app:endIconDrawable="@drawable/ic_borrar"
                         app:endIconMode="clear_text">
 
                         <EditText
@@ -126,10 +121,10 @@
                         android:layout_row="3"
                         android:layout_column="0"
                         android:layout_marginTop="15dp"
-                        app:endIconDrawable="@drawable/ic_borrar"
-                        app:endIconMode="clear_text"
                         app:counterEnabled="true"
                         app:counterMaxLength="20"
+                        app:endIconDrawable="@drawable/ic_borrar"
+                        app:endIconMode="clear_text"
                         app:startIconDrawable="@drawable/ic_email">
 
                         <EditText
@@ -189,19 +184,23 @@
                             android:textColor="@color/gris" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </GridLayout>
-            </RelativeLayout>
+            </LinearLayout>
         </ScrollView>
-        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:layout_width="480dp"
-            android:layout_height="250dp"
-            android:layout_gravity="center"
-            android:layout_column="0"
-            android:layout_row="1"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/ic_signup"
-            android:contentDescription="@string/descripcion_personal_img" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constrainedHeight="true"
+        android:layout_gravity="center"
+        android:contentDescription="@string/descripcion_personal_img"
+        android:src="@drawable/ic_signup"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bt_signup_continuar"
@@ -211,12 +210,40 @@
         android:layout_column="0"
         android:layout_gravity="bottom|end"
         android:layout_margin="45dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="@color/turquesa"
         android:elevation="70dp"
         android:padding="20dp"
         android:textSize="20sp"
         app:cornerRadius="100dp"
-        app:icon="@drawable/ic_siguiente" />
+        app:icon="@drawable/ic_siguiente"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.70" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95"/>
 
 
-</GridLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

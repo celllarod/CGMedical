@@ -14,7 +14,7 @@
 
     <!-- Botón principal -->
     <style name="BotonPrincipal" parent="ThemeOverlay.Material3.Button.ElevatedButton">
-        <item name="android:layout_width">350dp</item>
+        <item name="android:layout_width">330dp</item>
         <item name="android:layout_height">70dp</item>
         <item name="android:backgroundTint">@color/turquesa</item>
         <item name="android:textSize">16sp</item>

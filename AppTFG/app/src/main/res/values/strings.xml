@@ -17,7 +17,7 @@
     <string name="password_placeholder">Introduzca su contraseña (*)</string>
     <string name="continuar_bt">Continuar</string>
     <string name="descripcion_personal_img">Imagen personal médico</string>
-    <string name="signup_title">Registrar usuario</string>
+    <string name="signup_title">Crear cuenta</string>
     <string name="name_placeholder">Introduzca su nombre (*)</string>
     <string name="ap1_placeholder">Introduzca su primer apellido (*)</string>
     <string name="ap2_placeholder">Introduzca su segundo apellido</string>
@@ -31,7 +31,7 @@
     <string name="error_servidor">Se ha producido un error de conexión con el servidor</string>
     <string name="registrar">Registrar</string>
     <string name="logout">Cerrar sesión</string>
-    <string name="valor">Valor</string>
+    <string name="valor">valor</string>
     <string name="unidad">Unidad</string>
 
     <string-array name="unidades_presentacion">
