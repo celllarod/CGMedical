@@ -1,8 +1,8 @@
 package com.tfg.apirest.service;
 
 
-import com.tfg.apirest.dto.FarmacoDetalleView;
-import com.tfg.apirest.dto.FarmacoResumenView;
+import com.tfg.apirest.view.FarmacoDetalleView;
+import com.tfg.apirest.view.FarmacoResumenView;
 import com.tfg.apirest.entity.Farmaco;
 import com.tfg.apirest.entity.Propiedad;
 import com.tfg.apirest.function.FarmacoToFarmacoDetalleViewFunction;

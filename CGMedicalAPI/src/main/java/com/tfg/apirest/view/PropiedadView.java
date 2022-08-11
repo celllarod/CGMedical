@@ -1,4 +1,4 @@
-package com.tfg.apirest.dto;
+package com.tfg.apirest.view;
 
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

@@ -1,8 +1,8 @@
 package com.tfg.apirest.controller;
 
 import com.tfg.apirest.dto.DatosFarmacoCrearDTO;
-import com.tfg.apirest.dto.FarmacoDetalleView;
-import com.tfg.apirest.dto.FarmacoResumenView;
+import com.tfg.apirest.view.FarmacoDetalleView;
+import com.tfg.apirest.view.FarmacoResumenView;
 import com.tfg.apirest.dto.PropiedadesDTO;
 import com.tfg.apirest.entity.Farmaco;
 import com.tfg.apirest.function.PropiedadesDTOToPropiedadesSetFunction;
@@ -105,7 +105,7 @@ public class FarmacoController {
     @DeleteMapping("farmacos/{id}")
     @PreAuthorize("hasAuthority('GESTOR')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void udeleteFarmaco(
+    public void deleteFarmaco(
             @NotNull @PathVariable(value = "id", required = false) UUID idFarmaco) {
 
         // Comprobamos si existe el fármaco

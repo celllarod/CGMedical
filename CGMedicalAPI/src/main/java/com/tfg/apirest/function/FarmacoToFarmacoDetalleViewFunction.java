@@ -1,8 +1,8 @@
 package com.tfg.apirest.function;
 
-import com.tfg.apirest.dto.FarmacoDetalleView;
-import com.tfg.apirest.dto.PropiedadView;
-import com.tfg.apirest.dto.PropiedadesView;
+import com.tfg.apirest.view.FarmacoDetalleView;
+import com.tfg.apirest.view.PropiedadView;
+import com.tfg.apirest.view.PropiedadesView;
 import com.tfg.apirest.entity.Farmaco;
 import org.springframework.cglib.core.internal.Function;
 
