@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-12T16:05:10.141Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36" etag="PQWL5nZiGKYboLPKIKGO" version="19.0.0" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-08-12T16:05:35.947Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36" etag="avyYRD14sb1wxHR_ljO_" version="19.0.0" type="github" pages="2">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="cáculo mezclas">
     <mxGraphModel dx="1663" dy="983" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -119,6 +119,9 @@
         </mxCell>
         <mxCell id="2Izp3qoDKILhuXsn-0xH-5" value="Elegir fármaco 1&lt;br&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- Nombre&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- Dosis actual&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="2Izp3qoDKILhuXsn-0xH-1">
           <mxGeometry x="160" y="180" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="CeZ-8LrnGWIf_zA1hC4d-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;fontColor=#000000;" edge="1" parent="2Izp3qoDKILhuXsn-0xH-1" source="2Izp3qoDKILhuXsn-0xH-9" target="2Izp3qoDKILhuXsn-0xH-14">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="2Izp3qoDKILhuXsn-0xH-9" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Elegir farmaco 2:&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- Nombre&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- Dosis actual&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="2Izp3qoDKILhuXsn-0xH-1">
           <mxGeometry x="160" y="270" width="120" height="50" as="geometry" />
