@@ -24,8 +24,6 @@ public class CatalogoViewModel extends ViewModel{
 
     public CatalogoViewModel(){  }
 
-
-
     public MutableLiveData<List<FarmacoResumen>> getFarmacos(Context cxt) {
         if (Objects.isNull(farmacosList)){
             farmacosList = new MutableLiveData<>();
