@@ -1,15 +1,16 @@
 package com.tfg.apptfg.adapter;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.tfg.apptfg.DetalleActivity;
 import com.tfg.apptfg.R;
 import com.tfg.apptfg.io.response.FarmacoResumen;
 
@@ -20,8 +21,8 @@ import java.util.stream.Collectors;
 
 public class ListaFarmacosAdapter extends RecyclerView.Adapter<ListaFarmacosAdapter.ViewHolder> {
 
-    private final List<FarmacoResumen> farmacosList;
-    private final List<FarmacoResumen> farmacosOriginalList;
+    List<FarmacoResumen> farmacosList;
+    List<FarmacoResumen> farmacosOriginalList;
 
 
     public ListaFarmacosAdapter(List<FarmacoResumen> farmacosList) {
@@ -53,9 +54,9 @@ public class ListaFarmacosAdapter extends RecyclerView.Adapter<ListaFarmacosAdap
         return farmacosList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
-        private final ImageView imgFarmaco;
+       // private final ImageView imgFarmaco;
         private final TextView txNombre;
         private final TextView txDosis;
 
@@ -63,9 +64,15 @@ public class ListaFarmacosAdapter extends RecyclerView.Adapter<ListaFarmacosAdap
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             // Se inicializan los componentes del elemento de la lista
-            imgFarmaco= itemView.findViewById(R.id.img_farmaco);
+            //imgFarmaco= itemView.findViewById(R.id.img_farmaco);
             txNombre = itemView.findViewById(R.id.tv_nombre_farmaco);
             txDosis = itemView.findViewById(R.id.tv_dosis_maxima);
+
+            itemView.setOnClickListener(v -> {
+                Intent intent = new Intent(v.getContext(), DetalleActivity.class);
+                intent.putExtra("ID",farmacosOriginalList.get(getAbsoluteAdapterPosition()).getId().toString());
+                v.getContext().startActivity(intent);
+            });
         }
     }
 

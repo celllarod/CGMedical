@@ -3,7 +3,6 @@ package com.tfg.apptfg;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatSpinner;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -37,8 +36,6 @@ public class RegistrarFarmaco extends AppCompatActivity {
     AppCompatSpinner spUnidadDosis;
     MaterialButton btSubmit;
     MaterialButton btCancel;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

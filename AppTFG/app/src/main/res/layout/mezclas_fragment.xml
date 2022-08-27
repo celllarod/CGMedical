@@ -4,19 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#16BB86FC"
+    android:orientation="vertical"
     tools:context=".ui.mezclas.MezclasFragment">
 
-    <TextView
-        android:id="@+id/text_mezclas"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_signup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="80dp"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarFadeDuration="50000"
+        android:scrollbarSize="4dp"
+        android:scrollbarThumbVertical="@color/azul_electrico"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"
+        app:elevation="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:id="@+id/contenedor_fragmentos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/bt_stepper"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/bt_stepper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_signup"
+        tools:layout_editor_absoluteX="10dp">
+
+        <Button
+            android:id="@+id/step1"
+            style="@style/Widget.App.Button.IconOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/azul_electrico"
+            android:text="1"></Button>
+
+        <Button
+            android:id="@+id/step2"
+            style="@style/Widget.App.Button.IconOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/azul_electrico"
+            android:text="2"></Button>
+
+        <Button
+            android:id="@+id/step3"
+            style="@style/Widget.App.Button.IconOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/azul_electrico"
+            android:text="3"></Button>
+
+        <Button
+            android:id="@+id/step4"
+            style="@style/Widget.App.Button.IconOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/azul_electrico"
+            android:text="4"></Button>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
