@@ -1,20 +1,14 @@
 package com.tfg.apptfg;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.util.Log;
-import android.view.View;
+import android.text.Editable;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatSpinner;
-import androidx.core.content.ContextCompat;
 
 import com.tfg.apptfg.io.response.Propiedad;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -136,6 +130,44 @@ public class ValidationUtils {
         return result;
     }
 
+
+    public static boolean validateNombreMezclas(AutoCompleteTextView etName){
+        boolean result = true;
+        if(!isNotEmpty(etName)){
+            result = false;
+        }
+        return result;
+    }
+
+    public static boolean validateConcentracionMezclas(EditText etValor, AppCompatSpinner spUnidad){
+        boolean result = true;
+        String valor = etValor.getText().toString();
+        String unidad = spUnidad.getSelectedItem().toString();
+        if (valor.isEmpty() || unidad.isEmpty()) {
+            etValor.setError("Este campo no puede estar vacío");
+            result = false;
+        }
+        return result;
+    }
+
+    public static boolean validatePresentacionMezclas(AutoCompleteTextView etPre){
+        boolean result = true;
+        if(!isNotEmpty(etPre)){
+            result = false;
+        }
+        return result;
+    }
+
+    public static boolean validateDosisMezclas(EditText etValor, AppCompatSpinner spUnidad){
+        boolean result = true;
+        String valor = etValor.getText().toString();
+        String unidad = spUnidad.getSelectedItem().toString();
+        if (valor.isEmpty() || unidad.isEmpty()) {
+            etValor.setError("Este campo no puede estar vacío");
+            result = false;
+        }
+        return result;
+    }
     public static boolean isNotEmpty(EditText et){
         boolean result = false;
         String value = et.getText().toString();

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/ly_dosis"
     android:orientation="horizontal"
     android:layout_marginTop="3dp"
     android:layout_width="wrap_content"
@@ -9,7 +8,7 @@
     android:layout_gravity="center_horizontal">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_valor_dosis"
+        android:id="@+id/til_valor_concentracion"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
@@ -20,7 +19,7 @@
         app:endIconMode="clear_text">
 
         <EditText
-            android:id="@+id/et_valor_dosis"
+            android:id="@+id/et_valor_concentracion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_row="0"
@@ -37,7 +36,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_unidad_dosis"
+        android:id="@+id/til_unidad_concentracion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="0"
@@ -46,13 +45,13 @@
         android:layout_gravity="center_vertical">
 
         <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/sp_unidad_dosis"
+            android:id="@+id/sp_unidad_concentracion"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:completionHint="Seleccione unidad"
             android:dropDownSelector="@color/turquesa"
-            android:entries="@array/unidades_dosis"
+            android:entries="@array/unidades_presentacion"
             android:inputType="none"
             android:scrollbarAlwaysDrawHorizontalTrack="true"
             />
