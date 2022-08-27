@@ -9,6 +9,7 @@
 
     <color name="black">#FF000000</color>
     <color name="gris">#FF4E4E4E</color>
+    <color name="gris_claro">#414E4E4E</color>
     <color name="white">#FFFFFFFF</color>
     <color name="verde">#62e1a3</color>
     <color name="turquesa">#FF03DAC5</color>

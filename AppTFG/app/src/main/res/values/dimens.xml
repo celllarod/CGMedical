@@ -10,4 +10,13 @@
     <dimen name="width_boton_principal">350dp</dimen>
     <dimen name="height_boton_principal">70dp</dimen>
 
+    <!-- CarView -->
+    <dimen name="corner_radius_card">30dp</dimen>
+    <dimen name="elevation_card">40dp</dimen>
+    <dimen name="margin_card">20dp</dimen>
+
+
+
+
+
 </resources>
