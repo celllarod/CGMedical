@@ -49,7 +49,7 @@ public class FarmacosSecundariosStepFragment extends Fragment {
     private MezclasViewModel mezclasViewModel;
     private MaterialButton btAdd;
     private RecyclerView rvFarmacosList;
-    ConstraintLayout clForm;
+    private ConstraintLayout clForm;
     private AutoCompleteTextView acNombreFs;
     private EditText etValorDosis;
     private AppCompatSpinner spUnidadDosis;
@@ -143,6 +143,7 @@ public class FarmacosSecundariosStepFragment extends Fragment {
     }
 
     private void inicializarPropiedades(FarmacoDetalle farmaco) {
+        // Presentación
         List<String> preStr = new ArrayList<>();
         if (!Objects.isNull(farmaco)) {
             Set<Propiedad> presentaciones = farmaco.getPropiedades().getPresentaciones();
@@ -169,7 +170,8 @@ public class FarmacosSecundariosStepFragment extends Fragment {
         isValorDosisValid();
     }
 
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    public void onClickDosisUnidad(AdapterView<?> parent, View view, int position, long id) {
+        // TODO: asociar al spinner dosis unidad
         onClickDosisValor(view);
     }
 

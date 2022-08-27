@@ -1,6 +1,5 @@
 package com.tfg.apptfg.ui.mezclas;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -13,28 +12,24 @@ import java.util.List;
 import java.util.Objects;
 
 public class MezclasViewModel extends ViewModel {
-    private  MutableLiveData<DatosCalculoMezclas> datos = new MutableLiveData<>();
     private  MutableLiveData<PropiedadSimple> volumen;
     private  MutableLiveData<FarmacoDominante> farmacoDominante;
     private  MutableLiveData<List<FarmacoSecundario>> farmacosSecundariosList;
-    private  MutableLiveData<Boolean> isValidFd = new MutableLiveData<>(true);
-    private  MutableLiveData<Boolean> isEmptyFd = new MutableLiveData<>(true);
 
     public MezclasViewModel() {
 
     }
 
-    public LiveData<DatosCalculoMezclas> getDatos() {
-        return datos;
+    public DatosCalculoMezclas getDatos() {
+        DatosCalculoMezclas datosCalculoMezclas = new DatosCalculoMezclas();
+        if (isValid()) {
+            datosCalculoMezclas.setVolumenBomba(volumen.getValue());
+            datosCalculoMezclas.setFarmacoDominante(farmacoDominante.getValue());
+            datosCalculoMezclas.setFarmacosSecundarios(farmacosSecundariosList.getValue());
+        }
+        return datosCalculoMezclas;
     }
 
-    public void setIsValidFd(Boolean fdValidation) {
-        isValidFd.setValue(fdValidation);
-    }
-
-    public void setIsEmptyFd(Boolean fdEmpty) {
-        isEmptyFd .setValue(fdEmpty);
-    }
     public void setVolumenBomba(String volumenBomba) {
         String[] volumenSplit = volumenBomba.split(" ");
         volumen = new MutableLiveData<>();
@@ -55,15 +50,43 @@ public class MezclasViewModel extends ViewModel {
         return farmacosSecundariosList;
     }
 
+//    public MutableLiveData<PropiedadSimple> getVolumen() {
+//        return volumen;
+//    }
+
+//    public MutableLiveData<FarmacoDominante> getFarmacoDominante() {
+//        return farmacoDominante;
+//    }
+
     public boolean isEmptyVolumen(){
         return Objects.isNull(volumen);
     }
 
     public boolean isEmptyFarmacoDominante(){
-        return isEmptyFd.getValue();
+        return Objects.isNull(farmacoDominante);
     }
 
     public boolean isValidFarmacoDominante(){
-        return isValidFd.getValue();
+        boolean result;
+        if (!isEmptyFarmacoDominante()) {
+            result = !Objects.isNull(Objects.requireNonNull(farmacoDominante.getValue()).getNombre());
+            result = !Objects.isNull(farmacoDominante.getValue().getDosis()) && result;
+            result = !Objects.isNull(farmacoDominante.getValue().getConcentracion()) && result;
+            result = !Objects.isNull(farmacoDominante.getValue().getPresentacion()) && result;
+        } else {
+            result = false;
+        }
+        return result;
+    }
+
+    public boolean isValidFarmacosSecundarios(){
+        return !Objects.isNull(farmacosSecundariosList);
+    }
+
+    public boolean isValid(){
+        boolean result = !isEmptyVolumen();
+        result = isValidFarmacoDominante() && result;
+        return !Objects.isNull(farmacosSecundariosList.getValue()) && result;
+
     }
 }

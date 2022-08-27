@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.android.material.button.MaterialButton;
 import com.tfg.apptfg.R;
 import com.tfg.apptfg.databinding.MezclasFragmentBinding;
 import com.tfg.apptfg.ui.mezclas.step.FarmacoDominanteStepFragment;
@@ -38,17 +39,18 @@ public class MezclasFragment extends Fragment {
     private MezclasFragmentBinding binding;
     private FragmentTransaction fragmentTransaction;
     private Fragment volumenFragment, fdFragment, fsFragment, recetaFragment;
-    private Button bt1, bt2, bt3, bt4;
+    private MaterialButton bt1, bt2, bt3, bt4;
     private Button btActual;
     private Button btAnterior;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getChildFragmentManager().setFragmentResultListener("requestKey", this, (requestKey, result) -> {
-            String res = result.getString("bundleKey");
-            Log.d("Child Manager", res);
-        });
+        savedInstanceState = null;
+//        getChildFragmentManager().setFragmentResultListener("requestKey", this, (requestKey, result) -> {
+//            String res = result.getString("bundleKey");
+//            Log.d("Child Manager", res);
+//        });
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -102,13 +104,50 @@ public class MezclasFragment extends Fragment {
                 fragmentTransaction.addToBackStack("fs");
                 break;
             case R.id.step4:
-                fragmentTransaction.replace(R.id.contenedor_fragmentos, recetaFragment);
-                fragmentTransaction.addToBackStack("receta");
+                if(isValidDatos()) {
+                    fragmentTransaction.replace(R.id.contenedor_fragmentos, recetaFragment);
+                    fragmentTransaction.addToBackStack("receta");
+                }
+                else{
+                    // TODO: Toast con error: Existen campos incorrectos o vacíos
+                }
                 break;
         }
         fragmentTransaction.commit();
-        changeEstadoStepper();
+//        changeEstadoStepper();
 
+    }
+
+    private boolean isValidDatos() {
+        boolean result = true;
+        // Volumen
+        if(mezclasViewModel.isEmptyVolumen()){
+            result = false && result;
+            setEmptyButton(bt1);
+        } else {
+            result = true && result;
+            setCorrectButton(bt1);
+        }
+        //Farmaco dominante
+        if(mezclasViewModel.isEmptyFarmacoDominante()){
+            result = false && result;
+            setEmptyButton(bt2);
+        } else if(mezclasViewModel.isValidFarmacoDominante()){
+            result = true && result;
+            setCorrectButton(bt2);
+        } else {
+            result = false && result;
+            setErrorButton(bt2);
+        }
+        //Farmaco dominante
+        if(mezclasViewModel.isValidFarmacosSecundarios()){
+            setCorrectButton(bt3);
+            result = true && result;
+        } else {
+            setEmptyButton(bt3);
+            result = true && result;
+        }
+        return result;
     }
 
     private void changeEstadoStepper(){

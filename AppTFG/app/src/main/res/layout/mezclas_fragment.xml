@@ -50,41 +50,43 @@
         app:layout_constraintTop_toBottomOf="@+id/card_signup"
         tools:layout_editor_absoluteX="10dp">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/step1"
             style="@style/Widget.App.Button.IconOnly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:backgroundTint="@color/azul_electrico"
-            android:text="1"></Button>
+            android:text="1"></com.google.android.material.button.MaterialButton>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/step2"
             style="@style/Widget.App.Button.IconOnly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:backgroundTint="@color/azul_electrico"
-            android:text="2"></Button>
+            android:text="2"></com.google.android.material.button.MaterialButton>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/step3"
             style="@style/Widget.App.Button.IconOnly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:backgroundTint="@color/azul_electrico"
-            android:text="3"></Button>
+            android:text="3"></com.google.android.material.button.MaterialButton>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/step4"
             style="@style/Widget.App.Button.IconOnly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:backgroundTint="@color/azul_electrico"
-            android:text="4"></Button>
+            android:backgroundTint="@color/black"
+            app:icon="@drawable/ic_calculadora"
+            android:text="Receta">
+        </com.google.android.material.button.MaterialButton>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

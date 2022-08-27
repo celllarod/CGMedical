@@ -124,7 +124,7 @@ public class ValidationUtils {
         String valor = etValor.getText().toString();
         String unidad = spUnidad.getSelectedItem().toString();
         if (valor.isEmpty() || unidad.isEmpty()) {
-            etValor.setError("Este campo no puede estar vacío");
+            etValor.setError("Este campo es obligatorio");
             result = false;
         }
         return result;
@@ -144,7 +144,7 @@ public class ValidationUtils {
         String valor = etValor.getText().toString();
         String unidad = spUnidad.getSelectedItem().toString();
         if (valor.isEmpty() || unidad.isEmpty()) {
-            etValor.setError("Este campo no puede estar vacío");
+            etValor.setError("Este campo es obligatorio");
             result = false;
         }
         return result;
@@ -163,7 +163,7 @@ public class ValidationUtils {
         String valor = etValor.getText().toString();
         String unidad = spUnidad.getSelectedItem().toString();
         if (valor.isEmpty() || unidad.isEmpty()) {
-            etValor.setError("Este campo no puede estar vacío");
+            etValor.setError("Este campo es obligatorio");
             result = false;
         }
         return result;
@@ -172,7 +172,7 @@ public class ValidationUtils {
         boolean result = false;
         String value = et.getText().toString();
         if(value.isEmpty()) {
-            et.setError("Este campo no puede estar vacío");
+            et.setError("Este campo es obligatorio");
         } else{
             et.setError(null);
             result = true;

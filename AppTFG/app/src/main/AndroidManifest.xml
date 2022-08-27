@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tfg.apptfg">
+    package="com.tfg.apptfg" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,14 +10,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:windowSoftInputMode="adjustPan|stateHidden"
         android:theme="@style/Theme.AppTFG"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:windowSoftInputMode="adjustPan|stateHidden" >
+      
         <activity
             android:name=".DetalleActivity"
             android:exported="false"
             android:theme="@style/Theme.AppTFG.NoActionBar"
-            android:windowSoftInputMode="adjustPan|stateHidden"/>
+            android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".RegistrarFarmaco"
             android:exported="false"
@@ -51,7 +52,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppTFG.NoActionBar">
+            android:theme="@style/Theme.AppTFG.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
