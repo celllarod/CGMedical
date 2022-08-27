@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 public class FarmacoSecundarioDTO {
-    /** Dosis máxima del fármaco */
+    /** Nombre */
     @JsonProperty("nombre")
     @NotBlank(message = "El campo 'nombre' no puede ir vacío.")
     @NotNull(message = "El campo 'nombre' es obligatorio.")

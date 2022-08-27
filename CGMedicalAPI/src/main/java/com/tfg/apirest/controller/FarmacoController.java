@@ -9,6 +9,7 @@ import com.tfg.apirest.function.PropiedadesDTOToPropiedadesSetFunction;
 import com.tfg.apirest.service.FarmacosService;
 import com.tfg.apirest.validation.group.Crear;
 import com.tfg.apirest.validation.group.Modificar;
+import com.tfg.apirest.view.FarmacoSimpleView;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -112,5 +113,16 @@ public class FarmacoController {
         var farmaco = farmacosService.existeFarmaco(idFarmaco);
 
         farmacosService.eliminarFarmaco(farmaco);
+    }
+
+    /** Permite obtener el listado de nombres de todos los fármacos existentes en un hospital.
+     *
+     * @return listado nombres fármacos
+     */
+    @GetMapping("farmacos/nombres")
+    @PreAuthorize("hasAuthority('USER') or hasAuthority('GESTOR')")
+    @ResponseStatus(HttpStatus.OK)
+    public List<FarmacoSimpleView> searchNombresFarmacos() {
+        return farmacosService.buscarNombresFarmacos();
     }
 }

@@ -8,6 +8,7 @@ import com.tfg.apirest.entity.Propiedad;
 import com.tfg.apirest.function.FarmacoToFarmacoDetalleViewFunction;
 import com.tfg.apirest.function.FarmacoToFarmacoResumenViewFunction;
 import com.tfg.apirest.repository.FarmacoRepository;
+import com.tfg.apirest.view.FarmacoSimpleView;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
@@ -164,6 +165,18 @@ public class FarmacosService {
         this.deleteFarmacoById(farmaco);
     }
 
+    /** Permite obtener el listado de nombres de todos los fármacos existentes en un hospital.
+     *
+     * @return listado nombres fármacos
+     */
+    public List<FarmacoSimpleView> buscarNombresFarmacos() {
+        // Se obtiene el usuario de la sesión
+        var usuario = usuariosService.getUsuarioSesion();
+
+        // Se obtiene el listado de fármacos del hospital al que está asociado el usuario
+        return this.findNombresFarmacosByHospital(usuario.getHospital().getId());
+    }
+
     /**
      * Permite setear las propiedades de un fármaco
      * @param farmaco Fármaco al que se le van a setear las propiedades
@@ -221,5 +234,15 @@ public class FarmacosService {
      */
     private void deleteFarmacoById(Farmaco farmaco) {
         farmacoRepository.delete(farmaco);
+    }
+
+    /**
+     * Permite buscar nombres de todos los fármacos existentes
+     *
+     * @param idHospital Identificador del hospital
+     * @return listado de fármacos
+     */
+    private List<FarmacoSimpleView> findNombresFarmacosByHospital(UUID idHospital) {
+        return farmacoRepository.findNombresFarmacosByHospital(idHospital);
     }
 }

@@ -14,7 +14,7 @@ import java.util.Set;
 @Getter
 @Setter
 public class FarmacoDominanteDTO {
-    /** Dosis máxima del fármaco */
+    /** Nombre */
     @JsonProperty("nombre")
     @NotBlank(message = "El campo 'nombre' no puede ir vacío.")
     @NotNull(message = "El campo 'nombre' es obligatorio.")
