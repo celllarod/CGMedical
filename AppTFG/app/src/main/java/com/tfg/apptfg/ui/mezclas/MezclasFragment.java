@@ -12,7 +12,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,7 @@ import android.widget.Button;
 
 import com.google.android.material.button.MaterialButton;
 import com.tfg.apptfg.R;
-import com.tfg.apptfg.databinding.MezclasFragmentBinding;
+import com.tfg.apptfg.databinding.FragmentMezclasBinding;
 import com.tfg.apptfg.ui.mezclas.step.FarmacoDominanteStepFragment;
 import com.tfg.apptfg.ui.mezclas.step.FarmacoDominanteStepViewModel;
 import com.tfg.apptfg.ui.mezclas.step.FarmacosSecundariosStepFragment;
@@ -36,16 +35,21 @@ public class MezclasFragment extends Fragment {
     private FarmacoDominanteStepViewModel fdViewModel;
     private FarmacosSecundariosStepViewModel fsViewModel;
 
-    private MezclasFragmentBinding binding;
+    private FragmentMezclasBinding binding;
     private FragmentTransaction fragmentTransaction;
     private Fragment volumenFragment, fdFragment, fsFragment, recetaFragment;
     private MaterialButton bt1, bt2, bt3, bt4;
     private Button btActual;
     private Button btAnterior;
 
+    private Integer step;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(savedInstanceState != null) {
+            step = savedInstanceState.getInt("step");
+        }
         savedInstanceState = null;
 //        getChildFragmentManager().setFragmentResultListener("requestKey", this, (requestKey, result) -> {
 //            String res = result.getString("bundleKey");
@@ -60,7 +64,7 @@ public class MezclasFragment extends Fragment {
         fdViewModel = new ViewModelProvider(requireActivity()).get(FarmacoDominanteStepViewModel.class);
         fsViewModel = new ViewModelProvider(requireActivity()).get(FarmacosSecundariosStepViewModel.class);
 
-        binding = MezclasFragmentBinding.inflate(inflater, container, false);
+        binding = FragmentMezclasBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         bt1 = binding.step1;
         bt2 = binding.step2;
@@ -78,8 +82,17 @@ public class MezclasFragment extends Fragment {
         recetaFragment = new RecetaStepFragment();
 
         // Por defecto se mostrará el paso 1 (volumen)
-        getChildFragmentManager().beginTransaction().add(R.id.contenedor_fragmentos, volumenFragment).commit();
+        if(step == null) {
+            getChildFragmentManager().beginTransaction().add(R.id.contenedor_fragmentos, volumenFragment).commit();
+            step = 1;
+        }
         return root;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("step", step);
     }
 
     @Override
@@ -93,24 +106,24 @@ public class MezclasFragment extends Fragment {
         switch (view.getId()) {
             case R.id.step1:
                 fragmentTransaction.replace(R.id.contenedor_fragmentos, volumenFragment);
-                fragmentTransaction.addToBackStack("volumen");
+                step = 1;
+//                fragmentTransaction.addToBackStack("volumen");
                 break;
             case R.id.step2:
                 fragmentTransaction.replace(R.id.contenedor_fragmentos, fdFragment);
-                fragmentTransaction.addToBackStack("fd");
+                step = 2;
+//                fragmentTransaction.addToBackStack("fd");
                 break;
             case R.id.step3:
                 fragmentTransaction.replace(R.id.contenedor_fragmentos, fsFragment);
-                fragmentTransaction.addToBackStack("fs");
+                step = 3;
+//                fragmentTransaction.addToBackStack("fs");
                 break;
             case R.id.step4:
-                if(isValidDatos()) {
-                    fragmentTransaction.replace(R.id.contenedor_fragmentos, recetaFragment);
-                    fragmentTransaction.addToBackStack("receta");
-                }
-                else{
-                    // TODO: Toast con error: Existen campos incorrectos o vacíos
-                }
+                isValidDatos();
+                fragmentTransaction.replace(R.id.contenedor_fragmentos, recetaFragment);
+                step = 4;
+//                    fragmentTransaction.addToBackStack("receta");
                 break;
         }
         fragmentTransaction.commit();
@@ -139,7 +152,7 @@ public class MezclasFragment extends Fragment {
             result = false && result;
             setErrorButton(bt2);
         }
-        //Farmaco dominante
+        //Farmacos secundarios
         if(mezclasViewModel.isValidFarmacosSecundarios()){
             setCorrectButton(bt3);
             result = true && result;

@@ -17,24 +17,25 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.tfg.apptfg.RegistrarFarmaco;
 import com.tfg.apptfg.SessionManager;
 import com.tfg.apptfg.adapter.ListaFarmacosAdapter;
-import com.tfg.apptfg.databinding.CatalogoFragmentBinding;
+import com.tfg.apptfg.databinding.FragmentCatalogoBinding;
 import com.tfg.apptfg.io.response.FarmacoResumen;
 
 import java.util.List;
 
 public class CatalogoFragment extends Fragment implements SearchView.OnQueryTextListener {
 
-    private CatalogoFragmentBinding binding;
+    private FragmentCatalogoBinding binding;
     private RecyclerView rvListaFarmacos;
     private ListaFarmacosAdapter listaFarmacosAdapter;
+    CatalogoViewModel catalogoViewModel;
     private SearchView svBuscador;
     private static final String ROL_GESTOR = "GESTOR";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        CatalogoViewModel catalogoViewModel = new ViewModelProvider(this).get(CatalogoViewModel.class);
-        binding = CatalogoFragmentBinding.inflate(inflater, container, false);
-        catalogoViewModel.getFarmacos(getContext()).observe(getViewLifecycleOwner(), this::inicializarListaFarmacos);
+        catalogoViewModel = new ViewModelProvider(this).get(CatalogoViewModel.class);
+        binding = FragmentCatalogoBinding.inflate(inflater, container, false);
+        //catalogoViewModel.getFarmacos(getContext()).observe(getViewLifecycleOwner(), this::inicializarListaFarmacos);
         View root = binding.getRoot();
         svBuscador = binding.svBuscador;
         rvListaFarmacos = binding.rvCatalogo;
@@ -49,6 +50,12 @@ public class CatalogoFragment extends Fragment implements SearchView.OnQueryText
             });
         }
         return root;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        catalogoViewModel.getFarmacos(getContext()).observe(getViewLifecycleOwner(), this::inicializarListaFarmacos);
     }
 
     @Override

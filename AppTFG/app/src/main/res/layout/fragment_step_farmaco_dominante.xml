@@ -9,26 +9,19 @@
 
     <TextView
         android:id="@+id/fd_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        style="@style/Titulo"
         android:text="Fármaco dominante:"
         android:textAlignment="center"
-        android:textSize="40sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline9" />
 
     <TextView
         android:id="@+id/tx_tit_nombre_fd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Subtitulo"
         android:layout_marginStart="10dp"
         android:labelFor="@+id/til_nombre_fd"
         android:text="Nombre:"
-        android:textColor="@color/gris"
-        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fd_title" />
@@ -58,13 +51,10 @@
 
     <TextView
         android:id="@+id/tx_tit_presentacion_fd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Subtitulo"
         android:layout_marginStart="10dp"
         android:labelFor="@+id/til_presentacion_fd"
         android:text="Presentación:"
-        android:textColor="@color/gris"
-        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/til_nombre_fd" />
@@ -96,13 +86,10 @@
 
     <TextView
         android:id="@+id/tx_tit_concentracion_fd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Subtitulo"
         android:layout_marginStart="10dp"
         android:labelFor="@+id/til_concentracion_fd"
         android:text="Concentración:"
-        android:textColor="@color/gris"
-        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/til_presentacion_fd" />
@@ -119,17 +106,13 @@
 
     <TextView
         android:id="@+id/tx_tit_dosis_fd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Subtitulo"
         android:layout_marginStart="10dp"
         android:labelFor="@+id/til_presentacion_fd"
         android:text="Dosis:"
-        android:textColor="@color/gris"
-        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ly_concentracion" />
-
 
     <include
         android:id="@+id/ly_dosis"

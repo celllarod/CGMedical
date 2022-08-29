@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.tfg.apptfg.databinding.VolumenStepFragmentBinding;
+import com.tfg.apptfg.databinding.FragmentStepVolumenBinding;
 import com.tfg.apptfg.ui.mezclas.MezclasViewModel;
 
 
@@ -22,7 +22,7 @@ public class VolumenStepFragment extends Fragment {
 
     private MezclasViewModel mezclasViewModel;
     private VolumenStepViewModel volumenViewModel;
-    private VolumenStepFragmentBinding binding;
+    private FragmentStepVolumenBinding binding;
     private RadioGroup rdGroup;
     private RadioButton rd1;
     private RadioButton rd2;
@@ -32,7 +32,7 @@ public class VolumenStepFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         volumenViewModel = new ViewModelProvider(this).get(VolumenStepViewModel.class);
         mezclasViewModel = new ViewModelProvider(requireParentFragment()).get(MezclasViewModel.class);
-        binding = VolumenStepFragmentBinding.inflate(inflater, container, false);
+        binding = FragmentStepVolumenBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         rdGroup = binding.radioGroup;
         rd1 = binding.rdVol1;

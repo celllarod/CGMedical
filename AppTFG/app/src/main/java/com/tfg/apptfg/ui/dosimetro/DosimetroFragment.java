@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.tfg.apptfg.databinding.DosimetroFragmentBinding;
+import com.tfg.apptfg.databinding.FragmentDosimetroBinding;
 
 public class DosimetroFragment extends Fragment {
 
-    private DosimetroFragmentBinding binding;
+    private FragmentDosimetroBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         DosimetroViewModel dosimetroViewModel =
                 new ViewModelProvider(this).get(DosimetroViewModel.class);
 
-        binding = DosimetroFragmentBinding.inflate(inflater, container, false);
+        binding = FragmentDosimetroBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDosimetro;

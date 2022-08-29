@@ -19,7 +19,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
 import com.tfg.apptfg.ValidationUtils;
-import com.tfg.apptfg.databinding.FarmacoDominanteStepFragmentBinding;
+import com.tfg.apptfg.databinding.FragmentStepFarmacoDominanteBinding;
 import com.tfg.apptfg.io.request.PropiedadSimple;
 import com.tfg.apptfg.io.response.FarmacoDetalle;
 import com.tfg.apptfg.io.response.Propiedad;
@@ -35,7 +35,7 @@ import java.util.stream.Collectors;
 
 public class FarmacoDominanteStepFragment extends Fragment {
 
-    private FarmacoDominanteStepFragmentBinding binding;
+    private FragmentStepFarmacoDominanteBinding binding;
     private AutoCompleteTextView acNombreFd;
     private EditText etValorConcentracion;
     private AppCompatSpinner spUnidadConcentracion;
@@ -51,7 +51,7 @@ public class FarmacoDominanteStepFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         farmacoDominanteStepViewModel = new ViewModelProvider(this).get(FarmacoDominanteStepViewModel.class);
         mezclasViewModel = new ViewModelProvider(requireParentFragment()).get(MezclasViewModel.class);
-        binding = FarmacoDominanteStepFragmentBinding.inflate(inflater, container, false);
+        binding = FragmentStepFarmacoDominanteBinding.inflate(inflater, container, false);
         farmacoDominanteStepViewModel.getNombresFarmacos(getContext()).observe(getViewLifecycleOwner(), this::inicializarNombres);
 
         View root = binding.getRoot();
@@ -69,16 +69,30 @@ public class FarmacoDominanteStepFragment extends Fragment {
         return root;
     }
 
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (!acNombreFd.getText().toString().isEmpty()) {
+            onItemClickNombres(null, getView(), 0, 0);
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
+
     // Se ejecuta antes de que el fragmento se reemplace
     @Override
-    public void onPause() {
-        super.onPause();
+    public void onStop() {
+        super.onStop();
         String nombre = (isValidNombre()) ? acNombreFd.getText().toString() : null;
         PropiedadSimple presentacion = (isValidPresentacion())? convertirPresentacion(acPresentacion.getText().toString()) : null;
         PropiedadSimple concentracion = (isConcentracionValid())?

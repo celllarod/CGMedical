@@ -8,7 +8,6 @@ import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,14 +19,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.ListView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.tfg.apptfg.R;
-import com.tfg.apptfg.adapter.ListaFarmacosAdapter;
 import com.tfg.apptfg.adapter.ListaFarmacosSecundariosAdapter;
-import com.tfg.apptfg.databinding.FarmacosSecundariosStepFragmentBinding;
+import com.tfg.apptfg.databinding.FragmentStepFarmacosSecundariosBinding;
 import com.tfg.apptfg.io.request.FarmacoSecundario;
 import com.tfg.apptfg.io.request.PropiedadSimple;
 import com.tfg.apptfg.io.response.FarmacoDetalle;
@@ -44,7 +41,7 @@ import java.util.stream.Collectors;
 
 public class FarmacosSecundariosStepFragment extends Fragment {
 
-    private FarmacosSecundariosStepFragmentBinding binding;
+    private FragmentStepFarmacosSecundariosBinding binding;
     private FarmacosSecundariosStepViewModel farmacosSecundariosViewModel;
     private MezclasViewModel mezclasViewModel;
     private MaterialButton btAdd;
@@ -74,7 +71,7 @@ public class FarmacosSecundariosStepFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         farmacosSecundariosViewModel = new ViewModelProvider(this).get(FarmacosSecundariosStepViewModel.class);
         mezclasViewModel = new ViewModelProvider(requireParentFragment()).get(MezclasViewModel.class);
-        binding = FarmacosSecundariosStepFragmentBinding.inflate(inflater, container, false);
+        binding = FragmentStepFarmacosSecundariosBinding.inflate(inflater, container, false);
        // farmacosSecundariosViewModel.getNombresFarmacos(getContext()).observe(getViewLifecycleOwner(), this::inicializarNombres);
 
         View root = binding.getRoot();
