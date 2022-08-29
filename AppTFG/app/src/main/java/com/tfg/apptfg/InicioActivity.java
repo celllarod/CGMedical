@@ -25,4 +25,9 @@ public class InicioActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
+
+    @Override
+    public void onBackPressed() {
+
+    }
 }
