@@ -1,5 +1,6 @@
 package com.tfg.apptfg.io;
 
+import com.tfg.apptfg.io.request.DatosCalculoMezclas;
 import com.tfg.apptfg.io.request.DatosFarmacoCrear;
 import com.tfg.apptfg.io.request.LoginUser;
 import com.tfg.apptfg.io.request.Propiedades;
@@ -13,6 +14,7 @@ import com.tfg.apptfg.io.response.JwtResponse;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
@@ -49,8 +51,7 @@ public interface ApiService {
 
     /** Eliminar fármaco */
     @DELETE("farmacos/{id}")
-    // TODO: response?? (204)
-    Call<FarmacoDetalle> deleteFarmaco(@Header("Authorization") String token, @Path("id") String id);
+    Call<Void> deleteFarmaco(@Header("Authorization") String token, @Path("id") String id);
 
     /** Actualizar fármaco */
     @PUT("farmacos/{id}")
@@ -62,7 +63,7 @@ public interface ApiService {
 
     /** Cálculo de mezclas */
     @POST("calculo/mezclas")
-    Call<List<Carga>> calcularReceta(@Header("Authorization") String token, @Body DatosFarmacoCrear datos);
+    Call<List<Carga>> calcularReceta(@Header("Authorization") String token, @Body DatosCalculoMezclas datos);
 
     /*@FormUrlEncoded
     @POST("farmacos")
