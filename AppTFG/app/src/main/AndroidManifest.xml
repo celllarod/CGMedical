@@ -17,6 +17,7 @@
         <activity
             android:name=".DetalleActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppTFG.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity

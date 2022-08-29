@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/receta_item"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_gravity="start"
+android:layout_marginHorizontal="20dp"
+android:layout_marginVertical="8dp"
+android:background="@drawable/toast_exito_backgound"
+android:backgroundTint="#5D56B3F8"
+android:elevation="1dp"
+android:orientation="horizontal"
+android:padding="15dp">
+
+    <TextView
+        android:id="@+id/tv_valor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="20"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="15sp"></TextView>
+
+    <TextView
+        android:id="@+id/tv_unidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="mg/mL"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+
+</LinearLayout>

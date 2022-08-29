@@ -52,46 +52,50 @@ public class RegistrarFarmaco extends AppCompatActivity {
         // Se añade un elemento a la lista de presentación comercial
         this.addView();
         btAdd.setOnClickListener(v -> addView());
-        btCancel.setOnClickListener(v -> {
-            this.closeKeyboard();
-            goToCatalogoFragment();
-        }); // TODO: dialog ¿Seguro que desea volver? Se eliminarán todos los datos
-        btSubmit.setOnClickListener(v -> {
-            this.closeKeyboard();
-            this.getPresentaciones();
-            if(this.isValid()){
-                Log.d("[CPMEDICAL][Create farmaco]", "Fármaco a registrar válido.");
-                DatosFarmacoCrear datosFarmaco = new DatosFarmacoCrear();
-                datosFarmaco.setNombre(etNombre.getText().toString().trim());
-                Propiedades propiedades = new Propiedades();
-                Propiedad dosisMaxima = new Propiedad();
-                dosisMaxima.setValor(Double.parseDouble(etValorDosis.getText().toString()));
-                dosisMaxima.setUnidad(spUnidadDosis.getSelectedItem().toString());
-                propiedades.setDosisMaxima(dosisMaxima);
-                propiedades.setPresentaciones(presentaciones);
-                datosFarmaco.setPropiedades(propiedades);
+        btCancel.setOnClickListener(this::onClickCancel);
+         // TODO: dialog ¿Seguro que desea volver? Se eliminarán todos los datos
+        btSubmit.setOnClickListener(this::onClickSubmit);
+    }
 
-                SessionManager session = SessionManager.get(this);
-                Call<FarmacoDetalle> callCreateFarmaco = ApiAdapter.getApiService().createFarmaco(session.getUserTokenType() + " " + session.getUserToken(), datosFarmaco);
-                callCreateFarmaco.enqueue(new Callback<FarmacoDetalle>() {
-                    @Override
-                    public void onResponse(@NonNull Call<FarmacoDetalle> call, @NonNull Response<FarmacoDetalle> response) {
-                        if(response.isSuccessful()) {
-                            Log.d("[CPMEDICAL][REST]", "Fármaco registrado");
-                            GeneralUtils.showSuccesToast(v.getContext(), "Fármaco registrado con éxito");
-                            // TODO: Toast: fármaco registrado con éxito fondo verde redondeado
-                            goToCatalogoFragment();
-                        }
+    private void onClickCancel(View view){
+        this.closeKeyboard();
+        goToCatalogoFragment();
+    }
+
+    private void onClickSubmit(View v){
+        this.closeKeyboard();
+        this.getPresentaciones();
+        if(this.isValid()){
+            Log.d("[CPMEDICAL][Create farmaco]", "Fármaco a registrar válido.");
+            DatosFarmacoCrear datosFarmaco = new DatosFarmacoCrear();
+            datosFarmaco.setNombre(etNombre.getText().toString().trim());
+            Propiedades propiedades = new Propiedades();
+            Propiedad dosisMaxima = new Propiedad();
+            dosisMaxima.setValor(Double.parseDouble(etValorDosis.getText().toString()));
+            dosisMaxima.setUnidad(spUnidadDosis.getSelectedItem().toString());
+            propiedades.setDosisMaxima(dosisMaxima);
+            propiedades.setPresentaciones(presentaciones);
+            datosFarmaco.setPropiedades(propiedades);
+
+            SessionManager session = SessionManager.get(this);
+            Call<FarmacoDetalle> callCreateFarmaco = ApiAdapter.getApiService().createFarmaco(session.getUserTokenType() + " " + session.getUserToken(), datosFarmaco);
+            callCreateFarmaco.enqueue(new Callback<FarmacoDetalle>() {
+                @Override
+                public void onResponse(@NonNull Call<FarmacoDetalle> call, @NonNull Response<FarmacoDetalle> response) {
+                    if(response.isSuccessful()) {
+                        Log.d("[CPMEDICAL][REST]", "Fármaco registrado");
+                        GeneralUtils.showSuccesToast(v.getContext(), "Fármaco registrado con éxito");
+                        goToCatalogoFragment();
                     }
+                }
 
-                    @Override
-                    public void onFailure(@NonNull Call<FarmacoDetalle> call, @NonNull Throwable t) {
-                        Log.d("[CPMEDICAL][REST][ERROR]",  "Error al registrar fármaco " + t.getMessage());
-                    }
+                @Override
+                public void onFailure(@NonNull Call<FarmacoDetalle> call, @NonNull Throwable t) {
+                    Log.d("[CPMEDICAL][REST][ERROR]",  "Error al registrar fármaco " + t.getMessage());
+                }
 
-                });
-            }
-        });
+            });
+        }
     }
 
     private void addView() {
@@ -99,12 +103,7 @@ public class RegistrarFarmaco extends AppCompatActivity {
         EditText etValor = presentacionView.findViewById(R.id.et_valor_pre);
         MaterialButton btDelete = presentacionView.findViewById(R.id.bt_delete_pre);
 
-        btDelete.setOnClickListener( v -> {
-            removeView(presentacionView);
-            if(presentacionListLayout.getChildCount() == 0) {
-                findViewById(R.id.sr_lista_pre).setVisibility(View.GONE);
-            }
-        });
+        btDelete.setOnClickListener(v -> onClickDeletePre(v, presentacionView));
 
         presentacionListLayout.addView(presentacionView);
 
@@ -118,10 +117,15 @@ public class RegistrarFarmaco extends AppCompatActivity {
     }
 
     private void goToCatalogoFragment(){
-        // TODO: ver problema error al ir hacia atrás
-        CatalogoFragment catalogoFragment =new CatalogoFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.catalogo_fragment, catalogoFragment).commit();
+        this.finish();
 
+    }
+
+    private void onClickDeletePre(View v, View presentacionView) {
+        removeView(presentacionView);
+        if(presentacionListLayout.getChildCount() == 0) {
+            findViewById(R.id.sr_lista_pre).setVisibility(View.GONE);
+        }
     }
 
     private boolean isValid(){
@@ -160,7 +164,5 @@ public class RegistrarFarmaco extends AppCompatActivity {
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
-
-
 }
 
