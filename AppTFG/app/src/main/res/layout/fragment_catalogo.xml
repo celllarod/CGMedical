@@ -31,18 +31,30 @@
             android:textSize="30sp" />
     </androidx.cardview.widget.CardView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_catalogo"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/sc_contenedor_lista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:fadeScrollbars="false"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarFadeDuration="50000"
+        android:scrollbarSize="8dp"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbarThumbVertical="@color/gris_claro"
+        android:scrollbars="vertical"
         app:layout_constrainedHeight="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline11"
-        tools:listitem="@layout/farmaco"></androidx.recyclerview.widget.RecyclerView>
-
+        app:layout_constraintTop_toBottomOf="@+id/guideline11">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_catalogo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/farmaco">
+        </androidx.recyclerview.widget.RecyclerView>
+    </androidx.core.widget.NestedScrollView>
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"

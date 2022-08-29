@@ -27,6 +27,13 @@
         <item name="android:layout_gravity">center</item>
     </style>
 
+    <!-- Dialog-->
+    <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
     <!-- CardView -->
     <style name="CardViewPrincipal" parent="Widget.Material3.CardView.Elevated">
         <item name="android:layout_width">match_parent</item>
@@ -41,10 +48,18 @@
     <style name="Titulo">
         <item name="android:textSize">40dp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">20dp</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAlignment">textStart</item>
-
+    </style>
+    <style  name="Subtitulo">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/gris</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:layout_marginTop">15dp</item>
 
     </style>
 </resources>

@@ -11,15 +11,11 @@
 
     <TextView
         android:id="@+id/tit_fs_form"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        style="@style/Titulo"
         android:text="Añada fármaco secundario:"
         android:padding="10dp"
-        android:textStyle="bold"
         android:textAlignment="center"
-        android:textColor="@color/gris"
-        android:textSize="25sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline9" />
@@ -37,13 +33,10 @@
 
     <TextView
         android:id="@+id/tx_tit_nombre_fs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Subtitulo"
         android:layout_marginStart="10dp"
         android:labelFor="@+id/til_nombre_fs"
         android:text="Nombre:"
-        android:textColor="@color/gris"
-        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tit_separator" />
@@ -73,13 +66,10 @@
 
     <TextView
         android:id="@+id/tx_tit_presentacion_fs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Subtitulo"
         android:layout_marginStart="10dp"
         android:labelFor="@+id/til_presentacion_fs"
         android:text="Presentación:"
-        android:textColor="@color/gris"
-        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/til_nombre_fs" />
@@ -112,13 +102,10 @@
 
     <TextView
         android:id="@+id/tx_tit_dosis_fs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Subtitulo"
         android:layout_marginStart="10dp"
         android:labelFor="@+id/til_presentacion_fs"
         android:text="Dosis:"
-        android:textColor="@color/gris"
-        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/til_presentacion_fs" />

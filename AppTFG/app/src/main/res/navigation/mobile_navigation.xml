@@ -9,16 +9,16 @@
         android:id="@+id/nav_dosimetro"
         android:name="com.tfg.apptfg.ui.dosimetro.DosimetroFragment"
         android:label="@string/menu_dosimetro"
-        tools:layout="@layout/dosimetro_fragment" />
+        tools:layout="@layout/fragment_dosimetro" />
     <fragment
         android:id="@+id/nav_mezclas"
         android:name="com.tfg.apptfg.ui.mezclas.MezclasFragment"
         android:label="@string/menu_mezclas"
-        tools:layout="@layout/mezclas_fragment" />
+        tools:layout="@layout/fragment_mezclas" />
     <fragment
         android:id="@+id/nav_catalogo"
         android:name="com.tfg.apptfg.ui.catalogo.CatalogoFragment"
         android:label="@string/menu_catalogo"
-        tools:layout="@layout/catalogo_fragment" />
+        tools:layout="@layout/fragment_catalogo" />
 
 </navigation>

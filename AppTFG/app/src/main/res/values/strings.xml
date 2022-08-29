@@ -44,4 +44,7 @@
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nombre_farmaco">Nombre fármaco</string>
+    <string name="dosis_maxima">Dosis máxima:</string>
+    <string name="presentacion_comercial">Presentación comercial:</string>
 </resources>

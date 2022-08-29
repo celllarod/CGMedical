@@ -29,7 +29,7 @@
             android:imeOptions="actionNext"
             android:inputType="numberDecimal"
             android:textColor="@color/gris"
-            android:hint="@string/valor"
+
             android:paddingHorizontal="5dp"
             android:textSize="14sp" />
 
