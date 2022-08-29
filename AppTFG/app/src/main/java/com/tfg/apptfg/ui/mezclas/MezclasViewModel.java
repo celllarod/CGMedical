@@ -21,8 +21,9 @@ public class MezclasViewModel extends ViewModel {
     }
 
     public DatosCalculoMezclas getDatos() {
-        DatosCalculoMezclas datosCalculoMezclas = new DatosCalculoMezclas();
+        DatosCalculoMezclas datosCalculoMezclas = null;
         if (isValid()) {
+            datosCalculoMezclas = new DatosCalculoMezclas();
             datosCalculoMezclas.setVolumenBomba(volumen.getValue());
             datosCalculoMezclas.setFarmacoDominante(farmacoDominante.getValue());
             datosCalculoMezclas.setFarmacosSecundarios(farmacosSecundariosList.getValue());
@@ -86,7 +87,7 @@ public class MezclasViewModel extends ViewModel {
     public boolean isValid(){
         boolean result = !isEmptyVolumen();
         result = isValidFarmacoDominante() && result;
-        return !Objects.isNull(farmacosSecundariosList.getValue()) && result;
+        return !Objects.isNull(farmacosSecundariosList) && result;
 
     }
 }

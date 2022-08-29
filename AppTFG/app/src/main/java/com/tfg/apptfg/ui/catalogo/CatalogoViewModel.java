@@ -25,10 +25,8 @@ public class CatalogoViewModel extends ViewModel{
     public CatalogoViewModel(){  }
 
     public MutableLiveData<List<FarmacoResumen>> getFarmacos(Context cxt) {
-        if (Objects.isNull(farmacosList)){
-            farmacosList = new MutableLiveData<>();
-            obtenerFarmacos(cxt);
-        }
+        farmacosList = new MutableLiveData<>();
+        obtenerFarmacos(cxt);
         return farmacosList;
     }
 
@@ -43,7 +41,6 @@ public class CatalogoViewModel extends ViewModel{
                     Log.d("[CPMEDICAL][REST]", "Obtener listado fármacos: " + farmacosList.getValue().size());
                 }
             }
-
             @Override
             public void onFailure(@NonNull Call<List<FarmacoResumen>> call, @NonNull Throwable t) {
                 Log.d("[CPMEDICAL][REST][ERROR]", "Obtener listado fármacos: " + t.getMessage());

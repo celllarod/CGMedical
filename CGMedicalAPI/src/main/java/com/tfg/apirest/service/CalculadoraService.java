@@ -46,7 +46,7 @@ public class CalculadoraService {
         var cargaA = cantidadA / presentacionA; // mL
         cargaAcumulada.accumulateAndGet(cargaA, adder);
 
-        receta.add(new CargaView(farmacoDominante.getNombre(), cargaA + " mL"));
+        receta.add(new CargaView(farmacoDominante.getNombre(), String.format("%.3f", cargaA) + " mL"));
 
         if (!Objects.isNull(farmacosSecundarios)) {
             farmacosSecundarios.forEach(b -> {
@@ -56,13 +56,13 @@ public class CalculadoraService {
                 var concentracionBA = dosisB / flujo; // mg/mL
                 var cantidadB =volumenBomba * concentracionBA; // mg
                 var cargaB = cantidadB / presentacionB; // mL
-                receta.add(new CargaView(b.getNombre(), cargaB + " mL"));
+                receta.add(new CargaView(b.getNombre(), String.format("%.3f",cargaB) + " mL"));
                 cargaAcumulada.accumulateAndGet(cargaB, adder);
             });
         }
 
         Double cargaSF = volumenBomba - cargaAcumulada.get();
-        receta.add(new CargaView(SF, cargaSF + " mL"));
+        receta.add(new CargaView(SF, String.format("%.3f", cargaSF) + " mL"));
         return receta;
     }
 
