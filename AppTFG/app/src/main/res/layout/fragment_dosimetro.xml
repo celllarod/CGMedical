@@ -28,218 +28,219 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5"
         app:layout_constraintWidth_percent="0.8">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tit_fd_dosimetro"
-                style="@style/Titulo"
-                android:textSize="30dp"
-                android:layout_width="wrap_content"
-                android:text="Fármaco dominante:"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.554"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_nombre_fd_dosimetro"
-                style="@style/Subtitulo"
-                android:layout_marginStart="10dp"
-                android:text="Nombre:"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tit_fd_dosimetro"
-                app:layout_constraintWidth_percent="0.5" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_nombre_fd_dosimetro"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:layout_marginStart="10dp"
-                android:completionHint="Seleccione fármaco"
-                android:dropDownSelector="@color/turquesa"
-                android:inputType="text"
-                android:scrollbarAlwaysDrawHorizontalTrack="true"
-                android:textColorHint="@color/azul_electrico"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_nombre_fd_dosimetro"
-                app:layout_constraintWidth_percent="0.5"
-                app:startIconDrawable="@drawable/ic_text"
-                tools:ignore="KeyboardInaccessibleWidget">
-
-                <AutoCompleteTextView
-                    android:id="@+id/ac_nombre_fd_dosimetro"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none"></AutoCompleteTextView>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/tv_dosis_actual_fd_dosimetro"
-                style="@style/Subtitulo"
-                android:layout_marginStart="10dp"
-                android:labelFor="@+id/til_presentacion_fd"
-                android:text="Dosis actual:"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_nombre_fd_dosimetro" />
-
-            <include
-                android:id="@+id/ly_dosis_actual_fd_dosimetro"
-                layout="@layout/dosis_maxima"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_dosis_actual_fd_dosimetro" />
-
-            <TextView
-                android:id="@+id/tv_dosis_nueva_fd_dosimetro"
-                style="@style/Subtitulo"
-                android:layout_marginStart="10dp"
-                android:labelFor="@+id/til_presentacion_fs"
-                android:text="Nueva dosis:"
-                android:textColor="@color/purple_200"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ly_dosis_actual_fd_dosimetro" />
-
-            <include
-                android:id="@+id/ly_dosis_nueva_fd_dosimetro"
-                layout="@layout/dosis_maxima"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_dosis_nueva_fd_dosimetro" />
-
-            <TextView
-                android:id="@+id/tit_fs_dosimetro"
-                style="@style/Titulo"
-                android:textSize="30dp"
-                android:layout_marginTop="20dp"
-                android:text="Fármaco secundario:"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ly_dosis_nueva_fd_dosimetro" />
-
-            <TextView
-                android:id="@+id/tv_nombre_fs_dosimetro"
-                style="@style/Subtitulo"
-                android:layout_marginStart="10dp"
-                android:text="Nombre:"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tit_fs_dosimetro" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_nombre_fs_dosimetro"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            <com.google.android.flexbox.FlexboxLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:completionHint="Seleccione fármaco"
-                android:dropDownSelector="@color/turquesa"
-                android:inputType="text"
-                android:scrollbarAlwaysDrawHorizontalTrack="true"
-                android:textColorHint="@color/azul_electrico"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_nombre_fs_dosimetro"
-                app:startIconDrawable="@drawable/ic_text"
-                tools:ignore="KeyboardInaccessibleWidget">
+                android:layout_margin="30dp"
+                app:alignItems="flex_start"
+                app:justifyContent="space_between"
+                app:flexDirection="row"
+                app:flexWrap="wrap">
 
-                <AutoCompleteTextView
-                    android:id="@+id/ac_nombre_fs_dosimetro"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tit_fd_dosimetro"
+                    style="@style/Titulo"
+                    android:text="Fármaco dominante:"
+                    android:textSize="30dp"
+                    android:breakStrategy="simple"
+                    android:maxWidth="200dp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/propiedades_fd_container"
+                    android:layout_width="wrap_content"
+                    app:layout_flexGrow="1"
                     android:layout_height="wrap_content"
-                    android:inputType="none"></AutoCompleteTextView>
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_dosis_actual_fs_dosimetro"
-                style="@style/Subtitulo"
-                android:layout_marginStart="10dp"
-                android:labelFor="@+id/til_presentacion_fs"
-                android:text="Dosis actual:"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_nombre_fs_dosimetro" />
+                    <TextView
+                        android:id="@+id/tv_nombre_fd_dosimetro"
+                        style="@style/Subtitulo"
+                        android:layout_marginStart="10dp"
+                        android:text="Nombre:"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_percent="0.5" />
 
-            <include
-                android:id="@+id/ly_dosis_actual_fs_dosimetro"
-                layout="@layout/dosis_maxima"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_dosis_actual_fs_dosimetro" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_nombre_fd_dosimetro"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:completionHint="Seleccione fármaco"
+                        android:dropDownSelector="@color/turquesa"
+                        android:inputType="text"
+                        android:scrollbarAlwaysDrawHorizontalTrack="true"
+                        android:textColorHint="@color/azul_electrico"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_fd_dosimetro"
+                        app:startIconDrawable="@drawable/ic_text"
+                        tools:ignore="KeyboardInaccessibleWidget">
 
-            <TextView
-                android:id="@+id/tv_dosis_nueva_fs_dosimetro"
-                style="@style/Subtitulo"
-                android:layout_marginStart="10dp"
-                android:labelFor="@+id/til_presentacion_fs"
-                android:text="Nueva dosis:"
-                android:textColor="@color/purple_200"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ly_dosis_actual_fs_dosimetro" />
+                        <AutoCompleteTextView
+                            android:id="@+id/ac_nombre_fd_dosimetro"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"></AutoCompleteTextView>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            <include
-                android:id="@+id/ly_dosis_nueva_fs_dosimetro"
-                layout="@layout/dosis_maxima"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_dosis_nueva_fs_dosimetro" />
+                    <TextView
+                        android:id="@+id/tv_dosis_actual_fd_dosimetro"
+                        style="@style/Subtitulo"
+                        android:layout_marginStart="10dp"
+                        android:labelFor="@+id/til_presentacion_fd"
+                        android:text="Dosis actual:"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/til_nombre_fd_dosimetro" />
 
-            <!--            <com.google.android.material.button.MaterialButton-->
-            <!--                android:id="@+id/bt_resetear_dosimetro"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:backgroundTint="@color/rojo"-->
-            <!--                android:padding="8dp"-->
-            <!--                android:text="resetear"-->
-            <!--                app:cornerRadius="10dp"-->
-            <!--                app:icon="@drawable/ic_borrar"-->
-            <!--                app:layout_constraintEnd_toEndOf="parent"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toBottomOf="@+id/ly_dosis_nueva_fs_dosimetro" />-->
+                    <include
+                        android:id="@+id/ly_dosis_actual_fd_dosimetro"
+                        layout="@layout/dosis_maxima"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_dosis_actual_fd_dosimetro" />
 
-            <!--            <com.google.android.material.button.MaterialButton-->
-            <!--                android:id="@+id/bt_calcular_nueva_dosis"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginEnd="284dp"-->
-            <!--                android:backgroundTint="@color/amarillo"-->
-            <!--                android:padding="8dp"-->
-            <!--                android:text="calcular nueva dosis"-->
-            <!--                app:cornerRadius="10dp"-->
-            <!--                app:icon="@drawable/ic_calculadora"-->
-            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--                app:layout_constraintEnd_toEndOf="parent"-->
-            <!--                app:layout_constraintTop_toBottomOf="@+id/bt_resetear_dosimetro"-->
-            <!--                app:layout_constraintVertical_bias="0.125" />-->
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/tv_dosis_nueva_fd_dosimetro"
+                        style="@style/Subtitulo"
+                        android:layout_marginStart="10dp"
+                        android:labelFor="@+id/til_presentacion_fs"
+                        android:text="Nueva dosis:"
+                        android:textColor="@color/purple_200"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ly_dosis_actual_fd_dosimetro" />
+
+                    <include
+                        android:id="@+id/ly_dosis_nueva_fd_dosimetro"
+                        layout="@layout/dosis_maxima"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_dosis_nueva_fd_dosimetro" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_margin="30dp"
+                android:layout_width="match_parent"
+                app:alignItems="flex_start"
+                app:flexWrap="wrap"
+                app:justifyContent="space_between"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tit_fs_dosimetro"
+                    style="@style/Titulo"
+                    android:textSize="30dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Fármaco secundario:"
+                    android:breakStrategy="simple"
+                    android:maxWidth="200dp"/>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/propiedades_fs_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_flexGrow="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_nombre_fs_dosimetro"
+                        style="@style/Subtitulo"
+                        android:layout_marginStart="10dp"
+                        android:text="Nombre:"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_nombre_fs_dosimetro"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:completionHint="Seleccione fármaco"
+                        android:dropDownSelector="@color/turquesa"
+                        android:inputType="text"
+                        android:scrollbarAlwaysDrawHorizontalTrack="true"
+                        android:textColorHint="@color/azul_electrico"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_fs_dosimetro"
+                        app:startIconDrawable="@drawable/ic_text"
+                        tools:ignore="KeyboardInaccessibleWidget">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/ac_nombre_fs_dosimetro"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"></AutoCompleteTextView>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/tv_dosis_actual_fs_dosimetro"
+                        style="@style/Subtitulo"
+                        android:layout_marginStart="10dp"
+                        android:labelFor="@+id/til_presentacion_fs"
+                        android:text="Dosis actual:"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/til_nombre_fs_dosimetro" />
+
+                    <include
+                        android:id="@+id/ly_dosis_actual_fs_dosimetro"
+                        layout="@layout/dosis_maxima"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_dosis_actual_fs_dosimetro" />
+
+                    <TextView
+                        android:id="@+id/tv_dosis_nueva_fs_dosimetro"
+                        style="@style/Subtitulo"
+                        android:layout_marginStart="10dp"
+                        android:labelFor="@+id/til_presentacion_fs"
+                        android:text="Nueva dosis:"
+                        android:textColor="@color/purple_200"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ly_dosis_actual_fs_dosimetro" />
+
+                    <include
+                        android:id="@+id/ly_dosis_nueva_fs_dosimetro"
+                        layout="@layout/dosis_maxima"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_dosis_nueva_fs_dosimetro" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.flexbox.FlexboxLayout>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <LinearLayout

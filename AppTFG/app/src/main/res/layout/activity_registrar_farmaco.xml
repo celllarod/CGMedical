@@ -36,7 +36,6 @@
             android:id="@+id/add_farmaco_title"
             style="@style/Titulo"
             android:text="Añadir fármaco:" />
-
         <include layout="@layout/formulario_farmaco" />
 
       </LinearLayout>

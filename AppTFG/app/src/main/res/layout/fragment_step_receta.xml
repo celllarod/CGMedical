@@ -23,7 +23,7 @@
         android:elevation="10dp"
         android:text="Receta:"
         android:textAlignment="center"
-        android:textSize="40sp"
+        style="@style/Titulo2"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

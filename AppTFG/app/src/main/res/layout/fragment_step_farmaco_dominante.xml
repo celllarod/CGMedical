@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/fd_title"
-        style="@style/Titulo"
+        style="@style/Titulo2"
         android:text="Fármaco dominante:"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,7 +97,7 @@
     <include
         android:id="@+id/ly_concentracion"
         layout="@layout/concentracion"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -117,7 +117,7 @@
     <include
         android:id="@+id/ly_dosis"
         layout="@layout/dosis_maxima"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/img_fd"
         app:layout_constraintEnd_toEndOf="parent"
