@@ -37,7 +37,8 @@
             <com.google.android.flexbox.FlexboxLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="10dp"
                 app:alignItems="flex_start"
                 app:justifyContent="space_between"
                 app:flexDirection="row"
@@ -46,7 +47,8 @@
                 <TextView
                     android:id="@+id/tit_fd_dosimetro"
                     style="@style/Titulo"
-                    android:text="Fármaco dominante:"
+                    android:textColor="@color/purple_200"
+                    android:text="Fármaco Dominante:"
                     android:textSize="30dp"
                     android:breakStrategy="simple"
                     android:maxWidth="200dp"/>
@@ -141,7 +143,8 @@
             </com.google.android.flexbox.FlexboxLayout>
 
             <com.google.android.flexbox.FlexboxLayout
-                android:layout_margin="30dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="10dp"
                 android:layout_width="match_parent"
                 app:alignItems="flex_start"
                 app:flexWrap="wrap"
@@ -152,7 +155,7 @@
                     style="@style/Titulo"
                     android:textSize="30dp"
                     android:layout_marginTop="20dp"
-                    android:text="Fármaco secundario:"
+                    android:text="Fármaco Secundario:"
                     android:breakStrategy="simple"
                     android:maxWidth="200dp"/>
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -222,7 +225,7 @@
                         android:layout_marginStart="10dp"
                         android:labelFor="@+id/til_presentacion_fs"
                         android:text="Nueva dosis:"
-                        android:textColor="@color/purple_200"
+                        android:textColor="@color/gris"
                         app:layout_constraintHorizontal_bias="0.0"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -273,13 +276,30 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:backgroundTint="@color/turquesa"
-            android:padding="8dp"
-            android:text="nueva dosis"
-            android:textSize="20dp"
+            android:padding="10dp"
+            android:text="calcular"
+            android:textSize="20sp"
             app:cornerRadius="10dp"
             app:icon="@drawable/ic_calculadora"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card_dosimetro"></com.google.android.material.button.MaterialButton>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_dosis"
+            style="@style/Widget.App.Button.IconOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:backgroundTint="@color/purple_200"
+            android:padding="8dp"
+            app:cornerRadius="10dp"
+            android:text="D"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_dosimetro"></com.google.android.material.button.MaterialButton>
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

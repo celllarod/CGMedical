@@ -1,8 +1,10 @@
 package com.tfg.apptfg.io;
 
+import com.tfg.apptfg.io.request.DatosCalculoDosis;
 import com.tfg.apptfg.io.request.DatosCalculoMezclas;
 import com.tfg.apptfg.io.request.DatosFarmacoCrear;
 import com.tfg.apptfg.io.request.LoginUser;
+import com.tfg.apptfg.io.request.PropiedadSimple;
 import com.tfg.apptfg.io.request.Propiedades;
 import com.tfg.apptfg.io.request.SignUpUser;
 import com.tfg.apptfg.io.response.Carga;
@@ -64,6 +66,10 @@ public interface ApiService {
     /** Cálculo de mezclas */
     @POST("calculo/mezclas")
     Call<List<Carga>> calcularReceta(@Header("Authorization") String token, @Body DatosCalculoMezclas datos);
+
+    /** Cálculo de dosis */
+    @POST("calculo/dosis")
+    Call<PropiedadSimple> calcularNuevaDosis(@Header("Authorization") String token, @Body DatosCalculoDosis datos);
 
     /*@FormUrlEncoded
     @POST("farmacos")

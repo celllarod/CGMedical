@@ -42,7 +42,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/til_signup_name"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        style="@style/TextInputLayout.EditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_row="0"
@@ -67,7 +67,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/til_signup_ap1"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        style="@style/TextInputLayout.EditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_row="1"
@@ -91,7 +91,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/til_signup_ap2"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        style="@style/TextInputLayout.EditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_row="2"
@@ -115,7 +115,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/til_signup_email"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        style="@style/TextInputLayout.EditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_row="3"
@@ -140,7 +140,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/til_signup_password"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        style="@style/TextInputLayout.EditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_row="4"
@@ -164,7 +164,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/til_signup_password_repetir"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        style="@style/TextInputLayout.EditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_row="5"

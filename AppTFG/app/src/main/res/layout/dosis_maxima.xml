@@ -10,9 +10,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_valor_dosis"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        style="@style/TextInputLayout.EditText"
         android:layout_width="0dp"
         app:layout_constraintWidth_percent="0.5"
+        app:errorEnabled="true"
+        app:boxStrokeErrorColor="@color/rojo"
+        app:errorTextColor="@color/rojo"
         android:layout_height="wrap_content"
         android:layout_row="0"
         android:layout_column="0"
