@@ -1,7 +1,9 @@
 package com.tfg.apirest.service;
 
 
+import com.tfg.apirest.dto.DatosCalculoDosisDTO;
 import com.tfg.apirest.view.CargaView;
+import com.tfg.apirest.view.PropiedadSimpleView;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
@@ -37,7 +39,7 @@ public class CalculadoraService {
         var farmacosSecundarios = datos.getFarmacosSecundarios();
 
         // Unidad micras o milis. Pasar todo a milis para hacer cálculos.
-        var dosisA = ("mg/dia".equals(farmacoDominante.getDosis().getUnidad())) ? farmacoDominante.getDosis().getValor() :  farmacoDominante.getDosis().getValor()/1000; // mg/dia
+        var dosisA = ("mg/día".equals(farmacoDominante.getDosis().getUnidad())) ? farmacoDominante.getDosis().getValor() :  farmacoDominante.getDosis().getValor()/1000; // mg/día
         var concentracionA = ("mg/mL".equals(farmacoDominante.getConcentracion().getUnidad())) ? farmacoDominante.getConcentracion().getValor() :  farmacoDominante.getConcentracion().getValor()/1000; // mg/mL
         var presentacionA = ("mg/mL".equals(farmacoDominante.getPresentacion().getUnidad())) ? farmacoDominante.getPresentacion().getValor() :  farmacoDominante.getPresentacion().getValor()/1000; // mg/mL
 
@@ -50,7 +52,7 @@ public class CalculadoraService {
 
         if (!Objects.isNull(farmacosSecundarios)) {
             farmacosSecundarios.forEach(b -> {
-                var dosisB = ("mg/dia".equals(b.getDosis().getUnidad())) ? b.getDosis().getValor() :  b.getDosis().getValor()/1000; // mg/dia
+                var dosisB = ("mg/día".equals(b.getDosis().getUnidad())) ? b.getDosis().getValor() :  b.getDosis().getValor()/1000; // mg/día
                 var presentacionB = ("mg/mL".equals(b.getPresentacion().getUnidad())) ? b.getPresentacion().getValor() :  b.getPresentacion().getValor()/1000; // mg/mL
 
                 var concentracionBA = dosisB / flujo; // mg/mL
@@ -64,6 +66,38 @@ public class CalculadoraService {
         Double cargaSF = volumenBomba - cargaAcumulada.get();
         receta.add(new CargaView(SF, String.format("%.3f", cargaSF) + " mL"));
         return receta;
+    }
+
+    public PropiedadSimpleView calcularDosis(DatosCalculoDosisDTO datos) {
+
+        var result = new PropiedadSimpleView();
+
+        var dosisActualFd = ("mg/día".equals(datos.getDosisActualFd().getUnidad())) ? datos.getDosisActualFd().getValor() :  datos.getDosisActualFd().getValor()/1000; // mg/día
+        var dosisActualFs = ("mg/día".equals(datos.getDosisActualFs().getUnidad())) ? datos.getDosisActualFs().getValor() :  datos.getDosisActualFs().getValor()/1000; // mg/día
+
+        Double dosisNuevaFd = null;
+        Double dosisNuevaFs = null;
+
+        if (!Objects.isNull(datos.getDosisNuevaFd())){
+            dosisNuevaFd = ("mg/día".equals(datos.getDosisNuevaFd().getUnidad())) ? datos.getDosisNuevaFd().getValor() :  datos.getDosisNuevaFd().getValor()/1000; // mg/día
+            result.setValor(calcularNuevaDosisFs(dosisActualFd, dosisActualFs, dosisNuevaFd));
+        } else if(!Objects.isNull(datos.getDosisNuevaFs())){
+            dosisNuevaFs = ("mg/día".equals(datos.getDosisNuevaFs().getUnidad())) ? datos.getDosisNuevaFs().getValor() :  datos.getDosisNuevaFs().getValor()/1000; // mg/día
+            result.setValor(calcularNuevaDosisFd(dosisActualFd, dosisActualFs, dosisNuevaFs));
+
+        }
+
+        result.setUnidad("mg/día");
+        return result;
+
+    }
+
+    private double calcularNuevaDosisFd(double dosisActualFd, double dosisActualFs, double dosisNuevaFs){
+        return (dosisNuevaFs * dosisActualFd) / dosisActualFs;
+    }
+
+    private double calcularNuevaDosisFs(double dosisActualFd, double dosisActualFs, double dosisNuevaFd){
+        return (dosisNuevaFd * dosisActualFs) / dosisActualFd;
     }
 
 }

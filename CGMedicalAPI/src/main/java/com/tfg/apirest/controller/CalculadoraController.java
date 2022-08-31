@@ -3,6 +3,7 @@ package com.tfg.apirest.controller;
 import com.tfg.apirest.dto.*;
 import com.tfg.apirest.service.CalculadoraService;
 import com.tfg.apirest.view.CargaView;
+import com.tfg.apirest.view.PropiedadSimpleView;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -37,4 +38,16 @@ public class CalculadoraController {
 
         return calculadoraService.calcularMezclas(datosCalculoMezclas);
     }
+
+    /**
+     * Permite calcular cuál debe ser la nueva dosis de la bomba de infusión
+     * @param
+     */
+    @PostMapping("calculo/dosis")
+    @PreAuthorize("hasAuthority('USER') or hasAuthority('GESTOR')")
+    @ResponseStatus(HttpStatus.OK)
+    PropiedadSimpleView calcularDosis(@Validated @RequestBody DatosCalculoDosisDTO datosCalculoDosisDTO){
+        return calculadoraService.calcularDosis(datosCalculoDosisDTO);
+    }
+
 }
