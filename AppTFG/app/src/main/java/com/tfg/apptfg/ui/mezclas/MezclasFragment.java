@@ -1,17 +1,21 @@
 package com.tfg.apptfg.ui.mezclas;
 
+import androidx.annotation.ColorRes;
 import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,11 +49,67 @@ public class MezclasFragment extends Fragment {
     private Integer step;
 
     @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        Log.d("tag_mezclas", "attach");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d("tag_mezclas", "start");
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.d("tag_mezclas", "viewcreated");
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        Log.d("tag_mezclas", "viewstaterestored");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("tag_mezclas", "resume");
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d("tag_mezclas", "destroy");
+    }
+
+    @Override
+    public void onStop() {
+        Log.d("tag_mezclas", "stop");
+        super.onStop();
+    }
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.d("tag_mezclas", "detach");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d("tag_mezclas", "pause");
+    }
+
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(savedInstanceState != null) {
             step = savedInstanceState.getInt("step");
         }
+        Log.d("tag_mezclas", "create");
         savedInstanceState = null;
 //        getChildFragmentManager().setFragmentResultListener("requestKey", this, (requestKey, result) -> {
 //            String res = result.getString("bundleKey");
@@ -59,6 +119,7 @@ public class MezclasFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        Log.d("tag_mezclas", "createView");
         mezclasViewModel = new ViewModelProvider(this).get(MezclasViewModel.class);
         volumenViewModel = new ViewModelProvider(requireActivity()).get(VolumenStepViewModel.class);
         fdViewModel = new ViewModelProvider(requireActivity()).get(FarmacoDominanteStepViewModel.class);
@@ -93,12 +154,14 @@ public class MezclasFragment extends Fragment {
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("step", step);
+        Log.d("tag_mezclas", "saveinstancestate");
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+        Log.d("tag_mezclas", "destroyview");
     }
 
     public void onClick(View view) {
@@ -107,23 +170,23 @@ public class MezclasFragment extends Fragment {
             case R.id.step1:
                 fragmentTransaction.replace(R.id.contenedor_fragmentos, volumenFragment);
                 step = 1;
-//                fragmentTransaction.addToBackStack("volumen");
+                fragmentTransaction.addToBackStack("volumen");
                 break;
             case R.id.step2:
                 fragmentTransaction.replace(R.id.contenedor_fragmentos, fdFragment);
                 step = 2;
-//                fragmentTransaction.addToBackStack("fd");
+                fragmentTransaction.addToBackStack("fd");
                 break;
             case R.id.step3:
                 fragmentTransaction.replace(R.id.contenedor_fragmentos, fsFragment);
                 step = 3;
-//                fragmentTransaction.addToBackStack("fs");
+                fragmentTransaction.addToBackStack("fs");
                 break;
             case R.id.step4:
                 isValidDatos();
                 fragmentTransaction.replace(R.id.contenedor_fragmentos, recetaFragment);
                 step = 4;
-//                    fragmentTransaction.addToBackStack("receta");
+                fragmentTransaction.addToBackStack("receta");
                 break;
         }
         fragmentTransaction.commit();
@@ -184,6 +247,7 @@ public class MezclasFragment extends Fragment {
 
     }
 
+    // TODO: llamar al método genérico de
     private void setEmptyButton(Button bt) {
         Drawable buttonDrawable = bt.getBackground();
         buttonDrawable = DrawableCompat.wrap(buttonDrawable);
@@ -195,15 +259,14 @@ public class MezclasFragment extends Fragment {
     private void setCorrectButton(Button bt) {
         Drawable buttonDrawable = bt.getBackground();
         buttonDrawable = DrawableCompat.wrap(buttonDrawable);
-        //the color is a direct color int and not a color resource
         DrawableCompat.setTint(buttonDrawable, ResourcesCompat.getColor(getResources(), R.color.verde, null));
         bt.setBackground(buttonDrawable);
     }
     private void setErrorButton(Button bt) {
         Drawable buttonDrawable = bt.getBackground();
         buttonDrawable = DrawableCompat.wrap(buttonDrawable);
-        //the color is a direct color int and not a color resource
         DrawableCompat.setTint(buttonDrawable, ResourcesCompat.getColor(getResources(), R.color.rojo, null));
         bt.setBackground(buttonDrawable);
     }
+
 }

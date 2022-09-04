@@ -4,12 +4,14 @@ import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,8 +49,83 @@ public class FarmacoDominanteStepFragment extends Fragment {
     private Propiedad dosisMaxima;
 
 
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        Log.d("tag_s2", "attach");
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.d("tag_s2", "create");
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (!acNombreFd.getText().toString().isEmpty()) {
+            onItemClickNombres(null, getView(), 0, 0);
+            Log.d("tag_s2", "start");
+        }
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.d("tag_s2", "viewcreated");
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        Log.d("tag_s2", "viewstaterestored");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("tag_s2", "resume");
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d("tag_s2", "saveinstancestate");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d("tag_s2", "pause");
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d("tag_s2", "destroy");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.d("tag_s2", "destroyview");
+        binding = null;
+    }
+    @Override
+    public void onStop() {
+        Log.d("tag_s2", "stop");
+        super.onStop();
+    }
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.d("tag_s2", "detach");
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        Log.d("tag_s2", "createview");
         farmacoDominanteStepViewModel = new ViewModelProvider(this).get(FarmacoDominanteStepViewModel.class);
         mezclasViewModel = new ViewModelProvider(requireParentFragment()).get(MezclasViewModel.class);
         binding = FragmentStepFarmacoDominanteBinding.inflate(inflater, container, false);
@@ -68,37 +145,18 @@ public class FarmacoDominanteStepFragment extends Fragment {
 
         return root;
     }
-
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        if (!acNombreFd.getText().toString().isEmpty()) {
-            onItemClickNombres(null, getView(), 0, 0);
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-    }
+    
 
     // Se ejecuta antes de que el fragmento se reemplace
-    @Override
-    public void onStop() {
-        super.onStop();
-        String nombre = (isValidNombre()) ? acNombreFd.getText().toString() : null;
-        PropiedadSimple presentacion = (isValidPresentacion())? convertirPresentacion(acPresentacion.getText().toString()) : null;
-        PropiedadSimple concentracion = (isConcentracionValid())?
-                new PropiedadSimple(Double.valueOf(etValorConcentracion.getText().toString()), spUnidadConcentracion.getSelectedItem().toString()) : null;
-        PropiedadSimple dosis = (isValorDosisValid() && !isDosisEmpty())?
-                new PropiedadSimple(Double.valueOf(etValorDosis.getText().toString()), spUnidadDosis.getSelectedItem().toString()) : null;
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        String nombre = (isValidNombre()) ? acNombreFd.getText().toString() : null;
+//        PropiedadSimple presentacion = (isValidPresentacion())? convertirPresentacion(acPresentacion.getText().toString()) : null;
+//        PropiedadSimple concentracion = (isConcentracionValid())?
+//                new PropiedadSimple(Double.valueOf(etValorConcentracion.getText().toString()), spUnidadConcentracion.getSelectedItem().toString()) : null;
+//        PropiedadSimple dosis = (isValorDosisValid() && !isDosisEmpty())?
+//                new PropiedadSimple(Double.valueOf(etValorDosis.getText().toString()), spUnidadDosis.getSelectedItem().toString()) : null;
 
 //        Bundle estado = new Bundle();
 //        if(Objects.isNull(nombre) && Objects.isNull(presentacion) && Objects.isNull(concentracion) && Objects.isNull(dosis)) {
@@ -112,8 +170,8 @@ public class FarmacoDominanteStepFragment extends Fragment {
 //            getParentFragmentManager().setFragmentResult("requestKey", estado);
 //        }
 //        this.getActivity().getSupportFragmentManager().setFragmentResult("requestKey", estado);
-        mezclasViewModel.setFarmacoDominante(nombre, concentracion, presentacion, dosis);
-    }
+//        mezclasViewModel.setFarmacoDominante(nombre, concentracion, presentacion, dosis);
+//    }
 
 
     private void inicializarNombres(Map<String, UUID> nombres) {
@@ -166,15 +224,17 @@ public class FarmacoDominanteStepFragment extends Fragment {
     }
 
     public void onClickDosisUnidad(AdapterView<?> parent, View view, int position, long id) {
-        // TODO: asociar al spinner dosis unidad
+        // TODO: asociar al spinner dosis unidad --onitemcselecter
         onClickDosisValor(view);
     }
 
     private void onClickConcentracionValor(View v){
-        if (etValorDosis.getError() != null) {
-            etValorDosis.setError(null);
-            isConcentracionValid();
-        }
+        etValorConcentracion.setError(null);
+        isConcentracionValid();
+//        if (etValorDosis.getError() != null) {
+//            etValorDosis.setError(null);
+//            isConcentracionValid();
+//        }
     }
 
     public void onClickConcentracionUnidad(AdapterView<?> parent, View view, int position, long id) {
@@ -250,5 +310,14 @@ public class FarmacoDominanteStepFragment extends Fragment {
             result = false;
         }
         return result;
+    }
+
+    public void resetearFd(){
+        acNombreFd.setSelected(false);
+        acPresentacion.setSelected(false);
+        etValorConcentracion.setText(null);
+        spUnidadDosis.setSelection(0);
+        etValorDosis.setText(null);
+        spUnidadConcentracion.setSelection(0);
     }
 }

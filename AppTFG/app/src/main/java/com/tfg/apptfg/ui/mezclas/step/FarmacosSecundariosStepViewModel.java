@@ -41,7 +41,6 @@ public class FarmacosSecundariosStepViewModel extends ViewModel {
     }
 
     public MutableLiveData<FarmacoDetalle> getFarmacoDetalle(Context ctx, UUID uuid) {
-//        UUID uuid = nombresFarmacosMap.getValue().get(nombre);
         farmaco = new MutableLiveData<>();
         obtenerFarmacoById(ctx, uuid);
         return farmaco;
@@ -63,16 +62,6 @@ public class FarmacosSecundariosStepViewModel extends ViewModel {
         fsList.setValue(farmacoSecundarioList);
     }
 
-    public void deleteFsItemList(FarmacoSecundario fs) {
-
-
-    }
-
-    public FarmacoSecundario getFsItemList() {
-
-        return null;
-    }
-
     public void obtenerNombresFarmacos(Context ctx) {
         SessionManager session = SessionManager.get(ctx);
         Call<List<FarmacoSimple>> callFarmacos = ApiAdapter.getApiService().getNombresFarmacos(session.getUserTokenType() + " " + session.getUserToken());
@@ -82,10 +71,7 @@ public class FarmacosSecundariosStepViewModel extends ViewModel {
                 if (response.isSuccessful()) {
                     HashMap<String, UUID> map1 = new HashMap<>();
                     response.body().forEach(f -> map1.put(f.getNombre(), f.getId()));
-
                     Log.d("[CPMEDICAL][REST]", "Obtener listado nombres fármacos: " + map1);
-//                    HashMap<String, UUID> map2 = response.body().stream().collect(Collectors.toMap(FarmacoSimple::getNombre, FarmacoSimple::getId, (x, y)
-//                            -> y, HashMap::new));
                     nombresFarmacosMap.setValue(map1);
                 }
             }

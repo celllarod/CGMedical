@@ -1,5 +1,6 @@
 package com.tfg.apptfg.ui.mezclas.step;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.tfg.apptfg.R;
 import com.tfg.apptfg.databinding.FragmentStepVolumenBinding;
 import com.tfg.apptfg.ui.mezclas.MezclasViewModel;
 
@@ -27,9 +29,76 @@ public class VolumenStepFragment extends Fragment {
     private RadioButton rd1;
     private RadioButton rd2;
 
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        Log.d("tag_s1", "attach");
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.d("tag_s1", "create");
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d("tag_s1", "start");
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.d("tag_s1", "viewcreated");
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        Log.d("tag_s1", "viewstaterestored");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("tag_s1", "resume");
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d("tag_s1", "saveinstancestate");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d("tag_s1", "destroy");
+    }
+
+    @Override
+    public void onStop() {
+        Log.d("tag_s1", "stop");
+        super.onStop();
+    }
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.d("tag_s1", "detach");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d("tag_s1", "pause");
+    }
+    
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        Log.d("tag_s1", "createView");
         volumenViewModel = new ViewModelProvider(this).get(VolumenStepViewModel.class);
         mezclasViewModel = new ViewModelProvider(requireParentFragment()).get(MezclasViewModel.class);
         binding = FragmentStepVolumenBinding.inflate(inflater, container, false);
@@ -46,6 +115,7 @@ public class VolumenStepFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
+        Log.d("tag_s1", "destroyview");
         super.onDestroyView();
         binding = null;
     }
@@ -60,5 +130,11 @@ public class VolumenStepFragment extends Fragment {
         res.putString("bundleKey", "result");
         getParentFragmentManager().setFragmentResult("requestKey", res);
 //        this.getActivity().getSupportFragmentManager().setFragmentResult("requestKey", res);
+    }
+
+    public void resetearVista(){
+       rd1.setChecked(false);
+       rd2.setChecked(false);
+       Log.d("tag_reset", "volumen");
     }
 }

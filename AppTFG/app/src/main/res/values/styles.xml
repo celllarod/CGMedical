@@ -79,6 +79,21 @@
         <item name="errorTextColor">@color/rojo</item>
         <item name="errorEnabled">true</item>
         <item name="endIconMode">clear_text</item>
+    </style>
 
+    <!-- CardView dosímetro, mezclas -->
+    <style name="CardView.PantallaCompleta">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarFadeDuration">50000</item>
+        <item name="android:scrollbarSize">5dp</item>
+        <item name="android:scrollbarThumbVertical">@color/azul_electrico</item>
+        <item name="cardCornerRadius">30dp</item>
+        <item name="cardElevation">20dp</item>
+        <item name="elevation">50dp</item>
+        <item name="layout_constraintHeight_percent">0.8</item>
+        <item name="layout_constraintHorizontal_chainStyle">spread</item>
+        <item name="layout_constraintWidth_percent">0.8</item>
     </style>
 </resources>

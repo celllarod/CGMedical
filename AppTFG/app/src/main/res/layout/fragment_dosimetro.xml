@@ -10,24 +10,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_dosimetro"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
-        android:scrollbarFadeDuration="50000"
-        android:scrollbarSize="5dp"
-        android:scrollbarThumbVertical="@color/azul_electrico"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="20dp"
-        app:elevation="50dp"
+        style="@style/CardView.PantallaCompleta"
         app:layout_constraintBottom_toTopOf="@+id/ly_botones"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.8"
-        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ly_botones"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-        app:layout_constraintWidth_percent="0.8">
+        app:layout_constraintTop_toTopOf="parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
@@ -252,6 +239,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginBottom="30dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -265,10 +253,8 @@
             android:backgroundTint="@color/rojo"
             android:padding="8dp"
             app:cornerRadius="10dp"
-            app:icon="@drawable/ic_borrar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card_dosimetro"></com.google.android.material.button.MaterialButton>
+            app:icon="@drawable/ic_borrar">
+        </com.google.android.material.button.MaterialButton>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/bt_calcular_nueva_dosis"
@@ -281,9 +267,7 @@
             android:textSize="20sp"
             app:cornerRadius="10dp"
             app:icon="@drawable/ic_calculadora"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card_dosimetro"></com.google.android.material.button.MaterialButton>
+           ></com.google.android.material.button.MaterialButton>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/bt_dosis"
@@ -296,9 +280,7 @@
             app:cornerRadius="10dp"
             android:text="D"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card_dosimetro"></com.google.android.material.button.MaterialButton>
+           ></com.google.android.material.button.MaterialButton>
 
 
     </LinearLayout>

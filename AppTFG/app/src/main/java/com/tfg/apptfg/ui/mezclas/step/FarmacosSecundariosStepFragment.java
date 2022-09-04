@@ -1,5 +1,6 @@
 package com.tfg.apptfg.ui.mezclas.step;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +24,9 @@ import android.widget.EditText;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
+import com.tfg.apptfg.GeneralUtils;
 import com.tfg.apptfg.R;
+import com.tfg.apptfg.ValidationUtils;
 import com.tfg.apptfg.adapter.ListaFarmacosSecundariosAdapter;
 import com.tfg.apptfg.databinding.FragmentStepFarmacosSecundariosBinding;
 import com.tfg.apptfg.io.request.FarmacoSecundario;
@@ -67,8 +71,68 @@ public class FarmacosSecundariosStepFragment extends Fragment {
 //        }
 //    }
 
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        Log.d("tag_s3", "attach");
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.d("tag_s3", "create");
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+            Log.d("tag_s3", "start");
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.d("tag_s3", "viewcreated");
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        Log.d("tag_s3", "viewstaterestored");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("tag_s3", "resume");
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d("tag_s3", "saveinstancestate");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d("tag_s3", "destroy");
+    }
+    
+    @Override
+    public void onStop() {
+        Log.d("tag_s3", "stop");
+        super.onStop();
+    }
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.d("tag_s3", "detach");
+    }
+
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        Log.d("tag_s3", "createview");
         farmacosSecundariosViewModel = new ViewModelProvider(this).get(FarmacosSecundariosStepViewModel.class);
         mezclasViewModel = new ViewModelProvider(requireParentFragment()).get(MezclasViewModel.class);
         binding = FragmentStepFarmacosSecundariosBinding.inflate(inflater, container, false);
@@ -94,12 +158,14 @@ public class FarmacosSecundariosStepFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
+        Log.d("tag_s3", "destroyview");
         super.onDestroyView();
         binding = null;
     }
 
     @Override
     public void onPause() {
+        Log.d("tag_s3", "pause");
         super.onPause();
         mezclasViewModel.setFarmacosSecundariosList(listaFsAdapter.getFarmacosList());
     }
@@ -179,17 +245,14 @@ public class FarmacosSecundariosStepFragment extends Fragment {
             fs.setPresentacion(convertirPresentacion(acPresentacion.getText().toString()));
             fs.setDosis(new PropiedadSimple(Double.valueOf(etValorDosis.getText().toString()), spUnidadDosis.getSelectedItem().toString()));
             bottomSheetDialog.dismiss();
-//            rvListaFarmacos.setLayoutManager(new GridLayoutManager(getContext(), 1));
             farmacosSecundariosViewModel.addFsItemList(fs);
 
             fsList = farmacosSecundariosViewModel.getFsList().getValue();
             listaFsAdapter.setFarmacosList(fsList);
             listaFsAdapter.notifyDataSetChanged();
-//            rvFarmacosList.setLayoutManager(new LinearLayoutManager(getContext()));
-//            listaFsAdapter = new ListaFarmacosSecundariosAdapter(f);
-//            rvFarmacosList.setAdapter(listaFsAdapter);
+
         } else {
-            // TODO: toast hay errores
+            GeneralUtils.showErrorToast(getContext(), "Existen errores en el formulario.");
         }
     }
 
