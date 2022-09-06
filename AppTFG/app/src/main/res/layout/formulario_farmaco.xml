@@ -48,18 +48,20 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/sr_lista_pre"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="100dp"
         android:layout_row="3"
         android:layout_column="0"
         android:background="@drawable/round_box"
         android:elevation="1dp"
         android:fadeScrollbars="false"
-        android:minHeight="70dp"
-        android:orientation="vertical"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbarFadeDuration="50000"
-        android:scrollbarSize="4dp"
-        android:scrollbarThumbVertical="@color/azul_electrico">
+        android:scrollbarSize="8dp"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbarThumbVertical="@color/gris_claro"
+        android:scrollbars="vertical"
+        android:minHeight="70dp"
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/layout_lista_pre"

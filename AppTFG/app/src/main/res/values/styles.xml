@@ -81,6 +81,12 @@
         <item name="endIconMode">clear_text</item>
     </style>
 
+    <style name="TextInputLayout.AutoCompleteTextView" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+        <item name="boxStrokeErrorColor">@color/rojo</item>
+        <item name="errorTextColor">@color/rojo</item>
+        <item name="errorEnabled">true</item>
+    </style>
+
     <!-- CardView dosímetro, mezclas -->
     <style name="CardView.PantallaCompleta">
         <item name="android:layout_width">0dp</item>
@@ -94,6 +100,7 @@
         <item name="elevation">50dp</item>
         <item name="layout_constraintHeight_percent">0.8</item>
         <item name="layout_constraintHorizontal_chainStyle">spread</item>
+        <item name="layout_constraintVertical_chainStyle">spread</item>
         <item name="layout_constraintWidth_percent">0.8</item>
     </style>
 </resources>
