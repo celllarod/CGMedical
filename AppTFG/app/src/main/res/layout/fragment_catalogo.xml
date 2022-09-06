@@ -30,9 +30,8 @@
             android:layout_height="match_parent"
             android:textSize="30sp" />
     </androidx.cardview.widget.CardView>
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/sc_contenedor_lista"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/sw_contenedor_lista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -54,7 +53,7 @@
             android:layout_height="wrap_content"
             tools:listitem="@layout/farmaco">
         </androidx.recyclerview.widget.RecyclerView>
-    </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"

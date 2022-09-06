@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.tfg.apptfg.RegistrarFarmaco;
@@ -29,6 +30,7 @@ public class CatalogoFragment extends Fragment implements SearchView.OnQueryText
     private ListaFarmacosAdapter listaFarmacosAdapter;
     CatalogoViewModel catalogoViewModel;
     private SearchView svBuscador;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private static final String ROL_GESTOR = "GESTOR";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -39,6 +41,7 @@ public class CatalogoFragment extends Fragment implements SearchView.OnQueryText
         View root = binding.getRoot();
         svBuscador = binding.svBuscador;
         rvListaFarmacos = binding.rvCatalogo;
+        swipeRefreshLayout = binding.swContenedorLista;
         ExtendedFloatingActionButton fab = binding.fab;
 
         // Botón añadir fármaco solo visible para rol GESTOR
@@ -49,6 +52,12 @@ public class CatalogoFragment extends Fragment implements SearchView.OnQueryText
                 startActivity(intent);
             });
         }
+
+        // Se permite que se refresquen los datos al deslizar
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            catalogoViewModel.getFarmacos(getContext()).observe(getViewLifecycleOwner(), this::inicializarListaFarmacos);
+        });
+
         return root;
     }
 
@@ -74,7 +83,7 @@ public class CatalogoFragment extends Fragment implements SearchView.OnQueryText
 
         // Buscador
         svBuscador.setOnQueryTextListener(this); // Hace que se llame a onQueryTextChange/Submit
-
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
