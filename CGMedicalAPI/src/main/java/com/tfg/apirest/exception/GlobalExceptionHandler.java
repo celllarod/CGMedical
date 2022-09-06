@@ -1,4 +1,4 @@
-package com.tfg.apirest.handler;
+package com.tfg.apirest.exception;
 
 import com.tfg.apirest.exception.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;

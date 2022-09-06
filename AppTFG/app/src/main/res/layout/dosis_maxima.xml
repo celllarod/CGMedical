@@ -12,18 +12,18 @@
         android:id="@+id/til_valor_dosis"
         style="@style/TextInputLayout.EditText"
         android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.5"
-        app:errorEnabled="true"
-        app:boxStrokeErrorColor="@color/rojo"
-        app:errorTextColor="@color/rojo"
         android:layout_height="wrap_content"
         android:layout_row="0"
         android:layout_column="0"
+        app:boxStrokeErrorColor="@color/rojo"
         app:endIconDrawable="@drawable/ic_borrar"
         app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:errorTextColor="@color/rojo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5"
         app:startIconDrawable="@drawable/ic_number">
 
         <EditText
@@ -59,7 +59,7 @@
 
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/sp_unidad_dosis"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            style="@style/TextInputLayout.AutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:completionHint="Seleccione unidad"
