@@ -96,4 +96,8 @@ public class MainActivity extends AppCompatActivity {
             txRolNav.setText(session.getUserRol());
         }
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 }
