@@ -19,26 +19,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline7">
 
+        <LinearLayout
+            android:id="@+id/form_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="25dp">
+        <TextView
+            android:id="@+id/signup_title"
+            style="@style/Titulo"
+            android:text="@string/signup_title" />
+
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fadeScrollbars="false"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarFadeDuration="50000"
+            android:scrollbarSize="8dp"
+            android:scrollbarStyle="outsideInset"
+            android:scrollbarThumbVertical="@color/gris_claro"
+            android:scrollbars="vertical">
 
-            <LinearLayout
-                android:id="@+id/form_signup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="25dp">
 
-                <TextView
-                    android:id="@+id/signup_title"
-                    style="@style/Titulo"
-                    android:text="@string/signup_title" />
 
                 <GridLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/signup_title">
+                    android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/til_signup_name"
@@ -184,8 +191,8 @@
                             android:textColor="@color/gris" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </GridLayout>
-            </LinearLayout>
         </ScrollView>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <ImageView
