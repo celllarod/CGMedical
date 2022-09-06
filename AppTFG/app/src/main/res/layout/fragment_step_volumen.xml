@@ -9,6 +9,7 @@
 
     <TextView
         android:id="@+id/volumen_title"
+        style="@style/Titulo2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_row="0"
@@ -18,7 +19,6 @@
         android:text="Volumen de la bomba:"
         android:textAlignment="center"
         android:textStyle="bold"
-        style="@style/Titulo2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,17 +27,17 @@
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_row="2"
         android:layout_column="0"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/img_volumen"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.4"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/volumen_title"
-        app:layout_constraintVertical_bias="0.005">
+        app:layout_constraintTop_toBottomOf="@+id/volumen_title">
 
         <RadioButton
             android:id="@+id/rd_vol1"
@@ -56,4 +56,18 @@
             android:text="40 mL"
             android:textSize="20sp" />
     </RadioGroup>
+
+    <ImageView
+        android:id="@+id/img_volumen"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:contentDescription="Imagen personal y volumen"
+        android:src="@drawable/ic_imagen_volumen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.4"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintVertical_chainStyle="spread" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -43,40 +43,8 @@ public class MezclasFragment extends Fragment {
     private FragmentTransaction fragmentTransaction;
     private Fragment volumenFragment, fdFragment, fsFragment, recetaFragment;
     private MaterialButton bt1, bt2, bt3, bt4;
-    private Button btActual;
-    private Button btAnterior;
 
     private Integer step;
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        Log.d("tag_mezclas", "attach");
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.d("tag_mezclas", "start");
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        Log.d("tag_mezclas", "viewcreated");
-    }
-
-    @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
-        super.onViewStateRestored(savedInstanceState);
-        Log.d("tag_mezclas", "viewstaterestored");
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.d("tag_mezclas", "resume");
-    }
 
 
     @Override
@@ -84,24 +52,6 @@ public class MezclasFragment extends Fragment {
         super.onDestroy();
         Log.d("tag_mezclas", "destroy");
     }
-
-    @Override
-    public void onStop() {
-        Log.d("tag_mezclas", "stop");
-        super.onStop();
-    }
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        Log.d("tag_mezclas", "detach");
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.d("tag_mezclas", "pause");
-    }
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -170,23 +120,23 @@ public class MezclasFragment extends Fragment {
             case R.id.step1:
                 fragmentTransaction.replace(R.id.contenedor_fragmentos, volumenFragment);
                 step = 1;
-                fragmentTransaction.addToBackStack("volumen");
+                fragmentTransaction.addToBackStack(null);
                 break;
             case R.id.step2:
                 fragmentTransaction.replace(R.id.contenedor_fragmentos, fdFragment);
                 step = 2;
-                fragmentTransaction.addToBackStack("fd");
+                fragmentTransaction.addToBackStack(null);
                 break;
             case R.id.step3:
                 fragmentTransaction.replace(R.id.contenedor_fragmentos, fsFragment);
                 step = 3;
-                fragmentTransaction.addToBackStack("fs");
+                fragmentTransaction.addToBackStack(null);
                 break;
             case R.id.step4:
                 isValidDatos();
                 fragmentTransaction.replace(R.id.contenedor_fragmentos, recetaFragment);
                 step = 4;
-                fragmentTransaction.addToBackStack("receta");
+                fragmentTransaction.addToBackStack(null);
                 break;
         }
         fragmentTransaction.commit();
@@ -252,7 +202,7 @@ public class MezclasFragment extends Fragment {
         Drawable buttonDrawable = bt.getBackground();
         buttonDrawable = DrawableCompat.wrap(buttonDrawable);
         //the color is a direct color int and not a color resource
-        DrawableCompat.setTint(buttonDrawable, ResourcesCompat.getColor(getResources(), R.color.azul_electrico, null));
+        DrawableCompat.setTint(buttonDrawable, ResourcesCompat.getColor(getResources(), R.color.rojo, null));
         bt.setBackground(buttonDrawable);
     }
 
