@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.tfg.apptfg.ValidationUtils;
 import com.tfg.apptfg.databinding.FragmentStepFarmacoDominanteBinding;
 import com.tfg.apptfg.io.request.PropiedadSimple;
@@ -47,63 +50,15 @@ public class FarmacoDominanteStepFragment extends Fragment {
     private FarmacoDominanteStepViewModel farmacoDominanteStepViewModel;
     private MezclasViewModel mezclasViewModel;
     private Propiedad dosisMaxima;
-
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        Log.d("tag_s2", "attach");
-    }
+    private TextInputLayout tilDosis;
+    private TextInputLayout tilConcentracion;
+    private TextInputLayout tilPresentacion;
+    private TextInputLayout tilNombre;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("tag_s2", "create");
-    }
-    @Override
-    public void onStart() {
-        super.onStart();
-        if (!acNombreFd.getText().toString().isEmpty()) {
-            onItemClickNombres(null, getView(), 0, 0);
-            Log.d("tag_s2", "start");
-        }
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        Log.d("tag_s2", "viewcreated");
-    }
-
-    @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
-        super.onViewStateRestored(savedInstanceState);
-        Log.d("tag_s2", "viewstaterestored");
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.d("tag_s2", "resume");
-    }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        Log.d("tag_s2", "saveinstancestate");
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.d("tag_s2", "pause");
-
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d("tag_s2", "destroy");
     }
 
     @Override
@@ -112,15 +67,14 @@ public class FarmacoDominanteStepFragment extends Fragment {
         Log.d("tag_s2", "destroyview");
         binding = null;
     }
+
     @Override
-    public void onStop() {
-        Log.d("tag_s2", "stop");
-        super.onStop();
-    }
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        Log.d("tag_s2", "detach");
+    public void onStart() {
+        super.onStart();
+        if (!acNombreFd.getText().toString().isEmpty()) {
+            onItemClickNombres(null, getView(), 0, 0);
+            Log.d("tag_s2", "start");
+        }
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -131,6 +85,7 @@ public class FarmacoDominanteStepFragment extends Fragment {
         binding = FragmentStepFarmacoDominanteBinding.inflate(inflater, container, false);
         farmacoDominanteStepViewModel.getNombresFarmacos(getContext()).observe(getViewLifecycleOwner(), this::inicializarNombres);
 
+        // Inicializar elementos
         View root = binding.getRoot();
         acNombreFd = binding.acNombreFd;
         etValorConcentracion = binding.lyConcentracion.etValorConcentracion;
@@ -138,16 +93,29 @@ public class FarmacoDominanteStepFragment extends Fragment {
         acPresentacion = binding.acPresentacionFd;
         etValorDosis = binding.lyDosis.etValorDosis;
         spUnidadDosis = binding.lyDosis.spUnidadDosis;
+        tilDosis = binding.lyDosis.tilValorDosis;
+        tilConcentracion = binding.lyConcentracion.tilValorConcentracion;
+        tilPresentacion = binding.tilPresentacionFd;
+        tilNombre = binding.tilNombreFd;
 
         acNombreFd.setOnItemClickListener(this::onItemClickNombres);
         etValorConcentracion.setOnClickListener(this::onClickConcentracionValor);
         etValorDosis.setOnClickListener(this::onClickDosisValor);
 
+
         return root;
     }
-    
 
     // Se ejecuta antes de que el fragmento se reemplace
+    @Override
+    public void onStop() {
+        super.onStop();
+        String nombre = (isValidNombre()) ? acNombreFd.getText().toString() : null;
+        PropiedadSimple presentacion = (isValidPresentacion())? convertirPresentacion(acPresentacion.getText().toString()) : null;
+        PropiedadSimple concentracion = (isConcentracionValid())?
+                new PropiedadSimple(Double.valueOf(etValorConcentracion.getText().toString()), spUnidadConcentracion.getSelectedItem().toString()) : null;
+        PropiedadSimple dosis = (isValorDosisValid() && !isDosisEmpty())?
+                new PropiedadSimple(Double.valueOf(etValorDosis.getText().toString()), spUnidadDosis.getSelectedItem().toString()) : null;
 //    @Override
 //    public void onStop() {
 //        super.onStop();
@@ -171,7 +139,8 @@ public class FarmacoDominanteStepFragment extends Fragment {
 //        }
 //        this.getActivity().getSupportFragmentManager().setFragmentResult("requestKey", estado);
 //        mezclasViewModel.setFarmacoDominante(nombre, concentracion, presentacion, dosis);
-//    }
+        mezclasViewModel.setFarmacoDominante(nombre, concentracion, presentacion, dosis);
+    }
 
 
     private void inicializarNombres(Map<String, UUID> nombres) {
@@ -205,13 +174,14 @@ public class FarmacoDominanteStepFragment extends Fragment {
 
     public void onItemClickPresentacion(AdapterView<?> adapterView, View view, int i, long l) {
         if (acPresentacion.getError() != null) {
-            acPresentacion.setError(null);
+            tilPresentacion.setError(null);
             isValidPresentacion();
         }
     }
 
     public void onItemClickNombres(AdapterView<?> adapterView, View view, int i, long l) {
-        acNombreFd.setError(null);
+
+        tilNombre.setError(null);
         String nombreSeleccionado = acNombreFd.getText().toString();
         UUID uuidSeleccionado = farmacoDominanteStepViewModel.getNombresFarmacos(view.getContext()).getValue().get(nombreSeleccionado);
         farmacoDominanteStepViewModel.getFarmacoDetalle(getContext(), uuidSeleccionado).observe(getViewLifecycleOwner(), this::inicializarPropiedades);
@@ -219,8 +189,25 @@ public class FarmacoDominanteStepFragment extends Fragment {
 
 
     private void onClickDosisValor(View v){
-        etValorDosis.setError(null);
+        tilDosis.setError(null);
         isValorDosisValid();
+    }
+
+    private void setOnChangeTextListenerValorDosis() {
+        etValorDosis.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                isValorDosisValid();
+            }
+        });
     }
 
     public void onClickDosisUnidad(AdapterView<?> parent, View view, int position, long id) {
@@ -229,7 +216,7 @@ public class FarmacoDominanteStepFragment extends Fragment {
     }
 
     private void onClickConcentracionValor(View v){
-        etValorConcentracion.setError(null);
+        tilConcentracion.setError(null);
         isConcentracionValid();
 //        if (etValorDosis.getError() != null) {
 //            etValorDosis.setError(null);
@@ -269,8 +256,10 @@ public class FarmacoDominanteStepFragment extends Fragment {
             }
 
             if (valorSeleccionado > valorMaximo) {
-                etValorDosis.setError("Valor máximo: " + valorMaximo + " " + unidadSeleccionada);
+                tilDosis.setError("Valor máximo: " + valorMaximo + " " + unidadSeleccionada);
                 result = false;
+            } else {
+                tilDosis.setError(null);
             }
         }
         return result;
@@ -279,7 +268,7 @@ public class FarmacoDominanteStepFragment extends Fragment {
     private boolean isDosisEmpty(){
         boolean result = false;
         if (Objects.isNull(etValorDosis.getText()) || etValorDosis.getText().toString().isEmpty()) {
-            etValorDosis.setError("Este campo es obligatorio");
+            tilDosis.setError("Este campo es obligatorio");
             result = true;
         }
         return result;
@@ -288,7 +277,7 @@ public class FarmacoDominanteStepFragment extends Fragment {
     private boolean isConcentracionValid() {
         boolean result = true;
         if (etValorConcentracion.getText().toString().isEmpty()) {
-            etValorConcentracion.setError("Este campo es obligatorio");
+            tilConcentracion.setError("Este campo es obligatorio");
             result = false;
         }
         return result;
@@ -297,7 +286,7 @@ public class FarmacoDominanteStepFragment extends Fragment {
     private boolean isValidNombre() {
         boolean result = true;
         if (acNombreFd.getText().toString().isEmpty()) {
-            acNombreFd.setError("Este campo es obligatorio", null);
+            tilNombre.setError("Este campo es obligatorio");
             result = false;
         }
         return result;
@@ -306,7 +295,7 @@ public class FarmacoDominanteStepFragment extends Fragment {
     private boolean isValidPresentacion() {
         boolean result = true;
         if (acPresentacion.getText().toString().isEmpty()) {
-            acPresentacion.setError("Este campo es obligatorio", null);
+            tilPresentacion.setError("Este campo es obligatorio");
             result = false;
         }
         return result;
