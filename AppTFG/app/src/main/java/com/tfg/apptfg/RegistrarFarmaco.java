@@ -55,6 +55,8 @@ public class RegistrarFarmaco extends AppCompatActivity {
         btCancel.setOnClickListener(this::onClickCancel);
          // TODO: dialog ¿Seguro que desea volver? Se eliminarán todos los datos
         btSubmit.setOnClickListener(this::onClickSubmit);
+
+        etNombre.requestFocus();
     }
 
     private void onClickCancel(View view){
@@ -101,6 +103,7 @@ public class RegistrarFarmaco extends AppCompatActivity {
     private void addView() {
         final View presentacionView = getLayoutInflater().inflate(R.layout.presentacion_comercial, presentacionListLayout, false);
         EditText etValor = presentacionView.findViewById(R.id.et_valor_pre);
+        etValor.requestFocus();
         MaterialButton btDelete = presentacionView.findViewById(R.id.bt_delete_pre);
 
         btDelete.setOnClickListener(v -> onClickDeletePre(v, presentacionView));
