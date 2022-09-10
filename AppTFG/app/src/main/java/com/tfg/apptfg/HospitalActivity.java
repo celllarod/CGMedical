@@ -64,6 +64,7 @@ public class HospitalActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Call<JwtResponse> call, @NonNull Throwable t) {
                             Log.d("[CPMEDICAL][REST][ERROR]",  "SignUp User " + t.getMessage());
+                            GeneralUtils.showErrorToast(getApplicationContext(), "Se ha producido un error de conexión con el servidor");
                     }
                 });
 

@@ -3,6 +3,7 @@ package com.tfg.apirest.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
@@ -14,7 +15,7 @@ import java.util.UUID;
 @EqualsAndHashCode
 @IdClass(PropiedadId.class)
 @Table(name = "r_farmaco_propiedad")
-public class Propiedad {
+public class Propiedad implements Serializable {
     @Id
     @Column(name = "cd_farmaco", nullable = false)
     private UUID cdFarmaco;

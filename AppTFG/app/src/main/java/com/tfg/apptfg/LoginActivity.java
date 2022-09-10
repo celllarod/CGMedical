@@ -58,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                                 startActivity(intent);
                             } else {
                                 Log.d("[CPMEDICAL][REST][ERROR]", "SignIn User: " + response.errorBody());
+                                GeneralUtils.showErrorToast(getApplicationContext(), "Error al iniciar sesión. Revise sus credenciales.");
                             }
                         }
 

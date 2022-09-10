@@ -31,69 +31,18 @@ public class VolumenStepFragment extends Fragment {
 
 
     @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        Log.d("tag_s1", "attach");
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Log.d("tag_s1", "create");
-    }
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.d("tag_s1", "start");
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        Log.d("tag_s1", "viewcreated");
-    }
-
-    @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
-        super.onViewStateRestored(savedInstanceState);
-        Log.d("tag_s1", "viewstaterestored");
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.d("tag_s1", "resume");
-    }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        Log.d("tag_s1", "saveinstancestate");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d("tag_s1", "destroy");
-    }
-
-    @Override
     public void onStop() {
         Log.d("tag_s1", "stop");
         super.onStop();
     }
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        Log.d("tag_s1", "detach");
-    }
+
 
     @Override
     public void onPause() {
         super.onPause();
         Log.d("tag_s1", "pause");
     }
-    
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,

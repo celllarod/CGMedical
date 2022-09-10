@@ -8,9 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiAdapter {
 
     private static ApiService API_SERVICE;
-//    private static final String HOST = "172.20.10.3";
     private static final String HOST = "192.168.1.17";
-//    private static final String HOST = "192.168.1.115";
     private static final String BASE_URL = "http:/" + HOST +":8081/api/v1/";
 
     public static ApiService getApiService() {

@@ -3,6 +3,7 @@ package com.tfg.apirest.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.UUID;
 
@@ -13,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 @Table(name = "d_usuario")
-public class Usuario {
+public class Usuario implements Serializable {
     @Id
     @GeneratedValue
     @Column(name = "id_usuario", nullable = false)

@@ -22,12 +22,15 @@
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
+                android:layout_row="0"
+                android:layout_column="0"
                 android:contentDescription="@string/nav_header_desc"
-                app:srcCompat="@drawable/ic_logo"/>
+                app:srcCompat="@drawable/ic_logo" />
         </GridLayout>
         <TextView
             android:layout_width="match_parent"
@@ -52,6 +55,15 @@
             android:textSize="15sp"
             android:text="xxxx@yyy.com"
             app:drawableStartCompat="@drawable/ic_user" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/tx_hospital"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="sans-serif-condensed-light"-->
+<!--            android:textSize="15sp"-->
+<!--            android:text="Hospital Virgen del Rocío"-->
+<!--            app:drawableStartCompat="@drawable/ic_user" />-->
 
         <TextView
             android:id="@+id/tx_rol_nav"

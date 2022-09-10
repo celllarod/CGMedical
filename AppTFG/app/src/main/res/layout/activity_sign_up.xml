@@ -36,14 +36,13 @@
             android:fadeScrollbars="false"
             android:scrollbarAlwaysDrawVerticalTrack="true"
             android:scrollbarFadeDuration="50000"
-            android:scrollbarSize="8dp"
+            android:scrollbarSize="7dp"
             android:scrollbarStyle="outsideInset"
             android:scrollbarThumbVertical="@color/gris_claro"
             android:scrollbars="vertical">
 
-
-
                 <GridLayout
+                    android:layout_marginHorizontal="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -129,7 +128,7 @@
                         android:layout_column="0"
                         android:layout_marginTop="15dp"
                         app:counterEnabled="true"
-                        app:counterMaxLength="20"
+                        app:counterMaxLength="200"
                         app:endIconDrawable="@drawable/ic_borrar"
                         app:endIconMode="clear_text"
                         app:startIconDrawable="@drawable/ic_email">
@@ -147,7 +146,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/til_signup_password"
-                        style="@style/TextInputLayout.EditText"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_row="4"
@@ -171,7 +170,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/til_signup_password_repetir"
-                        style="@style/TextInputLayout.EditText"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_row="5"

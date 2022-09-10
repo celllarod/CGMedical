@@ -65,6 +65,7 @@ public class CatalogoFragment extends Fragment implements SearchView.OnQueryText
     public void onStart() {
         super.onStart();
         catalogoViewModel.getFarmacos(getContext()).observe(getViewLifecycleOwner(), this::inicializarListaFarmacos);
+
     }
 
     @Override

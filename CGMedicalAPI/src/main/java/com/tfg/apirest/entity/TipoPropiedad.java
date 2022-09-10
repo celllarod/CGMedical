@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Getter
@@ -16,7 +17,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "p_propiedad")
-public class TipoPropiedad {
+public class TipoPropiedad implements Serializable {
     @Id
     @Column(name = "id_propiedad", nullable = false, length = 10)
     private String codigo;

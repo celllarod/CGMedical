@@ -120,27 +120,27 @@ public class MezclasFragment extends Fragment {
             case R.id.step1:
                 fragmentTransaction.replace(R.id.contenedor_fragmentos, volumenFragment);
                 step = 1;
-                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.addToBackStack("s1");
                 break;
             case R.id.step2:
                 fragmentTransaction.replace(R.id.contenedor_fragmentos, fdFragment);
                 step = 2;
-                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.addToBackStack("s2");
                 break;
             case R.id.step3:
                 fragmentTransaction.replace(R.id.contenedor_fragmentos, fsFragment);
                 step = 3;
-                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.addToBackStack("s3");
                 break;
             case R.id.step4:
                 isValidDatos();
                 fragmentTransaction.replace(R.id.contenedor_fragmentos, recetaFragment);
                 step = 4;
-                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.addToBackStack("s4");
                 break;
         }
         fragmentTransaction.commit();
-//        changeEstadoStepper();
+        //changeEstadoStepper();
 
     }
 

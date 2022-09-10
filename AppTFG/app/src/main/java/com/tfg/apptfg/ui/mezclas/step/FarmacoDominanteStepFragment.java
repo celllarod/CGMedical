@@ -99,9 +99,8 @@ public class FarmacoDominanteStepFragment extends Fragment {
         tilNombre = binding.tilNombreFd;
 
         acNombreFd.setOnItemClickListener(this::onItemClickNombres);
-        etValorConcentracion.setOnClickListener(this::onClickConcentracionValor);
-        etValorDosis.setOnClickListener(this::onClickDosisValor);
-
+        setOnChangeTextListenerEditText();
+        setOnItemSelectedListenerSpinner();
 
         return root;
     }
@@ -112,7 +111,7 @@ public class FarmacoDominanteStepFragment extends Fragment {
         super.onStop();
         String nombre = (isValidNombre()) ? acNombreFd.getText().toString() : null;
         PropiedadSimple presentacion = (isValidPresentacion())? convertirPresentacion(acPresentacion.getText().toString()) : null;
-        PropiedadSimple concentracion = (isConcentracionValid())?
+        PropiedadSimple concentracion = (isValidConcentracion())?
                 new PropiedadSimple(Double.valueOf(etValorConcentracion.getText().toString()), spUnidadConcentracion.getSelectedItem().toString()) : null;
         PropiedadSimple dosis = (isValorDosisValid() && !isDosisEmpty())?
                 new PropiedadSimple(Double.valueOf(etValorDosis.getText().toString()), spUnidadDosis.getSelectedItem().toString()) : null;
@@ -144,7 +143,7 @@ public class FarmacoDominanteStepFragment extends Fragment {
 
 
     private void inicializarNombres(Map<String, UUID> nombres) {
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity().getApplicationContext(), android.R.layout.simple_dropdown_item_1line, nombres.keySet().stream().collect(Collectors.toList()));
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity().getApplicationContext(), android.R.layout.simple_dropdown_item_1line, new ArrayList<>(nombres.keySet()));
         acNombreFd.setAdapter(adapter);
     }
 
@@ -153,9 +152,7 @@ public class FarmacoDominanteStepFragment extends Fragment {
         List<String> preStr = new ArrayList<>();
         if (!Objects.isNull(farmaco)) {
             Set<Propiedad> presentaciones = farmaco.getPropiedades().getPresentaciones();
-            presentaciones.forEach(p -> {
-                preStr.add(p.getValor() + " " + p.getUnidad());
-            });
+            presentaciones.forEach(p -> preStr.add(p.getValor() + " " + p.getUnidad()));
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity().getApplicationContext(), android.R.layout.simple_dropdown_item_1line, preStr);
@@ -173,27 +170,20 @@ public class FarmacoDominanteStepFragment extends Fragment {
     }
 
     public void onItemClickPresentacion(AdapterView<?> adapterView, View view, int i, long l) {
-        if (acPresentacion.getError() != null) {
-            tilPresentacion.setError(null);
-            isValidPresentacion();
-        }
+        tilPresentacion.setError(null);
+        isValidPresentacion();
     }
 
     public void onItemClickNombres(AdapterView<?> adapterView, View view, int i, long l) {
 
         tilNombre.setError(null);
         String nombreSeleccionado = acNombreFd.getText().toString();
-        UUID uuidSeleccionado = farmacoDominanteStepViewModel.getNombresFarmacos(view.getContext()).getValue().get(nombreSeleccionado);
+        UUID uuidSeleccionado = Objects.requireNonNull(farmacoDominanteStepViewModel.getNombresFarmacos(view.getContext()).getValue()).get(nombreSeleccionado);
         farmacoDominanteStepViewModel.getFarmacoDetalle(getContext(), uuidSeleccionado).observe(getViewLifecycleOwner(), this::inicializarPropiedades);
     }
 
 
-    private void onClickDosisValor(View v){
-        tilDosis.setError(null);
-        isValorDosisValid();
-    }
-
-    private void setOnChangeTextListenerValorDosis() {
+    private void setOnChangeTextListenerEditText() {
         etValorDosis.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -208,30 +198,39 @@ public class FarmacoDominanteStepFragment extends Fragment {
                 isValorDosisValid();
             }
         });
+        //--
+        etValorConcentracion.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                isValidConcentracion();
+            }
+        });
     }
 
-    public void onClickDosisUnidad(AdapterView<?> parent, View view, int position, long id) {
-        // TODO: asociar al spinner dosis unidad --onitemcselecter
-        onClickDosisValor(view);
+
+    private void setOnItemSelectedListenerSpinner() {
+        spUnidadDosis.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                isValorDosisValid();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
     }
 
-    private void onClickConcentracionValor(View v){
-        tilConcentracion.setError(null);
-        isConcentracionValid();
-//        if (etValorDosis.getError() != null) {
-//            etValorDosis.setError(null);
-//            isConcentracionValid();
-//        }
-    }
-
-    public void onClickConcentracionUnidad(AdapterView<?> parent, View view, int position, long id) {
-        // TODO: asociar al spinner conc unidad
-        onClickConcentracionValor(view);
-    }
 
     private boolean isValid() {
-        boolean result = true;
-        result = !isDosisEmpty() && result;
+        boolean result = !isDosisEmpty();
         result = isValorDosisValid() && result;
         result = isValidNombre() && result;
         result = isValidPresentacion() && result;
@@ -242,7 +241,7 @@ public class FarmacoDominanteStepFragment extends Fragment {
         boolean result = true;
         String unidadSeleccionada = spUnidadDosis.getSelectedItem().toString();
         if (!Objects.isNull(etValorDosis.getText()) && !etValorDosis.getText().toString().isEmpty()) {
-            Double valorSeleccionado = Double.valueOf(etValorDosis.getText().toString());
+            double valorSeleccionado = Double.parseDouble(etValorDosis.getText().toString());
             Double valorMaximo = dosisMaxima.getValor();
             if (!Objects.equals(unidadSeleccionada, dosisMaxima.getUnidad())) {
                 switch (unidadSeleccionada) {
@@ -270,15 +269,19 @@ public class FarmacoDominanteStepFragment extends Fragment {
         if (Objects.isNull(etValorDosis.getText()) || etValorDosis.getText().toString().isEmpty()) {
             tilDosis.setError("Este campo es obligatorio");
             result = true;
+        } else{
+            tilDosis.setError(null);
         }
         return result;
     }
 
-    private boolean isConcentracionValid() {
+    private boolean isValidConcentracion() {
         boolean result = true;
         if (etValorConcentracion.getText().toString().isEmpty()) {
             tilConcentracion.setError("Este campo es obligatorio");
             result = false;
+        } else {
+            tilConcentracion.setError(null);
         }
         return result;
     }
@@ -288,6 +291,8 @@ public class FarmacoDominanteStepFragment extends Fragment {
         if (acNombreFd.getText().toString().isEmpty()) {
             tilNombre.setError("Este campo es obligatorio");
             result = false;
+        } else {
+            tilNombre.setError(null);
         }
         return result;
     }
@@ -297,6 +302,8 @@ public class FarmacoDominanteStepFragment extends Fragment {
         if (acPresentacion.getText().toString().isEmpty()) {
             tilPresentacion.setError("Este campo es obligatorio");
             result = false;
+        } else {
+            tilPresentacion.setError(null);
         }
         return result;
     }

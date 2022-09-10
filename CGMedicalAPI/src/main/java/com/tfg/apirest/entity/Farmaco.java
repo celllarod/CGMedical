@@ -2,6 +2,7 @@ package com.tfg.apirest.entity;
 
 import lombok.*;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -13,7 +14,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "d_farmaco")
-public class Farmaco {
+public class Farmaco implements Serializable {
     @Id
     @GeneratedValue
     @Column(name = "id_farmaco", nullable = false)

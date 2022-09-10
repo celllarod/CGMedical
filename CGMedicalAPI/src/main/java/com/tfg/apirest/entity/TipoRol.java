@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
@@ -14,7 +15,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "p_rol")
-public class TipoRol {
+public class TipoRol implements Serializable {
     @Id
     @GeneratedValue
     @Column(name = "id_rol", nullable = false)

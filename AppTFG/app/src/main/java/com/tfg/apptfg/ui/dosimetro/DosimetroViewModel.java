@@ -69,7 +69,8 @@ public class DosimetroViewModel extends ViewModel {
 
     public void obtenerFarmacoById(Context ctx, UUID idFarmaco) {
         SessionManager session = SessionManager.get(ctx);
-        Call<FarmacoDetalle> callFarmacos = ApiAdapter.getApiService().getFarmaco(session.getUserTokenType() + " " + session.getUserToken(), idFarmaco.toString());
+        Call<FarmacoDetalle> callFarmacos = ApiAdapter.getApiService().getFarmaco(session.getUserTokenType()
+                + " " + session.getUserToken(), idFarmaco.toString());
         callFarmacos.enqueue(new Callback<FarmacoDetalle>() {
             @Override
             public void onResponse(@NonNull Call<FarmacoDetalle> call, @NonNull Response<FarmacoDetalle> response) {
