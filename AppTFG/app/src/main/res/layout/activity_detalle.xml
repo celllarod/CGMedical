@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detalle_farmaco_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    tools:context=".RegistrarFarmaco">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_detalle_farmaco"
+        style="@style/CardViewPrincipal"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/form_detalle_farmaco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="25dp">
+
+                <TextView
+                    android:id="@+id/editar_farmaco_title"
+                    style="@style/Titulo"
+                    android:text="@string/nombre_farmaco" />
+
+                <GridLayout
+                    android:id="@+id/form_add_farmaco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/Subtitulo"
+                        android:layout_row="2"
+                        android:layout_column="0"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="8dp"
+                        android:labelFor="@+id/sr_lista_pre"
+                        android:text="@string/presentacion_comercial"/>
+
+                    <androidx.core.widget.NestedScrollView
+                        android:id="@+id/sr_lista_pre"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_row="3"
+                        android:layout_column="0"
+                        android:background="@drawable/round_box"
+                        android:backgroundTint="@color/white"
+                        android:fadeScrollbars="false"
+                        android:minHeight="70dp"
+                        android:orientation="vertical"
+                        android:scrollbarAlwaysDrawVerticalTrack="true"
+                        android:scrollbarFadeDuration="50000"
+                        android:scrollbarSize="8dp"
+                        android:scrollbarStyle="outsideInset"
+                        android:scrollbarThumbVertical="@color/gris_claro"
+                        android:scrollbars="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_presentaciones"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"/>
+                    </androidx.core.widget.NestedScrollView>
+
+                    <TextView
+                        style="@style/Subtitulo"
+                        android:layout_row="5"
+                        android:layout_column="0"
+                        android:layout_marginTop="30dp"
+                        android:labelFor="@+id/til_valor_dosis"
+                        android:text="@string/dosis_maxima" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_row="6"
+                        android:layout_column="0"
+                        android:layout_margin="25dp">
+                        <include
+                            android:id="@+id/ly_dosis"
+                            layout="@layout/box_item"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_row="6"
+                            android:layout_column="0"
+                            android:layout_alignParentStart="true"/>
+                    </LinearLayout>
+                </GridLayout>
+
+                <LinearLayout
+                    android:id="@+id/ly_edit_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:orientation="horizontal"
+                    android:padding="23dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/bt_editar_farmaco_delete"
+                        style="@style/Widget.App.Button.IconOnly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/rojo"
+                        android:elevation="40dp"
+                        android:padding="20dp"
+                        android:textSize="18sp"
+                        app:cornerRadius="20dp"
+                        app:icon="@drawable/ic_rubish" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/bt_editar_farmaco_update"
+                        style="@style/Widget.App.Button.IconOnly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="@color/turquesa"
+                        android:elevation="40dp"
+                        android:padding="20dp"
+                        android:textSize="18sp"
+                        app:cornerRadius="20dp"
+                        app:icon="@drawable/ic_edit" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:contentDescription="@string/descripcion_personal_img"
+        android:src="@drawable/ic_signup"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.98" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.App.Button.IconOnly" parent="Widget.MaterialComponents.Button">
+        <item name="iconPadding">0dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textAlignment">center</item>
+        <item name="iconGravity">textStart</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:elevation">10dp</item>
+        <item name="cornerRadius">50dp</item>
+    </style>
+
+    <!-- Botón principal -->
+    <style name="BotonPrincipal" parent="ThemeOverlay.Material3.Button.ElevatedButton">
+        <item name="android:layout_width">330dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:backgroundTint">@color/turquesa</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:clickable">true</item>
+        <item name="cornerRadius">25dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <!-- Dialog-->
+    <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
+    <!-- CardView -->
+    <style name="CardViewPrincipal" parent="Widget.Material3.CardView.Elevated">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="cardCornerRadius">30dp</item>
+        <item name="cardElevation">50dp</item>
+        <item name="android:layout_marginHorizontal">30dp</item>
+        <item name="android:scrollbarAlwaysDrawHorizontalTrack">true</item>
+    </style>
+
+    <!--    Títulos-->
+    <style name="Titulo">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">textStart</item>
+    </style>
+    <style name="Titulo2">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:breakStrategy">simple</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">textStart</item>
+    </style>
+    <style  name="Subtitulo">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/gris</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:layout_marginTop">15dp</item>
+
+    </style>
+
+    <!--    TextInputLayout-->
+    <style name="TextInputLayout.EditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeErrorColor">@color/rojo</item>
+        <item name="errorTextColor">@color/rojo</item>
+        <item name="errorEnabled">true</item>
+        <item name="endIconMode">clear_text</item>
+    </style>
+
+    <style name="TextInputLayout.AutoCompleteTextView" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+        <item name="boxStrokeErrorColor">@color/rojo</item>
+        <item name="errorTextColor">@color/rojo</item>
+        <item name="errorEnabled">true</item>
+    </style>
+
+    <!-- CardView dosímetro, mezclas -->
+    <style name="CardView.PantallaCompleta">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarFadeDuration">50000</item>
+        <item name="android:scrollbarSize">5dp</item>
+        <item name="android:scrollbarThumbVertical">@color/azul_electrico</item>
+        <item name="cardCornerRadius">30dp</item>
+        <item name="cardElevation">20dp</item>
+        <item name="elevation">50dp</item>
+        <item name="layout_constraintHeight_percent">0.8</item>
+        <item name="layout_constraintHorizontal_chainStyle">spread</item>
+        <item name="layout_constraintVertical_chainStyle">spread</item>
+        <item name="layout_constraintWidth_percent">0.8</item>
+    </style>
+</resources>

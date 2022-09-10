@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".RegistrarFarmaco"
+    android:id="@+id/registrar_farmaco_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    android:useDefaultMargins="true">
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/card_add_farmaco"
+      style="@style/CardViewPrincipal"
+      android:layout_height="wrap_content"
+      android:layout_marginVertical="10dp"
+      app:layout_constrainedHeight="true"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintBottom_toTopOf="@+id/guideline2"
+      app:layout_constraintTop_toTopOf="@+id/guideline1">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+      <LinearLayout
+          android:id="@+id/form_add_farmaco"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:padding="25dp">
+
+        <TextView
+            android:id="@+id/add_farmaco_title"
+            style="@style/Titulo"
+            android:text="Añadir fármaco:" />
+        <include layout="@layout/formulario_farmaco" />
+
+      </LinearLayout>
+    </ScrollView>
+  </androidx.cardview.widget.CardView>
+
+  <ImageView
+      android:id="@+id/imageView3"
+      android:layout_width="wrap_content"
+      android:layout_height="0dp"
+      android:src="@drawable/ic_signup"
+      android:contentDescription="@string/descripcion_personal_img"
+      app:layout_constrainedHeight="true"
+      app:layout_constraintHorizontal_chainStyle="spread"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintBottom_toTopOf="@+id/guideline3"
+      app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      app:layout_constraintGuide_percent="0.05" />
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      app:layout_constraintGuide_percent="0.8"/>
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      app:layout_constraintGuide_percent="0.98" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

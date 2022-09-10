@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_sheet_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_background"
+    android:padding="30dp"
+    tools:context=".ui.mezclas.step.FarmacoDominanteStepFragment">
+
+    <TextView
+        android:id="@+id/tit_fs_form"
+        style="@style/Titulo"
+        android:text="Añada fármaco secundario:"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline9" />
+
+    <View
+        android:id="@+id/tit_separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="18dp"
+        android:background="@color/azul_electrico"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tit_fs_form"/>
+
+
+    <TextView
+        android:id="@+id/tx_tit_nombre_fs"
+        style="@style/Subtitulo"
+        android:layout_marginStart="10dp"
+        android:labelFor="@+id/til_nombre_fs"
+        android:text="Nombre:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tit_separator" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_nombre_fs"
+        style="@style/TextInputLayout.AutoCompleteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:dropDownSelector="@color/turquesa"
+        android:completionHint="Seleccione fármaco"
+        android:textColorHint="@color/azul_electrico"
+        android:inputType="text"
+        tools:ignore="KeyboardInaccessibleWidget"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tx_tit_nombre_fs"
+        app:startIconDrawable="@drawable/ic_text">
+        <AutoCompleteTextView
+            android:id="@+id/ac_nombre_fs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"></AutoCompleteTextView>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tx_tit_presentacion_fs"
+        style="@style/Subtitulo"
+        android:layout_marginStart="10dp"
+        android:labelFor="@+id/til_presentacion_fs"
+        android:text="Presentación:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_nombre_fs" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_presentacion_fs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        style="@style/TextInputLayout.AutoCompleteTextView"
+        android:dropDownSelector="@color/turquesa"
+        android:completionHint="Seleccione presentacion"
+        android:textColorHint="@color/azul_electrico"
+        android:inputType="text"
+        tools:ignore="KeyboardInaccessibleWidget"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tx_tit_presentacion_fs"
+        app:startIconDrawable="@drawable/ic_number">
+
+        <AutoCompleteTextView
+            android:id="@+id/ac_presentacion_fs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"></AutoCompleteTextView>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/tx_tit_dosis_fs"
+        style="@style/Subtitulo"
+        android:layout_marginStart="10dp"
+        android:labelFor="@+id/til_presentacion_fs"
+        android:text="Dosis:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_presentacion_fs" />
+
+    <include
+        android:id="@+id/ly_dosis"
+        layout="@layout/dosis_maxima"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tx_tit_dosis_fs" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bt_submit"
+        style="@style/Widget.App.Button.IconOnly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="100dp"
+        android:layout_marginVertical="20dp"
+        android:layout_marginTop="23dp"
+        android:backgroundTint="@color/verde"
+        android:clickable="true"
+        android:padding="10dp"
+        app:icon="@drawable/ic_ckeck"
+        app:iconGravity="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ly_dosis" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.34" />
+</androidx.constraintlayout.widget.ConstraintLayout>
