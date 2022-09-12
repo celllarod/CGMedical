@@ -1,4 +1,4 @@
-# CGMedical
+# CPMedical
 En los últimos años, el uso de las tecnologías se está multiplicando y está cambiando nuestra forma de trabajar. Cada vez son más los sectores que optan por una transformación digital movidos por las numerosas ventajas que esta puede llegar a ofrecer, entre las que destacan la optimización del tiempo, la automatización de procesos y la disminución de errores humanos.
 
 En el sector sanitario las nuevas tecnologías están suponiendo una revolución y son cada vez más necesarias para garantizar una sanidad de calidad ya que ofrecen nuevos productos y servicios, así como mejoras de los ya existentes. Por ello, en el presente trabajo se contribuirá a la digitalización de La Unidad del Dolor del Hospital Universitario Virgen del Rocío de Sevilla. Dicha unidad está formada por el equipo de profesionales de la salud especializados en la ayuda y el cuidado de los pacientes con dolor. Se encargan de realizar diagnósticos y de proponer un plan de tratamiento con el fin de recuperar el bienestar físico y emocional del paciente.
